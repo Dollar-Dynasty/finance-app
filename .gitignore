@@ -2,7 +2,7 @@
 server/.env
 
 # node modules
-server/node_modules/
+node_modules/
 
 # Mac DS_Store Files
 .DS_Store
