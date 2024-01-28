@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <main>
+        <h1>Finance App</h1>
+        <p>Welcome to the Budget Page! 🏖️</p>
+        <section>
+            <form>
+                <h3>Budget Title</h3>
+                <input type="text" name="budget_title" id="budget_title" placeholder="Budget Title" maxlength="20">
+                <h3>Category name</h3>
+                <input type="text" name="category_name" id="category_name" maxlength="20">
+                <h3>Budget description</h3>
+                <textarea type="text" name="budget_description" id="budget_description" placeholder="Brief description" maxlength="150"></textarea>
+                <h3>Start Date</h3>
+                <input type="date" name="start_date" id="start_date"  >
+                <h3>End Date</h3>
+                <input type="date" name="end_date" id="end_date" >
+                <h3>Total amount available</h3>
+                <input type="number" name="amount" id="amount" placeholder="0" min="1" max = "1000">
+                <h3>Remaining Amount</h3>
+                <input type="number" name="remaining_amount" id="remaining_amount" placeholder="0" min="1" max = "1000"><br><br>
+                <button type="submit">Create budget</button>
+            </form>
+        </section>
+    </main>
+    <script src="budgetPage.js"></script>
+</body>
+</html>
