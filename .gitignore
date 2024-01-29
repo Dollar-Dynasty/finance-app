@@ -9,3 +9,5 @@ node_modules/
 
 # Temporary
 sum.js
+yarn.lock
+.vscode/settings.json
