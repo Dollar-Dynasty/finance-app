@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema ({
-    username: { 
+	firstName: { // should match name= in html form
+		type: String, 
+		required: true, 
+	},
+	lastName: { 
+		type: String, 
+		required: true, 
+	},
+    userName: { 
 		type: String, 
 		required: true, 
 		unique: true 
@@ -15,13 +23,17 @@ const userSchema = new mongoose.Schema ({
 		type: String, 
 		required: true 
 	},
+	confirmPassword: { 
+		type: String, 
+		required: true 
+	},
     createdAt: {
 		type: Date, 
 		default: Date.now 
 	}
 });
 
-userSchema.index({ username: 1 }, { unique: true });
+userSchema.index({ userName: 1 }, { unique: true });
 userSchema.index({ email: 1 }, { unique: true });
 
 const User = mongoose.model('User', userSchema);
