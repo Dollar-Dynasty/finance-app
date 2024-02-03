@@ -11,3 +11,4 @@ node_modules/
 sum.js
 yarn.lock
 .vscode/settings.json
+.vscode
