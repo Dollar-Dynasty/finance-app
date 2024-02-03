@@ -32,6 +32,7 @@
     "yarn": "^1.22.21"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.9"
   }
 }
