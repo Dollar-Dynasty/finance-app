@@ -20,9 +20,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/plugin-transform-runtime": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
     "@testing-library/jest-dom": "^6.3.0",
     "axios": "^1.6.7",
     "babel-jest": "^29.7.0",
@@ -33,5 +30,8 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1",
     "yarn": "^1.22.21"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9"
   }
 }
