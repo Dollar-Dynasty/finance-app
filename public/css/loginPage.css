@@ -1,0 +1,42 @@
+
+#error {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#username {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    font-size: large;
+}
+
+#password {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: large;
+
+}
+
+#loginButton {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    width: 10%;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+
+}
+
+#loginButton:hover {
+    background-color: #3e8e41;
+}

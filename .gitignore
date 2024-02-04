@@ -6,3 +6,9 @@ node_modules/
 
 # Mac DS_Store Files
 .DS_Store
+
+# Temporary
+sum.js
+yarn.lock
+.vscode/settings.json
+.vscode

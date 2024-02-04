@@ -1,1 +1,0 @@
-// Defines routes related to user operations like registration, login, profile management, etc.
