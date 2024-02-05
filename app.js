@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 3000;
 const bcrypt = require('bcryptjs');
 const connectDB = require('./config/dbConnection');
 const User = require('./models/userModel');
+const Login = require('./models/loginModel');
 const app = express();
 
 connectDB();
@@ -38,5 +39,15 @@ app.post('/register', async (req, res) => {
     newUser.save();
     res.redirect('/'); // Redirect to home page or login page
 });
+app.post('/login', async (req, res) => {
+    const { userName, password } = req.body;
+    console.log(req.body);
+    const newLogin = new Login({
+      userName,
+      password
+    });
+    newLogin.save();
+    res.redirect('/'); // Redirect to home page or login page
+});
 
-app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
+app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);},debug=true);

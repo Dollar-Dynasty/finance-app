@@ -4,7 +4,7 @@ require('dotenv').config();
 const connectDB = async () => {
     try {
       await mongoose.connect(
-        `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.zxm8btb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+        `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`
         );
       console.log('MongoDB Connected: ' + mongoose.connection.host);
     } catch (err) {
