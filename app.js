@@ -47,7 +47,7 @@ app.post('/login', async (req, res) => {
       password
     });
     newLogin.save();
-    res.redirect('/'); // Redirect to home page or login page
+    res.redirect('/'); // Redirect to home page 
 });
 
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);},debug=true);
