@@ -5,7 +5,7 @@ const connectDB = require('./config/dbConnection');
 const User = require('./models/userModel');
 const Login = require('./models/loginModel');
 const { initializeApp} = require('firebase/app');
-const { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } = require('firebase/auth');
+const { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 
 const app = express();
 
@@ -30,9 +30,29 @@ app.use(express.static('views'));
 app.set('view engine', 'ejs');
 
 // Load HTML pages from 'views/pages' //
-app.get('/', (req, res) => {res.render('pages/index');});
+app.get('/', (req, res) => {
+  
+  res.render('pages/index', { user : auth.currentUser });
+});
 app.get('/register', (req, res) => {res.render('pages/register');});
 app.get('/login', (req, res) => {res.render('pages/login');});
+app.get('/logout', (req, res) => {
+  // Logout from Firebase
+  const user = auth.currentUser;
+  if (user) {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      console.log("User Signed Out");
+    }).catch((error) => {
+      // An error happened.
+      console.log("Error Signing Out");
+    });
+  } else {
+    console.log("No User Signed In");
+  }
+
+  res.redirect('/login');
+});
 
 app.get('/:version', function(req, res) { res.send(req.params.version);});
 

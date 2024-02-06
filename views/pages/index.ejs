@@ -11,7 +11,27 @@
 
 <main>
   <div class="jumbotron">
-    <h1>Dashboard</h1>
+    <% if(user) {
+        %>
+        <h1>Welcome, <%= user.email %></h1>
+        <a href="/logout">
+          
+          <button type="button" class="btn btn-primary">
+          Log Out
+          </button>
+
+        </a>
+        <%
+      } else {
+        %>
+        <h1>Dashboard</h1>
+        <a href="/login">
+          <button type="button" class="btn btn-primary">
+          Log In
+          </button>
+        </a>
+        <%
+      } %>
     <p>Reach your financial goals, one dollar at a time.</p>
   </div>
   <div class="card" style="width: 18rem;">
