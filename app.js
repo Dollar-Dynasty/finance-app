@@ -4,8 +4,21 @@ const bcrypt = require('bcryptjs');
 const connectDB = require('./config/dbConnection');
 const User = require('./models/userModel');
 const Login = require('./models/loginModel');
+const { initializeApp} = require('firebase/app');
+const { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } = require('firebase/auth');
+
 const app = express();
 
+// Your web app's Firebase configuration
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+
+// Initialize Firebase
+const firebase_app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(firebase_app);
+
+// Connect to MongoDB
 connectDB();
 
 app.use(express.json());
@@ -25,19 +38,30 @@ app.get('/:version', function(req, res) { res.send(req.params.version);});
 
 app.post('/register', async (req, res) => {
     const { firstName, lastName, userName, email, password } = req.body;
+   
+    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log("User Created: ",user.uid);
 
-    // Check if passwords match
-    // Hash the password
-    
-    const newUser = new User({
-      firstName,
-      lastName,
-      userName,
-      email,
-      password // will need to be hashed eventually
+      const newUser = new User({
+        firstName,
+        lastName,
+        userName,
+        email,
+        accountId: user.uid
+      });
+      newUser.save();
+      res.redirect('/'); // Redirect to home page or login page
+
+    }
+    ).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
     });
-    newUser.save();
-    res.redirect('/'); // Redirect to home page or login page
+    
 });
 app.post('/login', async (req, res) => {
     const { userName, password } = req.body;
@@ -47,7 +71,23 @@ app.post('/login', async (req, res) => {
       password
     });
     newLogin.save();
-    res.redirect('/'); // Redirect to home page 
+
+    signInWithEmailAndPassword(auth, userName, password).then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      console.log("Signed In: ",user.uid);
+      res.redirect('/'); // Redirect to home page
+    }
+    ).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+      res.redirect('/login'); // Redirect to login page
+    });
+
+    // res.redirect('/'); // Redirect to home page 
 });
 
-app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);},debug=true);
+app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});

@@ -19,9 +19,9 @@ const userSchema = new mongoose.Schema({
     type: String, 
     required: true,
   },
-  password: { 
-    type: String, 
-    required: true 
+  accountId: {
+    type: String,
+    required: true
   },
   createdAt: {
     type: Date, 
