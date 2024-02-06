@@ -1,0 +1,36 @@
+<<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finance App</title>
+</head>
+<body>
+    <main>
+        <h1>Finance App</h1>
+        <p>Welcome to the Goal Page! 🏖️</p>
+        <section>
+            <form id="goal_form">
+                <h3>Goal Name</h3>
+                <input type="text" name="goal_name" id="goal_name" placeholder="Goal Name" maxlength="10" required><br><br>
+
+                <h3>Goal Description</h3>
+                <textarea name="goal_description" id="goal_description" placeholder="Goal Description" maxlength="50"></textarea><br><br>
+
+                <h3>Goal Amount</h3>
+                <input type="text" name="goal_amount" id="goal_amount" placeholder="$0.00" pattern="\$\d+(\.\d{2})?" required><br><br>
+
+                <h3>Start Date</h3>
+                <input type="date" name="goal_start_date" id="goal_start_date" required><br><br>
+
+                <h3>End Date</h3>
+                <input type="date" name="goal_end_date" id="goal_end_date" required><br><br>
+
+                <button type="button" id="add_goal_btn">Add Goal</button><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/goalCreation.js"></script>
+</body>
+</html>
