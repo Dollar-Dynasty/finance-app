@@ -44,11 +44,12 @@ app.get('/', (req, res) => {
     ).catch((error) => {
       console.log(error);
     });
+  }else{
+    res.render('pages/index', { 
+      user : null 
+    });
   }
 
-  // res.render('pages/index', { 
-  //   user : auth.currentUser 
-  // });
 });
 app.get('/register', (req, res) => {res.render('pages/register');});
 app.get('/login', (req, res) => {res.render('pages/login');});
