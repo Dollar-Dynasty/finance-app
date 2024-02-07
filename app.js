@@ -21,8 +21,4 @@ app.use('/', viewRouter);
 // makes EJS the template engine
 app.set('view engine', 'ejs');
 
-
-
-
-
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
