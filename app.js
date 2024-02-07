@@ -31,8 +31,24 @@ app.set('view engine', 'ejs');
 
 // Load HTML pages from 'views/pages' //
 app.get('/', (req, res) => {
-  
-  res.render('pages/index', { user : auth.currentUser });
+  if(auth.currentUser) {
+    
+    User.findOne({accountId: auth.currentUser.uid})
+    .then((user) => {
+      let fetchedUser = user.toJSON();
+      let displayName = fetchedUser.firstName + " " + fetchedUser.lastName;
+      res.render('pages/index', { 
+        user : displayName
+      });
+    }
+    ).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  // res.render('pages/index', { 
+  //   user : auth.currentUser 
+  // });
 });
 app.get('/register', (req, res) => {res.render('pages/register');});
 app.get('/login', (req, res) => {res.render('pages/login');});
