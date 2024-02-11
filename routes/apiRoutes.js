@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/userModel');
 const Login = require('../models/loginModel');
+const Budget = require('../models/budgetModel');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
@@ -61,6 +62,21 @@ apiRouter.post('/login', async (req, res) => {
 
   // res.redirect('/'); // Redirect to home page 
 });
+apiRouter.post('/budgetCreation', (req, res) => {
+  const { category, budgetedAmount, actualAmount, startDate, endDate } = req.body;
+  console.log(req.body);
+  const newBudget = new Budget({
+    category,
+    budgetedAmount,
+    actualAmount,
+    startDate,
+    endDate,
+    accountId: req.auth.currentUser.uid
+  });
+  newBudget.save();
+  res.redirect('/'); // Redirect to home page
+});
+
 apiRouter.get('/logout', (req, res) => {
   const auth = req.auth;
   // Logout from Firebase
