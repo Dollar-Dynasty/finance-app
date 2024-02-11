@@ -63,6 +63,10 @@ apiRouter.post('/login', async (req, res) => {
   // res.redirect('/'); // Redirect to home page 
 });
 apiRouter.post('/budgetCreation', (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/login');
+    return;
+  }
   const { category, budgetedAmount, actualAmount, startDate, endDate } = req.body;
   console.log(req.body);
   const newBudget = new Budget({
