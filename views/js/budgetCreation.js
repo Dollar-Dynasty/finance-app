@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("budget_form");
+    console.log("Form submitted");
     form.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent form submission
-
         // Validate each input field
         const budgetTitle = document.getElementById("budget_title").value;
         const categoryName = document.getElementById("category_name").value;
         const budgetDescription = document.getElementById("budget_description").value;
         const startDate = document.getElementById("start_date").value;
         const endDate = document.getElementById("end_date").value;
-        const totalAmountavailable = document.getElementById("totalamount_available").value;
+        const amount = document.getElementById("amount").value;
         const remainingAmount = document.getElementById("remaining_amount").value;
 
         if (budgetTitle === "") {
@@ -22,21 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (budgetDescription === "") {
-            alert("Please enter a budget description.");
-            return;
-        }
-
         if (startDate === "" || endDate === "") {
             alert("Please enter both start and end dates.");
             return;
         }
 
-        if (amount === "" || totalAmountavailable  === "") {
+        if (amount === "" || amount  === "") {
             alert("Please enter both total amount available and remaining amount.");
             return;
         }
-        if (amount === "" || remainingAmount === "") {
+        if (remainingAmount === "" || remainingAmount === "") {
             alert("Please enter both total amount available and remaining amount.");
             return;
         }

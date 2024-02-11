@@ -8,9 +8,9 @@
     <main>
 
         <h1>Finance App</h1>
-        <p>Welcome to the Budget Page! 🏖️</p>
+        <p>Welcome to the Budget Page!! 🏖️</p>
         <section>
-            <form>
+            <form id="budget_form">
                 <h3>Budget Title</h3>
                 <input type="text" name="budgetTitle" id="budget_title" placeholder="Budget Title" maxlength="50" required>
                 <h3>Category name</h3>
@@ -22,14 +22,14 @@
                 <h3>End Date</h3>
                 <input type="date" name="end_date" id="end_date" required>
                 <h3>Total amount available</h3>
-                <input type="number" name="amount" id="amount" placeholder="0" min="1" max = "1000" required>
+                <input type="number" name="amount" id="amount" placeholder="0" min="1" max="1000" required>
                 <h3>Remaining Amount</h3>
-                <input type="number" name="remaining_amount" id="remaining_amount" placeholder="0" min="1" max = "1000"><br><br>
+                <input type="number" name="remaining_amount" id="remaining_amount" placeholder="0" min="1" max="1000"><br><br>
                 
                 <button type="submit">Create budget</button>
             </form>
         </section>
     </main>
-    <script src="js/budgetCreation.js"></script>
+    <script src="../js/budgetCreation.js"></script>
 </body>
 </html>
