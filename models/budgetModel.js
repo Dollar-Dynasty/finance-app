@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const budgetSchema = new mongoose.Schema({
-    userId: mongoose.Schema.Types.ObjectId,  // User ref
     category: String,
     budgetedAmount: Number,
     actualAmount: {
@@ -9,7 +8,11 @@ const budgetSchema = new mongoose.Schema({
 				default: 0 
 		},
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    accountId: {
+        type: String,
+        required: true
+    },
 });
 
 const Budget = mongoose.model('Budget', budgetSchema);
