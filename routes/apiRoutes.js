@@ -6,6 +6,7 @@ const Goal = require('../models/goalsModel');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
+let redirectToBudget = false;
 apiRouter.get('/v/:version', function(req, res) { res.send(req.params.version);});
 
 apiRouter.post('/register', async (req, res) => {
@@ -25,7 +26,8 @@ apiRouter.post('/register', async (req, res) => {
       accountId: user.uid
     });
     newUser.save();
-    res.redirect('/'); // Redirect to home page or login page
+    redirectToBudget = true;
+    res.redirect(`/goalCreation`);
 
   }
   ).catch((error) => {
@@ -98,7 +100,12 @@ apiRouter.post('/goalCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newGoal.save();
-  res.redirect('/'); // Redirect to home page
+  if(redirectToBudget){
+    redirectToBudget = false;
+    res.redirect('/budgetCreation');
+  }else{
+    res.redirect('/'); // Redirect to home page
+  }
 });
 
 apiRouter.get('/logout', (req, res) => {
