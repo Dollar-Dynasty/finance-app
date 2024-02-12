@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/userModel');
 const Login = require('../models/loginModel');
 const Budget = require('../models/budgetModel');
+const Goal = require('../models/goalsModel');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
@@ -78,6 +79,25 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
+  res.redirect('/'); // Redirect to home page
+});
+
+apiRouter.post('/goalCreation', (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/login');
+    return;
+  }
+  const { title, description, targetAmount, savedAmount, deadline } = req.body;
+  console.log(req.body);
+  const newGoal = new Goal({
+    title,
+    description,
+    targetAmount,
+    savedAmount,
+    deadline,
+    accountId: req.auth.currentUser.uid
+  });
+  newGoal.save();
   res.redirect('/'); // Redirect to home page
 });
 
