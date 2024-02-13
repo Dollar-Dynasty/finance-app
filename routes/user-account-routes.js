@@ -4,22 +4,20 @@ const Login = require('../models/login-model');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
-apiRouter.get('/v/:version', function(req, res) { res.send(req.params.version);});
 
+apiRouter.get('/v/:version', function(req, res) { 
+  res.send(req.params.version);
+});
+
+
+
+///   USER REGISTRATION  ///
 
 apiRouter.post('/registration-form', async (req, res) => {
   const auth = req.auth;
-
-  const { 
-    firstName, 
-    lastName, 
-    userName, 
-    email, 
-    password 
-  } = req.body;
+  const { firstName, lastName, userName, email, password } = req.body;
  
   createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-    // Signed in 
     const user = userCredential.user;
     console.log("User Created: ",user.uid);
 
@@ -31,19 +29,18 @@ apiRouter.post('/registration-form', async (req, res) => {
       accountId: user.uid
     });
     newUser.save();
-
-    // Redirects to create a new budget after creating a new account
     res.redirect('/budget-form');
   }
   ).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
+    console.log(error.code);
+    console.log(error.message);
   });
   
 });
 
+
+
+///   LOGIN AUTHENTICATION  ///
 
 apiRouter.post('/login-form', async (req, res) => {
   const auth = req.auth;
@@ -52,39 +49,37 @@ apiRouter.post('/login-form', async (req, res) => {
     userName,
     password
   });
+
   newLogin.save();
 
   signInWithEmailAndPassword(auth, userName, password).then((userCredential) => {
-    // Signed in 
     const user = userCredential.user;
-
     console.log("Signed In: ",user.uid);
-    // Redirect to home page and pass auth object
     res.redirect('/');
-  }
-  ).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("Error login api",errorCode);
-    console.log("Error login api MSG",errorMessage);
-    res.redirect('/login-form'); // Redirect to login page
+  }).catch((error) => {
+    console.log(error.code);
+    console.log(error.message);
+
+    res.redirect('/login-form');
   });
 
-  // res.redirect('/'); // Redirect to home page 
+  res.redirect('/user-dashboard');
 });
 
 
+
+///   LOGOUT FUNCTIONALITY   ///
+
 apiRouter.get('/logout', (req, res) => {
   const auth = req.auth;
-  // Logout from Firebase
   const user = auth.currentUser;
+
   if (user) {
     signOut(auth).then(() => {
-      // Sign-out successful.
       console.log("User Signed Out");
     }).catch((error) => {
-      // An error happened.
-      console.log("Error Signing Out");
+      console.log(error.code);
+      console.log(error.message);
     });
   } else {
     console.log("No User Signed In");
@@ -94,23 +89,11 @@ apiRouter.get('/logout', (req, res) => {
 });
 
 
-apiRouter.get('/temp', async (req, res) => {res.send('Hello');});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//   ROUTE FOR TESTING   ///
+apiRouter.get('/temp', async (req, res) => {
+  res.send('Hello');
+});
 
 
 module.exports = apiRouter;

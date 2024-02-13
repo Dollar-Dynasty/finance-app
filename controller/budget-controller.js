@@ -8,7 +8,7 @@ exports.createBudget = async (req, res) => {
       month_start_date,
       month_end_date,
       monthly_income,
-      categories // This should come from the form as an array of category objects
+      categories
     } = req.body;
 
     const newBudget = await Budget.create({
@@ -20,8 +20,7 @@ exports.createBudget = async (req, res) => {
       categories
     });
     newBudget.save();
-    
-    // Redirect to a success page or send a success response
+  
     res.redirect('/user-dashboard');
   } catch (error) {
     console.error('Error creating budget:', error);
