@@ -5,79 +5,84 @@
 </head>
 
 <body>
-  <header>
+  <header class="jumbotron">
     <h1>Finance App</h1>
     <p>Welcome to the Budget Page! 🏖️</p>
   </header>
 
   <main>
-    <form>
+    <form action="/budget-form" method="post">
 
-      <label for="budget_title">
-        Budget Title
-      </label>
-
-
-      <input 
-          type="text" 
-          name="budgetTitle" 
-          id="budget_title" 
-          placeholder="Budget Title" 
-          maxlength="50" 
-          required
+      <section class="form-group">
+        <label for="budget_title" class="form-label">
+          Name
+          <strong><span aria-label="required">*</span></strong>
+        </label>
+        <input 
+            type="text"
+            class="form-control" 
+            name="budget_title" 
+            id="budget_title" 
+            placeholder="Budget Title" 
+            maxlength="50" 
+            required
         >
+      </section>
 
 
-      <label for="category_name">
-        Category name
-      </label>
-      <input 
-          type="text"
-          name="category_name" 
-          id="category_name" 
-          maxlength="150"
-        >
+      <section class="form-group">
+          <label for="budget_description" class="form-label">
+            Brief Overview
+          </label>
+          <textarea 
+            type="text" 
+            class="form-control"
+            name="budget_description" 
+            id="budget_description" 
+            maxlength="150">
+          </textarea>
+      </section>
 
 
-      <label for="budget_description">
-        Budget description
-      </label>
-      <textarea 
-        type="text" 
-        name="budget_description" 
-        id="budget_description" 
-        placeholder="Brief description" 
-        maxlength="150">
-      </textarea>
-
-
-      <label for="start_date">
-        Start Date
-      </label>
-      <input 
-        type="date" 
-        name="start_date" 
-        id="start_date" 
-        required
-      >
-
-
-      <label for="end_date">
-        End Date
-      </label>
-       <input
+      <section class="form-group">
+        <label for="start_date" class="form-label">
+          Current Month Start Date
+          <span aria-label="required">*</span>
+        </label>
+        <input 
           type="date" 
-          name="end_date" 
-          id="end_date" 
+          class="form-control"
+          name="start_date" 
+          id="start_date" 
           required
-       >
+        > 
+      </section>
 
 
-      <label for="amount">
-        Total amount available
-      </label>
-      <input 
+      <section class="form-group">
+        <label for="end_date" class="form-label">
+          Current Month End Date
+          <span aria-label="required">*</span>
+        </label>
+         <input
+            type="date" 
+            class="form-control"
+            name="end_date" 
+            id="end_date" 
+            required
+         >
+      </section>
+
+
+
+      <section class="form-group">
+        <label for="amount" class="form-label">
+          Total Monthly Income
+          <span aria-label="required">*</span>
+        </label>
+        <input 
           type="number" 
+          class="form-control"
           name="amount" 
           id="amount" 
           placeholder="0"
@@ -85,32 +90,20 @@
           max = "1000" 
           required
         >
+      </section>
 
 
-      <label for="remaining_amount">
-        Remaining Amount
-      </label>
-      <input 
-          type="number" 
-          name="remaining_amount" 
-          id="remaining_amount" 
-          placeholder="0"
-          min="1" 
-          max = "1000"
-        >
-        
-
-      <button type="submit">
+      <button type="submit" class="btn-primary">
         Create budget
       </button>
 
     </form>
   </main>
     
-  <footer>
+  <footer class="footer">
     <%- include('../partials/footer'); %>
   </footer>
 
-  <script src="js/budgetCreation.js"></script>
+  <script src="../script/budget-form.js"></script>
 </body>
 </html>
