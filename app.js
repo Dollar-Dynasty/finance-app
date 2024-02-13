@@ -9,7 +9,6 @@ const { getAuth } = require('firebase/auth');
 
 const app = express();
 
-// connectDB();
 // Your web app's Firebase configuration
 const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
 
