@@ -1,6 +1,6 @@
 const express = require('express');
-const User = require('../models/userModel');
-const Login = require('../models/loginModel');
+const User = require('../models/user-model');
+const Login = require('../models/login-model');
 const viewRouter = express.Router();
 
 // Load HTML pages from 'views/pages' //

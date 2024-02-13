@@ -1,6 +1,6 @@
 const express = require('express');
-const User = require('../models/userModel');
-const Login = require('../models/loginModel');
+const User = require('../models/user-model');
+const Login = require('../models/login-model');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
@@ -9,7 +9,14 @@ apiRouter.get('/v/:version', function(req, res) { res.send(req.params.version);}
 
 apiRouter.post('/registration-form', async (req, res) => {
   const auth = req.auth;
-  const { firstName, lastName, userName, email, password } = req.body;
+
+  const { 
+    firstName, 
+    lastName, 
+    userName, 
+    email, 
+    password 
+  } = req.body;
  
   createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
     // Signed in 
@@ -89,5 +96,21 @@ apiRouter.get('/logout', (req, res) => {
 
 apiRouter.get('/temp', async (req, res) => {res.send('Hello');});
 
-module.exports = apiRouter;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = apiRouter;
