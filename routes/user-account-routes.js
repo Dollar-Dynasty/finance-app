@@ -55,16 +55,14 @@ apiRouter.post('/login-form', async (req, res) => {
   signInWithEmailAndPassword(auth, userName, password).then((userCredential) => {
     const user = userCredential.user;
     console.log("Signed In: ",user.uid);
-    res.redirect('/');
+    res.redirect('/user-dashboard');
   }).catch((error) => {
     console.log(error.code);
     console.log(error.message);
 
     res.redirect('/login-form');
+    });
   });
-
-  res.redirect('/user-dashboard');
-});
 
 
 
