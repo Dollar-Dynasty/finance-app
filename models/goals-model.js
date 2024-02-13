@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const goalSchema = new mongoose.Schema({
-    userId: mongoose.Schema.Types.ObjectId, // User ref
     title: String,
     description: String,
     targetAmount: Number,
@@ -17,7 +16,14 @@ const goalSchema = new mongoose.Schema({
         date: Date
     }],
     deadline: Date,
-    createdAt: Date
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    accountId: {
+        type: String,
+        required: true
+    },
 });
 
 const Goal = mongoose.model('Goal', goalSchema);
