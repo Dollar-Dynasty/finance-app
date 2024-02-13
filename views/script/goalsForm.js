@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (isNaN(goalAmountInput.value) || goalAmountInput.value < 20) {
-            alert("Goal amount must be at least $20 and in a valid currency format.");
-            return;
-        }
+        // if (isNaN(goalAmountInput.value) || goalAmountInput.value < 20) {
+        //     alert("Goal amount must be at least $20 and in a valid currency format.");
+        //     return;
+        // }
 
         // Format goal amount to currency with $0.00 format
         //goalAmountInput.value = goalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -52,31 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //         <label for="goal_start_date_${goalsCount}">Start Date:</label>
     //         <input type="date" name="goal_start_date_${goalsCount}" id="goal_start_date_${goalsCount}" required><br><br>
             
-<<<<<<< HEAD:views/script/goalCreation.js
-            <label for="goal_end_date_${goalsCount}">End Date:</label>
-            <input type="date" name="goal_end_date_${goalsCount}" id="goal_end_date_${goalsCount}" required><br><br>
-        `;
-        goalForm.insertBefore(goalDiv, addGoalBtn);
-        goalsCount++;
-    });
-});
-
-document.querySelectorAll('.currencyInput').forEach(input => {
-    input.addEventListener('input', function (e) {
-        var value = e.target.value.replace(/[^0-9]+/g, ''); // Remove non-numeric chars
-        if (!value) {
-            e.target.value = '';
-            return;
-        }
-        var currencyValue = (parseInt(value, 10) / 100).toFixed(2); // Convert to decimal
-        e.target.value = `$${currencyValue}`; // Update the input field
-    });
-=======
     //         <label for="goal_end_date_${goalsCount}">End Date:</label>
     //         <input type="date" name="goal_end_date_${goalsCount}" id="goal_end_date_${goalsCount}" required><br><br>
     //     `;
     //     goalForm.insertBefore(goalDiv, addGoalBtn);
     //     goalsCount++;
     // });
->>>>>>> develop:views/js/goalCreation.js
 });

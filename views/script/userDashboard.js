@@ -1,4 +1,4 @@
-let userGoals = fetch('/goals-form')
+let userGoals = fetch('/api/goals')
   .then(response => response.json())
   .then(data => {
     console.log(data);

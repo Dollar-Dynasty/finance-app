@@ -21,7 +21,7 @@ exports.createBudget = async (req, res) => {
     });
     newBudget.save();
   
-    res.redirect('/user-dashboard');
+    res.redirect('/goals-form');
   } catch (error) {
     console.error('Error creating budget:', error);
     res.status(500).send(error.message);

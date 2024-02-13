@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/user-model');
 const Login = require('../models/login-model');
+const Goal = require('../models/goals-model');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
@@ -42,7 +43,7 @@ apiRouter.post('/registration-form', async (req, res) => {
 
 /// LOGIN AUTHENTICATION   ///
 
-apiRouter.post('/login-form', async (req, res) => {
+apiRouter.post('/loginForm', async (req, res) => {
   const auth = req.auth;
   const { userName, password } = req.body;
   const newLogin = new Login({
@@ -70,7 +71,7 @@ apiRouter.post('/login-form', async (req, res) => {
 
 apiRouter.post('/budgetCreation', (req, res) => {
   if (!req.auth.currentUser) {
-    res.redirect('/login');
+    res.redirect('/login-form');
     return;
   }
   const { category, budgetedAmount, actualAmount, startDate, endDate } = req.body;
@@ -87,9 +88,8 @@ apiRouter.post('/budgetCreation', (req, res) => {
   res.redirect('/');
 });
 
-apiRouter.post('/goalCreation', (req, res) => {
+apiRouter.post('/goalsForm', (req, res) => {
   if (!req.auth.currentUser) {
-    res.redirect('/login');
     return;
   }
   const { title, description, targetAmount, savedAmount, deadline } = req.body;
@@ -103,12 +103,7 @@ apiRouter.post('/goalCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newGoal.save();
-  if(redirectToBudget){
-    redirectToBudget = false;
-    res.redirect('/budgetCreation');
-  }else{
-    res.redirect('/');
-  }
+  res.redirect('/user-dashboard');
 });
 
 apiRouter.get('/logout', (req, res) => {
@@ -126,10 +121,18 @@ apiRouter.get('/logout', (req, res) => {
     console.log("No User Signed In");
   }
 
-  res.redirect('/login-form');
+  res.redirect('/');
 });
 
 
+apiRouter.get('/goals', async (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const goals = await Goal.find({ accountId: req.auth.currentUser.uid });
+  res.send(goals);
+});
 
 // ROUTE FOR TESTING   ///
 apiRouter.get('/temp', async (req, res) => {

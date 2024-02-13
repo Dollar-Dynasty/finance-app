@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Finance App</title>
+  <title>Goal Creation Page</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
       <p>Welcome to the Goal Page! 🏖️</p>   
     </header>
 
-    <form id="goal_form" action="/api/goalCreation" method="post">
+    <form id="goal_form" action="/api/goalsForm" method="post">
       <h3>Goal Name</h3>
       <input 
         type="text" 
@@ -72,6 +72,6 @@
     <%- include('../partials/footer'); %>
   </footer>
 
-<script src="../js/goalCreation.js"></script>
+<script src="../script/goalsForm.js"></script>
 </body>
 </html>

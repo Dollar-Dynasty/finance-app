@@ -13,8 +13,7 @@
     <form action="/budget-form" method="post">
       <section class="form-group">
         <label for="budget_title" class="form-label">
-          Name
-          <strong><span aria-label="required">*</span></strong>
+          Name <strong><span aria-label="required">*</span></strong>
         </label>
         <input 
             type="text"
@@ -44,8 +43,7 @@
 
       <section class="form-group">
         <label for="start_date" class="form-label">
-          Current Month Start Date
-          <span aria-label="required">*</span>
+          Current Month Start Date <strong><span aria-label="required">*</span></strong>
         </label>
         <input 
           type="date" 
@@ -55,8 +53,7 @@
           required
         > 
         <label for="end_date" class="form-label">
-          Current Month End Date
-          <span aria-label="required">*</span>
+          Current Month End Date <strong><span aria-label="required">*</span></strong>
         </label>
          <input
             type="date" 
@@ -70,8 +67,7 @@
 
       <section class="form-group">
         <label for="amount" class="form-label">
-          Total Monthly Income
-          <span aria-label="required">*</span>
+          Total Monthly Income <strong><span aria-label="required">*</span></strong>
         </label>
         <input 
           type="text" 
@@ -86,10 +82,13 @@
       </section>
 
 
-      <br><label for="categories" class="form-control">Category Creation</label>
+      <br><label for="categories" class="form-control">
+        Category Creation
+      </label>
       <div id="category-section">
 
       </div>          
+
 
       <button type="button" onclick="addCategory()">
         Add Category
@@ -155,6 +154,6 @@
     <%- include('../partials/footer'); %>
   </footer>
 
-  <script src="../script/budget-form.js"></script>
+<script src="../script/budgetCreation.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ const viewRouter = express.Router();
 
 // Load HTML pages from 'views/pages' //
 viewRouter.get('/', (req, res) => {res.render('pages/index');});
-viewRouter.get('/goal-form', (req, res) => {res.render('pages/goal-form');});
+viewRouter.get('/goals-form', (req, res) => {res.render('pages/goals-form');});
 viewRouter.get('/budget-form', (req, res) => {res.render('pages/budget-form');});
 viewRouter.get('/user-dashboard', (req, res) => {res.render('pages/user-dashboard');});
 viewRouter.get('/registration-form', (req, res) => {res.render('pages/registration-form');});
