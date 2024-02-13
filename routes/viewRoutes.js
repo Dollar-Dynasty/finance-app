@@ -3,9 +3,6 @@ const User = require('../models/userModel');
 const Login = require('../models/loginModel');
 const viewRouter = express.Router();
 
-// // Load HTML pages from 'views/pages' //
-// viewRouter.get('/', (req, res) => {res.render('pages/index');});
-
 // Load HTML pages from 'views/pages' //
 viewRouter.get('/', (req, res) => {res.render('pages/index');});
 viewRouter.get('/goalCreation', (req, res) => {res.render('pages/goalCreation');});
