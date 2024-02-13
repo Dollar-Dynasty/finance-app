@@ -14,13 +14,13 @@ let userGoals = fetch('/api/goals')
       textposition: 'inside',
       domain: {column: 1},
       name: goalTitle,
-      hoverinfo: 'label+percent+name',
+      hoverinfo: 'label+percent',
       hole: .5,
       type: 'pie'
     }];
     
     var layout = {
-      title: 'Goal Saving',
+      title: goalTitle,
       annotations: [
         {
           font: {
