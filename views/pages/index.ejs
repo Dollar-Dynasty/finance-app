@@ -35,44 +35,7 @@
     </div>
   </div>
 </main>
-<script>
-  let targetAmount = 27;
-  let savedAmount = 11;
-  var data = [{
-    values: [targetAmount, savedAmount],
-    labels: ['To Save', 'Saved'],
-    text: 'Goal',
-    textposition: 'inside',
-    domain: {column: 1},
-    name: 'title Name',
-    hoverinfo: 'label+percent+name',
-    hole: .5,
-    type: 'pie'
-  }];
-  
-  var layout = {
-    title: 'Goal Saving',
-    annotations: [
-      {
-        font: {
-          size: 20
-        },
-        
-        showarrow: false,
-        text: 'Goal',
-        x: 0.5,
-        y: 0.5
-      }
-    ],
-    height: 400,
-    width: 700,
-    showlegend: true,
-    grid: {rows: 1, columns: 1}
-  };
-  
-  Plotly.newPlot('myDiv', data, layout);
-  
-</script>
+<script src="../js/index.js"></script>
 <footer>
   <%- include('../partials/footer'); %>
 </footer>

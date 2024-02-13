@@ -124,6 +124,14 @@ apiRouter.get('/logout', (req, res) => {
 
   res.redirect('/login');
 });
+apiRouter.get('/goals', async (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/login');
+    return;
+  }
+  const goals = await Goal.find({ accountId: req.auth.currentUser.uid });
+  res.send(goals);
+});
 
 apiRouter.get('/temp', async (req, res) => {res.send('Hello');});
 
