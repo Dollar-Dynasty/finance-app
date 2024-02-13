@@ -11,7 +11,7 @@ apiRouter.get('/v/:version', function(req, res) {
 
 
 
-///   USER REGISTRATION  ///
+/// USER REGISTRATION   ///
 
 apiRouter.post('/registration-form', async (req, res) => {
   const auth = req.auth;
@@ -40,7 +40,7 @@ apiRouter.post('/registration-form', async (req, res) => {
 
 
 
-///   LOGIN AUTHENTICATION  ///
+/// LOGIN AUTHENTICATION   ///
 
 apiRouter.post('/login-form', async (req, res) => {
   const auth = req.auth;
@@ -66,7 +66,7 @@ apiRouter.post('/login-form', async (req, res) => {
 
 
 
-///   LOGOUT FUNCTIONALITY   ///
+/// LOGOUT FUNCTIONALITY   ///
 
 apiRouter.post('/budgetCreation', (req, res) => {
   if (!req.auth.currentUser) {
@@ -84,7 +84,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
-  res.redirect('/'); // Redirect to home page
+  res.redirect('/');
 });
 
 apiRouter.post('/goalCreation', (req, res) => {
@@ -107,7 +107,7 @@ apiRouter.post('/goalCreation', (req, res) => {
     redirectToBudget = false;
     res.redirect('/budgetCreation');
   }else{
-    res.redirect('/'); // Redirect to home page
+    res.redirect('/');
   }
 });
 
@@ -131,7 +131,7 @@ apiRouter.get('/logout', (req, res) => {
 
 
 
-//   ROUTE FOR TESTING   ///
+// ROUTE FOR TESTING   ///
 apiRouter.get('/temp', async (req, res) => {
   res.send('Hello');
 });
