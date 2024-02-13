@@ -65,3 +65,15 @@ document.addEventListener("DOMContentLoaded", function() {
         goalsCount++;
     });
 });
+
+document.querySelectorAll('.currencyInput').forEach(input => {
+    input.addEventListener('input', function (e) {
+        var value = e.target.value.replace(/[^0-9]+/g, ''); // Remove non-numeric chars
+        if (!value) {
+            e.target.value = '';
+            return;
+        }
+        var currencyValue = (parseInt(value, 10) / 100).toFixed(2); // Convert to decimal
+        e.target.value = `$${currencyValue}`; // Update the input field
+    });
+});
