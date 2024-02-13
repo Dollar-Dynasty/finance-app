@@ -83,7 +83,6 @@ apiRouter.post('/budgetCreation', (req, res) => {
   newBudget.save();
   res.redirect('/'); // Redirect to home page
 });
-
 apiRouter.post('/goalCreation', (req, res) => {
   if (!req.auth.currentUser) {
     res.redirect('/login');
@@ -107,7 +106,6 @@ apiRouter.post('/goalCreation', (req, res) => {
     res.redirect('/'); // Redirect to home page
   }
 });
-
 apiRouter.get('/logout', (req, res) => {
   const auth = req.auth;
   // Logout from Firebase
@@ -126,6 +124,7 @@ apiRouter.get('/logout', (req, res) => {
 
   res.redirect('/login');
 });
+
 apiRouter.get('/temp', async (req, res) => {res.send('Hello');});
 
 module.exports = apiRouter;

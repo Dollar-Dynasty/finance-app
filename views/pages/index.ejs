@@ -14,6 +14,8 @@
     <h1>Welcome to Dollar Dynasty!!</h1>
     <p>Reach your financial goals, one dollar at a time.</p>
   </div>
+  <!-- Plotly chart will be drawn inside this DIV -->
+  <div id='myDiv'></div>
   <div class="card" style="width: 18rem;">
     <!-- <img class="card-img-top" src=".../100p180/" alt="data-visualzation-piechart"> -->
     <div class="card-body">
@@ -33,7 +35,44 @@
     </div>
   </div>
 </main>
-
+<script>
+  let targetAmount = 27;
+  let savedAmount = 11;
+  var data = [{
+    values: [targetAmount, savedAmount],
+    labels: ['To Save', 'Saved'],
+    text: 'Goal',
+    textposition: 'inside',
+    domain: {column: 1},
+    name: 'title Name',
+    hoverinfo: 'label+percent+name',
+    hole: .5,
+    type: 'pie'
+  }];
+  
+  var layout = {
+    title: 'Goal Saving',
+    annotations: [
+      {
+        font: {
+          size: 20
+        },
+        
+        showarrow: false,
+        text: 'Goal',
+        x: 0.5,
+        y: 0.5
+      }
+    ],
+    height: 400,
+    width: 700,
+    showlegend: true,
+    grid: {rows: 1, columns: 1}
+  };
+  
+  Plotly.newPlot('myDiv', data, layout);
+  
+</script>
 <footer>
   <%- include('../partials/footer'); %>
 </footer>
