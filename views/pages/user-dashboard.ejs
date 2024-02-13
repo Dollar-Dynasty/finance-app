@@ -4,36 +4,36 @@
   <%- include('../partials/head'); %>
 </head>
 
-<body class="container">
-  <header>
-    <%- include('../partials/visitorHeader'); %>
-  </header>
+<body>
+  <header class="jumbotron">
+    <h1>Welcome {users-first-name}!</h1>
+    <h2>DASHBOARD</h2>
+  </header> 
 
   <main>
-    <div class="jumbotron">
-      <h1>Welcome {users-first-name}!</h1>
-      <p>Reach your financial goals, one dollar at a time.</p>
+    <div id="pieDiv">
+
     </div>
 
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Register</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Create an account</h6>
-        <p class="card-text">Get started on your financial goals today!</p>
-        <a href="/register" class="btn btn-primary">Register</a>
-      </div>
-    </div>
-
-
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Login</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Already have an account?</h6>
-        <p class="card-text">Login to continue your financial journey.</p>
-        <a href="/login" class="btn btn-primary">Login</a>
-      </div>
-    </div>
+    <!-- TESTING SCRIPT TAG W/DUMMY DATA FOR PLOTLY -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var data = {
+            values: [19, 26, 55],
+            labels: ['Residential', 'Non-Residential', 'Utility'],
+            type: 'pie'
+          };
+  
+          var layout = {
+            title: "Total Budget Allocation",
+            height: 500,
+            width: 800
+          };
+  
+          Plotly.newPlot('pieDiv', [data], layout);
+          });
+    </script>  
   </main>
 
   <footer class="footer">
