@@ -6,13 +6,11 @@
 
 <body>
   <header class="jumbotron">
-    <h1>Finance App</h1>
-    <p>Welcome to the Budget Page! 🏖️</p>
+    <h1>Create a Monthly Budget</h1>
   </header>
 
   <main>
     <form action="/budget-form" method="post">
-
       <section class="form-group">
         <label for="budget_title" class="form-label">
           Name
@@ -52,14 +50,10 @@
         <input 
           type="date" 
           class="form-control"
-          name="start_date" 
-          id="start_date" 
+          name="month_start_date" 
+          id="month_start_date" 
           required
         > 
-      </section>
-
-
-      <section class="form-group">
         <label for="end_date" class="form-label">
           Current Month End Date
           <span aria-label="required">*</span>
@@ -67,12 +61,11 @@
          <input
             type="date" 
             class="form-control"
-            name="end_date" 
-            id="end_date" 
+            name="month_end_date" 
+            id="month_end_date" 
             required
          >
       </section>
-
 
 
       <section class="form-group">
@@ -81,11 +74,11 @@
           <span aria-label="required">*</span>
         </label>
         <input 
-          type="number" 
-          class="form-control"
-          name="amount" 
-          id="amount" 
-          placeholder="0"
+          type="text" 
+          class="form-control currencyInput"
+          name="monthly_income" 
+          id="monthly_income" 
+          placeholder="$0.00"
           min="1" 
           max = "1000" 
           required
@@ -93,10 +86,68 @@
       </section>
 
 
-      <button type="submit" class="btn-primary">
+      <br><label for="categories" class="form-control">Category Creation</label>
+      <div id="category-section">
+
+      </div>          
+
+      <button type="button" onclick="addCategory()">
+        Add Category
+      </button> <br><br><br>
+      <script>
+        let categoryIndex = 0;
+        
+        function addCategory() {
+          const container = document.getElementById('category-section');
+          const html = `
+            <div class="form-group">
+              <label>Category Name:</label>
+              <input 
+                type="text" 
+                name="categories[${categoryIndex}][category_name]" 
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label>Description:</label>
+              <input 
+                type="text" 
+                name="categories[${categoryIndex}][category_description]"
+              >
+            </div>
+            <div class="form-group">
+              <label for="category_budget">
+                Allowance for Category:
+              </label>
+              <input 
+                type="text" 
+                class="form-control currencyInput"
+                name="categories[${categoryIndex}][category_budget_allowance]" 
+                id="category-currency-${categoryIndex}"  
+                placeholder="$0.00"
+                required
+              >
+            </div>
+            <button type="button" onclick="removeCategory(this)">
+                Remove Category
+            </button>
+          `;
+          const div = document.createElement('div');
+          div.innerHTML = html;
+          container.appendChild(div);
+          categoryIndex++; // Increment the index for each new category added
+        }
+        
+
+        function removeCategory(button) {
+          button.parentElement.remove();
+        }
+      </script>
+
+
+      <button type="submit" class="btn-primary" method="post">
         Create budget
       </button>
-
     </form>
   </main>
     
