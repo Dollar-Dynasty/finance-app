@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goal Creation Page</title>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Finance App</h1>
+      <p>Welcome to the Goal Page! 🏖️</p>   
+    </header>
+
+    <form id="goal_form" action="/api/goalsForm" method="post">
+      <h3>Goal Name</h3>
+      <input 
+        type="text" 
+        name="title" 
+        id="goal_name" 
+        placeholder="Goal Name" 
+        maxlength="10" 
+        required
+      >
+
+      <h3>Goal Description</h3>
+      <textarea 
+        name="description" 
+        id="goal_description" 
+        placeholder="Goal Description" 
+        maxlength="50">
+      </textarea>
+
+      <h3>Goal Amount</h3>
+      <input 
+        type="number" 
+        name="targetAmount" 
+        id="goal_amount" 
+        placeholder="$0.00" 
+        maxlength="5" 
+        required>
+      >
+    
+      <h3>Saved Amount</h3>
+      <input 
+        type="number" 
+        name="savedAmount" 
+        id="saved_amount" 
+        placeholder="$0.00" 
+        maxlength="5" 
+        required
+      >
+    
+      <h3>Deadline</h3>
+      <input 
+        type="date" 
+        name="deadline" 
+        id="goal_end_date" 
+        required
+      >
+
+      <!-- TODO: Ticket for adding money towards a goal -->
+      <!-- <button type="button" id="add_goal_btn">Add Goal</button><br><br> -->
+
+      <button type="submit" method="post">
+        Submit
+      </button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <%- include('../partials/footer'); %>
+  </footer>
+
+<script src="../script/goalsForm.js"></script>
+</body>
+</html>

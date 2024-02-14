@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (isNaN(goalAmountInput.value) || goalAmountInput.value < 20) {
-            alert("Goal amount must be at least $20 and in a valid currency format.");
-            return;
-        }
+        // if (isNaN(goalAmountInput.value) || goalAmountInput.value < 20) {
+        //     alert("Goal amount must be at least $20 and in a valid currency format.");
+        //     return;
+        // }
 
         // Format goal amount to currency with $0.00 format
         //goalAmountInput.value = goalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });

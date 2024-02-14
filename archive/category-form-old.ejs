@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <main>
+      <header>
+          <h1>Finance App</h1>
+          <p>Category Creation</p> 
+      </header>
+    
+      <form>
+        <fieldset>
+
+          <legend>
+            Category Creation
+          </legend>
+
+
+          <label for="categoryName">
+            Category Name:
+          </label>
+          <input 
+            type="text" 
+            name="categoryName" 
+            id="categoryName" 
+            required
+          >
+
+
+          <label for="categoryDescription">
+            Description:
+          </label>
+          <input 
+            type="text" 
+            name="categoryDescription" 
+            id="categoryDescription"
+          >
+
+
+          <label for="categoryBudgetAllowance">
+            Category Budget Allowance:
+          </label>
+          <input 
+            type="number" 
+            name="categoryBudgetAllowance" 
+            id="categoryBudgetAllowance" 
+            required
+          >
+
+
+          <input 
+            type="submit" 
+            value="Add Category" 
+            id="addCategoryButton" 
+            disabled
+          >
+          
+        </fieldset>
+      </form>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+</body>
+</html>

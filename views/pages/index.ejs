@@ -3,42 +3,26 @@
 <head>
   <%- include('../partials/head'); %>
 </head>
-<body class="container">
 
-<header>
-  <%- include('../partials/visitorHeader'); %>
-</header>
+<body>
+  <header>
+    <%- include('../partials/landing-header'); %>
+  </header>
 
-<main>
-  <div class="jumbotron">
-    <h1>Welcome to Dollar Dynasty!!</h1>
-    <p>Reach your financial goals, one dollar at a time.</p>
-  </div>
-  <!-- Plotly chart will be drawn inside this DIV -->
-  <div id='myDiv'></div>
-  <div class="card" style="width: 18rem;">
-    <!-- <img class="card-img-top" src=".../100p180/" alt="data-visualzation-piechart"> -->
-    <div class="card-body">
-      <h5 class="card-title">Vacation to Orlando</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Family vacation to Disney World</h6>
-      <p class="card-text">GOAL</p>
-      <a href="#" class="btn btn-primary">$1,200</a>
+  <main>
+    <div class="jumbotron">
+      <h1>Demo of Dollar Dynasty</h1>
+      <p>Reach your financial goals, one dollar at a time.</p>
     </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <!-- <img class="card-img-top" src=".../100px180/" alt="data-visualzation-piechart"> -->
-    <div class="card-body">
-      <h5 class="card-title">Pay Off Student Debt</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Get student loans paid off before moving next year.</h6>
-      <p class="card-text">GOAL</p>
-      <a href="#" class="btn btn-primary">$6,890</a>
-    </div>
-  </div>
-</main>
-<script src="../js/index.js"></script>
-<footer>
-  <%- include('../partials/footer'); %>
-</footer>
 
+    <div id='myDiv'></div>
+
+  </main>
+
+  <footer class="footer">
+    <%- include('../partials/footer'); %>
+  </footer>
+
+<script src="../script/index.js"></script>
 </body>
 </html>
