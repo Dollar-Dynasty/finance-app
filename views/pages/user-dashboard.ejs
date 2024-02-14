@@ -12,27 +12,7 @@
 
   <main>
     <div id="pieDiv"></div>
-
-    <div id='myDiv'></div>
-
-    <!-- TESTING SCRIPT TAG W/DUMMY DATA FOR PLOTLY -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          var data = {
-            values: [19, 26, 55],
-            labels: ['Residential', 'Non-Residential', 'Utility'],
-            type: 'pie'
-          };
-  
-          var layout = {
-            title: "Total Budget Allocation",
-            height: 500,
-            width: 800
-          };
-  
-          Plotly.newPlot('pieDiv', [data], layout);
-          });
-    </script>  
+    <div id='goalDiv'></div>
   </main>
 
   <footer class="footer">
