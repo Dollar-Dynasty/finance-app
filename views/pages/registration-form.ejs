@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="../styles/global/forms.css">
 </head>
 
 <body>
@@ -12,8 +13,15 @@
     </div>
 
 
-    <form action="/api/registration-form" method="post">
+    <form action="/api/registration-form" method="post" class="container">
+      <div class="row justify-content-center">
       <div class="form-group">
+        <div class="col-md-6 p-4">
+          <div class="card">
+            <div class="card-header">
+              Sign Up
+            </div>
+            <div class="card-body">
         <label>First name</label>
           <input type="text" 
             name="firstName" 
@@ -35,23 +43,8 @@
             placeholder="Last name"
             required
           >
-      </div>
-
-
-      <div class="form-group">
-        <label>Username</label>
-          <input 
-            type="text" 
-            name="userName" 
-            id="username" 
-            index: true,
-            placeholder="Username" 
-            autocomplete="username"
-            required
-          >
-      </div>
-
-
+      </div>      
+      
       <div class="form-group">
         <label>Email</label>
           <input 
@@ -59,11 +52,25 @@
             name="email" 
             id="email" 
             index: true,
-            placeholder="Email" 
+            placeholder="mmcfly@cusco.com"
             autocomplete="email"
             required
           >
       </div>
+
+
+          <div class="form-group">
+            <label>Username</label>
+              <input 
+                type="text" 
+                name="userName" 
+                id="username" 
+                index: true,
+                placeholder="Username" 
+                autocomplete="username"
+                required
+              >
+          </div>
 
 
       <div class="form-group">
@@ -88,11 +95,9 @@
       </div>
 
 
-      <div class="form-group" class="btn btn-primary">
-        <button type="submit" method="post">
-          Submit
-        </button>
-      </div>
+      <button type="submit" method="post" class="form-group btn btn-primary">
+        Submit
+      </button>
   </form>
   </main>
 
