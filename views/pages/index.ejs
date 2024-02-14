@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="../styles/index.css">
 </head>
 
 <body>
-  <header>
-    <%- include('../partials/landing-header'); %>
-  </header>
 
-  <main>
+  <!-- <main>
     <div class="jumbotron">
       <h1>Demo of Dollar Dynasty</h1>
       <p>Reach your financial goals, one dollar at a time.</p>
@@ -17,7 +15,190 @@
 
     <div id='myDiv'></div>
 
-  </main>
+  </main> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+  HTML FOR MVP, DOES NOT HAVE TO BE PERMANENT 
+
+-->
+
+
+  <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
+    <div class="sidebar-header d-flex flex-column justify-content-center align-items-center px-3 py-4">
+      <i class="fas fa-user-circle fa-3x" style="color: #bababa;"></i> <!-- Adjusted the size to 3x for better visibility -->
+      <h5 class="fs-6 my-2" style="color: #ffffff;">John Doe</h5> <!-- Added margin for spacing -->
+      <p class="mb-0" style="color: #bdefd5;">Account Admin</p>
+    </div>
+    
+    <ul class="categories list-unstyled">
+      <li class="">
+         <i class="fas fa-tachometer-alt" style="color: rgb(255, 255, 255);"></i><a href="#" style="color: rgb(255, 255, 255);">Dashboard</a>
+      </li>
+      <li class="">
+         <i class="fas fa-wallet" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Budget</a>
+      </li>
+      <li class="">
+         <i class="fas fa-bullseye" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Goals</a>
+      </li>
+      <li class="">
+         <i class="fas fa-chart-line" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Data Analysis</a>
+      </li>
+   </ul>   
+  </aside>
+  
+  <section id="wrapper">
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid mx-2">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Finance<span class="main-color">App</span><span class="main-format2"> | d e m o</span></a>
+        </div>
+          <%- include('../partials/landing-header'); %>
+      </div>
+    </nav>
+  
+    <div class="p-4">
+      <div class="welcome">
+        <div class="content rounded-3 p-3">
+          <h1 class="fs-10">Dashboard</h1>
+          <p>Welcome John!</p>
+        </div>
+      </div>
+  
+      <section class="statistics mt-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">$1,245</h3> <span class="d-block ms-2">Total Expenses</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">3</h3> <span class="d-block ms-2">Savings Goals</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">$5,245</h3> <span class="d-block ms-2">Total Savings</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="charts mt-4">
+        <h6>Your Expenses</h6>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="chart-container rounded-2 p-3">
+              <h3 class="fs-6 mb-3">
+                <div id="pieDiv">
+
+                </div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                      var data = {
+                        values: [19, 26, 55],
+                        labels: ['Payments', 'Entertainment', 'Utility'],
+                        'marker': {
+                          'colors': [
+                            '#b1cbbb',
+                            '#b6e7ff',
+                            '#4B5563',
+                          ]
+                        },
+                        type: 'pie'
+                      };
+              
+                      var layout = {
+                        title: "Total Budget Allocation",
+                        height: 390,
+                        width: 470
+                      };
+              
+                      Plotly.newPlot('pieDiv', [data], layout);
+                      });
+                </script> 
+              </h3>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="chart-container rounded-2 p-3">
+              <h3 class="fs-6 mb-3">
+                <div id='pieDiv2'>
+
+                </div> 
+                <script>
+                  var data = [
+                  {
+                    x: ['Expenses', 'Savings', 'Extra'],
+                    y: [60, 20, 20],
+                    type: 'bar'
+                  }
+                  ];
+
+                  var layout = {
+                        title: "Percentage Used by Category",
+                        height: 500,
+                        width: 660
+                   };
+
+                  Plotly.newPlot('pieDiv2', data, layout);
+                </script>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="charts mt-4">
+        <div class="chart-container p-3">
+          <h3 class="fs-6 mb-3">
+            
+          </h3>
+          <div style="height: 300px">
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
 
   <footer class="footer">
     <%- include('../partials/footer'); %>
