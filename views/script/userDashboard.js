@@ -1,3 +1,4 @@
+console.log('userDashboard.js loaded');
 let userGoals = fetch('/api/goals')
   .then(response => response.json())
   .then(data => {
@@ -8,7 +9,7 @@ let userGoals = fetch('/api/goals')
     let goalRemainingAmount = goalTargetAmount - goalSavedAmount;
 
     var data = [{
-      values: [goalTargetAmount, goalSavedAmount],
+      values: [goalRemainingAmount, goalSavedAmount],
       labels: ['To Save', 'Saved'],
       text: 'Goal',
       textposition: 'inside',
