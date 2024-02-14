@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <%- include('../partials/head'); %>
   <title>Goal Creation Page</title>
+  <link rel="stylesheet" href="../styles/global/forms.css">
 </head>
 
 <body>
@@ -62,7 +63,7 @@
       <!-- TODO: Ticket for adding money towards a goal -->
       <!-- <button type="button" id="add_goal_btn">Add Goal</button><br><br> -->
 
-      <button type="submit" method="post">
+      <button type="submit" method="post" class="form-group btn btn-primary">
         Submit
       </button>
     </form>

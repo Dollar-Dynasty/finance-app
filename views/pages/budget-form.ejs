@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="../styles/global/forms.css">
 </head>
 
 <body>
@@ -10,7 +11,7 @@
   </header>
 
   <main>
-    <form action="/budget-form" method="post">
+    <form action="/budget-form" method="post" class="container">
       <section class="form-group">
         <label for="budget_title" class="form-label">
           Name <strong><span aria-label="required">*</span></strong>
@@ -90,7 +91,7 @@
       </div>          
 
 
-      <button type="button" onclick="addCategory()">
+      <button type="button" onclick="addCategory()" class="form-group btn btn-secondary">
         Add Category
       </button> <br><br><br>
       <script>
@@ -144,7 +145,7 @@
       </script>
 
 
-      <button type="submit" class="btn-primary" method="post">
+      <button type="submit" class="btn-primary" method="post" class="form-group btn btn-primary">
         Create budget
       </button>
     </form>

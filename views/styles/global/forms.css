@@ -1,0 +1,10 @@
+/* Form */
+.form-control, .form-check-input {
+	border-radius: 0;
+}
+
+.form-control:focus {
+	border-color: #D50000;
+	box-shadow: unset;
+}
+
