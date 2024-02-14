@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/user-model');
 const Login = require('../models/login-model');
 const Goal = require('../models/goals-model');
+const Budget = require('../models/budget-model');
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = require('firebase/auth');
 const apiRouter = express.Router();
 
@@ -124,7 +125,7 @@ apiRouter.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-
+// Route to get user's goals
 apiRouter.get('/goals', async (req, res) => {
   if (!req.auth.currentUser) {
     res.redirect('/');
@@ -132,6 +133,16 @@ apiRouter.get('/goals', async (req, res) => {
   }
   const goals = await Goal.find({ accountId: req.auth.currentUser.uid });
   res.send(goals);
+});
+
+// Route to get user's budget
+apiRouter.get('/budgets', async (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const budget = await Budget.find({ accountId: req.auth.currentUser.uid });
+  res.send(budget);
 });
 
 // ROUTE FOR TESTING   ///
