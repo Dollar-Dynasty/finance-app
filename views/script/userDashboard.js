@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/budgets')
   .then(response => response.json())
   .then(data => {
+    if(data.length === 0) {
+      let goalDiv = document.getElementById('goalDiv');
+      goalDiv.innerHTML = '<h3>No budget to display</h3>';
+      return;
+    }
     console.log(data[0]);
     const categories = data[0].categories;
 
@@ -26,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      if(data.length === 0) {
+        let goalDiv = document.getElementById('goalDiv');
+        goalDiv.innerHTML = '<h3>No goals to display</h3>';
+        return;
+      }
       let goalTitle = data[0].title;
       let goalTargetAmount = data[0].targetAmount;
       let goalSavedAmount = data[0].savedAmount;
