@@ -34,7 +34,15 @@ const budgetSchema = new mongoose.Schema({
       type: String,
       required: true,
     }
-  }]
+  }],
+  accountId: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const Budget = mongoose.model('Budget', budgetSchema);
