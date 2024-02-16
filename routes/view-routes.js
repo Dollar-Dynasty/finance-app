@@ -10,5 +10,7 @@ viewRouter.get('/budget-form', (req, res) => {res.render('pages/budget-form');})
 viewRouter.get('/user-dashboard', (req, res) => {res.render('pages/user-dashboard');});
 viewRouter.get('/registration-form', (req, res) => {res.render('pages/registration-form');});
 viewRouter.get('/login-form', (req, res) => {res.render('pages/login-form');});
+viewRouter.get('/budget-page', (req, res) => {res.render('pages/budget-page');});
+viewRouter.get('/goals-page', (req, res) => {res.render('pages/goals-page');});
 
 module.exports = viewRouter;
