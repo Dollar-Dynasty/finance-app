@@ -75,14 +75,16 @@ apiRouter.post('/budgetCreation', (req, res) => {
     res.redirect('/login-form');
     return;
   }
-  const { category, budgetedAmount, actualAmount, startDate, endDate } = req.body;
+  const { budget_title, budget_description, month_start_date, month_end_date, monthly_income, categories} = req.body;
   console.log(req.body);
+
   const newBudget = new Budget({
-    category,
-    budgetedAmount,
-    actualAmount,
-    startDate,
-    endDate,
+    budget_title,
+    budget_description,
+    monthly_income,
+    month_start_date,
+    month_end_date,
+    categories,
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
