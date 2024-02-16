@@ -2,23 +2,37 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
-  <header class="jumbotron">
-    <h1>Welcome {users-first-name}!</h1>
-    <h2>DASHBOARD</h2>
-  </header> 
-
-  <main>
-    <div id="pieDiv"></div>
-    <div id='goalDiv'></div>
-  </main>
-
-  <footer class="footer">
-    <%- include('../partials/footer'); %>
-  </footer>
-
+  
+  <div class="dashboard">
+    <nav class="navigation"> 
+      <h1>Finance App</h1>
+      <ul>
+        <ul><a href="/user-dashboard">Dashboard</a></ul>
+        <ul><a href="/budget-form">Budget</a></ul>
+        <ul><a href="/goals-form">Goals</a></ul>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <main>
+        <header>
+          <h1>Welcome {users-first-name}!</h1>
+          <h2>DASHBOARD</h2>
+        </header> 
+        <div id="pieDiv"></div>
+        <div id='goalDiv'></div>
+        <footer class="footer">
+          <%- include('../partials/footer'); %>
+        </footer>
+      </main>
+    </div>
+    
+  </div>
+  
+  
   <script src="../script/userDashboard.js"></script>
 </body>
 </html>

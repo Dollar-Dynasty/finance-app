@@ -1,0 +1,68 @@
+
+// Path: views/styles/_variables.scss
+@import 'variables';
+
+body {
+  background-color: $background-color;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    height: 100vh; /* Adjust height as needed */
+    
+    @media (max-width: 768px) {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+}
+  
+.navigation {
+    padding-top: 40px; /* Adjust as needed */
+    padding-left: 20px; /* Adjust as needed */
+    flex: 0 0 200px; /* Navigation takes up 200px width */
+    max-width: 200px; /* Navigation takes up 200px width */
+    /* Additional styling for navigation */
+    color: $navigation-text-color;
+    ul {
+        color: $navigation-text-color;
+        list-style: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        a {
+            color: $navigation-text-color;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        
+    }
+    @media (max-width: 768px) {
+      flex: 1; /* Make navigation take up full width on smaller screens */
+      max-width: none;
+    }
+}
+  
+.main-content {
+    flex: 1; /* Main content takes remaining space */
+    background-color: $dashboard-background-color;
+    border-top-right-radius: 20px; /* Curved edge on the top right */
+    border-bottom-right-radius: 20px; /* Curved edge on the bottom right */
+    border-top-left-radius: 20px; /* Adjust as needed for top left */
+    border-bottom-left-radius: 20px; /* Adjust as needed for bottom left */
+    padding: 40px; /* Adjust as needed */
+    padding-right: 40px;
+    margin: 20px; /* Adjust as needed */
+    overflow: auto;
+    @media (max-width: 768px) {
+      border-top-left-radius: 0; /* Remove border radius on smaller screens */
+      border-bottom-left-radius: 0; /* Remove border radius on smaller screens */
+        padding: 20px; /* Adjust as needed */
+        margin: 0; /* Adjust as needed */
+    }
+
+}
