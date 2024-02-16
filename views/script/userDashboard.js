@@ -1,10 +1,20 @@
 console.log('userDashboard.js loaded');
+const totalBudgetLabel = document.getElementById("budgetTotal");
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/budgets')
   .then(response => response.json())
   .then(data => {
     console.log(data[0]);
     const categories = data[0].categories;
+    
+    
+    var total_budget = 0;
+    for (const category in categories) {
+      total_budget += Number(categories[category].category_budget_allowance);
+      console.log(categories[category].category_budget_allowance);
+    }
+    console.log("Total Budget: ",total_budget);
+    totalBudgetLabel.textContent = `Total Budget: $${total_budget}`;
 
     var chart_data = {
       values: categories.map(category => category.category_budget_allowance),
