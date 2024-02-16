@@ -22,8 +22,18 @@
           <h1>Welcome {users-first-name}!</h1>
           <h2>DASHBOARD</h2>
         </header> 
-        <div id="pieDiv"></div>
-        <div id='goalDiv'></div>
+        <div class="dashboard-content">
+          <div class="budget">
+            <h2>Budget</h2>
+            <p>Here is a summary of your budget:</p>
+            <div id="pieDiv"></div>
+          </div>
+          <div class="goals">
+            <h2>Goals</h2>
+            <p>Here is a summary of your goals:</p>
+            <div id="goalDiv"></div>
+          </div>
+        </div>
         <footer class="footer">
           <%- include('../partials/footer'); %>
         </footer>

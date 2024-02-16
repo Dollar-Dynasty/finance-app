@@ -52,10 +52,15 @@ body {
   border-bottom-right-radius: 20px; /* Curved edge on the bottom right */
   border-top-left-radius: 20px; /* Adjust as needed for top left */
   border-bottom-left-radius: 20px; /* Adjust as needed for bottom left */
-  padding: 40px; /* Adjust as needed */
-  padding-right: 40px;
   margin: 20px; /* Adjust as needed */
   overflow: auto;
+}
+.main-content header {
+  padding: 20px; /* Adjust as needed */
+  border-bottom: 1px solid #ccc; /* Add a border to separate header from content */
+}
+.main-content .dashboard-content {
+  padding: 40px; /* Adjust as needed */
 }
 @media (max-width: 768px) {
   .main-content {
