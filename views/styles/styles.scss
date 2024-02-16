@@ -22,14 +22,14 @@ body {
     flex: 0 0 200px; /* Navigation takes up 200px width */
     max-width: 200px; /* Navigation takes up 200px width */
     /* Additional styling for navigation */
-    color: $navigation-text-color;
+    color: $background-text-color;
     ul {
-        color: $navigation-text-color;
+        color: $background-text-color;
         list-style: none;
         padding: 10px 20px;
         cursor: pointer;
         a {
-            color: $navigation-text-color;
+            color: $background-text-color;
             text-decoration: none;
             padding: 10px 20px;
             display: block;
