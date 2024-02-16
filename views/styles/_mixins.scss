@@ -1,0 +1,16 @@
+
+// Flexbox Mixin
+@mixin flex($direction: row, $justify-content: flex-start, $align-items: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+  }
+  
+// Media Query Mixin
+@mixin respond-to($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+  

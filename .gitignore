@@ -13,3 +13,6 @@ sum.js
 yarn.lock
 .vscode/settings.json
 .vscode
+
+# Build files
+views/styles/styles.css.map

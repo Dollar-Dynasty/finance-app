@@ -147,6 +147,16 @@ apiRouter.get('/budgets', async (req, res) => {
   res.send(budget);
 });
 
+// User information
+apiRouter.get('/user', async (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const user = await User.findOne({ accountId: req.auth.currentUser.uid });
+  res.send(user);
+});
+
 // ROUTE FOR TESTING   ///
 apiRouter.get('/temp', async (req, res) => {
   res.send('Hello');
