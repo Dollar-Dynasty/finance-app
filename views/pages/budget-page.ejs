@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+  
+  <div class="dashboard">
+    <nav class="navigation"> 
+      <h1>Finance App</h1>
+      <ul>
+        <ul><a href="/user-dashboard">Dashboard</a></ul>
+        <ul><a href="/budget-page">Budget</a></ul>
+        <ul><a href="/goals-page">Goals</a></ul>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <main>
+        <header>
+          <h1>Budget Board</h1>
+        </header> 
+        <div class="dashboard-content">
+          <div class="budget">
+            <h2>Budget</h2>
+            <p>Here is a summary of your budget:</p>
+            <div id="pieDiv"></div>
+          </div>
+          
+        </div>
+        <footer class="footer">
+          <%- include('../partials/footer'); %>
+        </footer>
+      </main>
+    </div>
+    
+  </div>
+  
+  
+  <script src="../script/userDashboard.js"></script>
+</body>
+</html>
