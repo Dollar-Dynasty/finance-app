@@ -1,5 +1,14 @@
 console.log('userDashboard.js loaded');
+const userDisplayName = document.getElementById("welcomeUser");
 document.addEventListener('DOMContentLoaded', function() {
+  fetch('/api/user')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    userDisplayName.innerText = `Welcome, ${data.firstName} ${data.lastName}!`;
+  })
+  .catch(error => console.error('Error loading user:', error));
+
   fetch('/api/budgets')
   .then(response => response.json())
   .then(data => {
