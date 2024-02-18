@@ -2,47 +2,140 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/user-dashboard.css">
 </head>
 
 <body>
-  
-  <div class="dashboard">
-    <nav class="navigation"> 
-      <h1>Finance App</h1>
-      <ul>
-        <ul><a href="/user-dashboard">Dashboard</a></ul>
-        <ul><a href="/budget-page">Budget</a></ul>
-        <ul><a href="/goals-page">Goals</a></ul>
-      </ul>
-    </nav>
-    <div class="main-content">
-      <main>
-        <header>
-          <h1 id="welcomeUser"></h1>
-          <h2>Dashboard</h2>
-        </header> 
-        <div class="dashboard-content">
-          <div class="budget">
-            <h2>Budget</h2>
-            <p>Here is a summary of your budget:</p>
-            <div id="pieDiv"></div>
-          </div>
-          <div class="goals">
-            <h2>Goals</h2>
-            <p>Here is a summary of your goals:</p>
-            <div id="goalDiv"></div>
-          </div>
-        </div>
-        <footer class="footer">
-          <%- include('../partials/footer'); %>
-        </footer>
-      </main>
+  <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
+    <div class="sidebar-header d-flex flex-column justify-content-center align-items-center px-3 py-4">
+      <i class="fas fa-user-circle fa-3x" style="color: #bababa;"></i> <!-- Adjusted the size to 3x for better visibility -->
+      <h5 class="fs-6 my-2" style="color: #ffffff;">John Doe</h5> <!-- Added margin for spacing -->
+      <p class="mb-0" style="color: #bdefd5;">Account Admin</p>
     </div>
     
-  </div>
+    <ul class="categories list-unstyled">
+      <li class="">
+         <i class="fas fa-tachometer-alt" style="color: rgb(255, 255, 255);"></i><a href="#" style="color: rgb(255, 255, 255);">Dashboard</a>
+      </li>
+      <li class="">
+         <i class="fas fa-wallet" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Budget</a>
+      </li>
+      <li class="">
+         <i class="fas fa-bullseye" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Goals</a>
+      </li>
+      <li class="">
+         <i class="fas fa-chart-line" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Data Analysis</a>
+      </li>
+   </ul>   
+  </aside>
   
+  <section id="wrapper">
+    <nav class="navbar navbar-expand-md">
+      <div class="container-fluid mx-2">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Finance<span class="main-color">App</span></a>
+        </div>
+          <%- include('../partials/landing-header'); %>
+      </div>
+    </nav>
   
-  <script src="../script/userDashboard.js"></script>
+    <div class="p-4 main-content">
+      <div class="welcome">
+        <div class="content rounded-3 p-3">
+          <h1 class="fs-10">Dashboard</h1>
+          <h3 id="welcomeUser"></h3>
+        </div>
+      </div>
+  
+      <section class="statistics mt-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">$1,245</h3> <span class="d-block ms-2">Total Expenses</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">3</h3> <span class="d-block ms-2">Savings Goals</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center p-3">
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">$5,245</h3> <span class="d-block ms-2">Total Savings</span>
+                </div>
+                <p class="fs-normal mb-0"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+
+      <section class="charts mt-4 dashboard-content">
+        <h6>Your Expenses</h6>
+        <div class="row">
+
+
+          <div class="col-lg-6">
+            <div class="chart-container rounded-2 p-3">
+              <h3 class="fs-6 mb-3 budget">
+
+                <h2>Budget</h2>
+                <p>Here is a summary of your budget:</p>
+                <div id="pieDiv"></div>
+
+              </h3>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6">
+            <div class="chart-container rounded-2 p-3">
+              <h3 class="fs-6 mb-3 goals">
+
+                <h2>Goals</h2>
+                <p>Here is a summary of your GOALSSS:</p>
+                <div id="goalDiv"></div>
+
+
+              </h3>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+  
+      <section class="charts mt-4">
+        <div class="chart-container p-3">
+          <h3 class="fs-6 mb-3">
+            
+          </h3>
+          <div style="height: 300px">
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <%- include('../partials/footer'); %>
+  </footer>
+
 </body>
+<script src="../script/userDashboard.js"></script>
 </html>
