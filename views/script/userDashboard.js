@@ -1,6 +1,7 @@
 console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
 const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
+const totalBudgetLabel = document.getElementById("budgetTotal");
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/user')
   .then(response => response.json())
@@ -22,6 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
     totalMonthlyIncome.innerText = `Total Monthly Income: ${data[0].monthly_income}`;
     const categories = data[0].categories;
 
+    var total_budget = 0;
+    for (const category in categories) {
+      total_budget += Number(categories[category].category_budget_allowance);
+      console.log(categories[category].category_budget_allowance);
+    }
+    console.log("Total Budget: ",total_budget);
+    totalBudgetLabel.textContent = `Total Budget: $${total_budget}`; 
+    
     var chart_data = {
       values: categories.map(category => category.category_budget_allowance),
       labels: categories.map(category => category.category_name),
