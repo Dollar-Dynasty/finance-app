@@ -1,5 +1,6 @@
 console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
+const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/user')
   .then(response => response.json())
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     console.log(data[0]);
+    totalMonthlyIncome.innerText = `Total Monthly Income: ${data[0].monthly_income}`;
     const categories = data[0].categories;
 
     var chart_data = {
