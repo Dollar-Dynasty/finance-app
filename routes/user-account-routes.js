@@ -88,7 +88,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
-  res.redirect('/');
+  res.redirect('/goals-form');
 });
 
 apiRouter.post('/goalsForm', (req, res) => {
