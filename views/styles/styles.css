@@ -14,6 +14,8 @@ body {
   color: rgb(255, 255, 255);
 }
 .dashboard .navigation ul {
+  display: flex;
+  flex-direction: column;
   color: rgb(255, 255, 255);
   list-style: none;
   padding: 10px 20px;
@@ -30,11 +32,10 @@ body {
 .dashboard .navigation ul a:hover {
   text-decoration: underline;
 }
-@media (max-width: 768px) {
-  .dashboard .navigation {
+@media (max-width: 1000px) {
+  .dashboard .navigation ul {
     flex: 1; /* Make navigation take up full width on smaller screens */
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    max-width: none;
+    flex-direction: row; /* Stack items vertically on smaller screens */
   }
 }
 .dashboard .main-content {

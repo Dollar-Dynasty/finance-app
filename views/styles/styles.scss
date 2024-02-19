@@ -20,6 +20,8 @@ body {
         /* Additional styling for navigation */
         color: $background-text-color;
         ul {
+            display: flex;
+            flex-direction: column;
             color: $background-text-color;
             list-style: none;
             padding: 10px 20px;
@@ -35,13 +37,12 @@ body {
             a:hover{
                 text-decoration: underline;
             }
-            
+            @media (max-width: 1000px) {
+                flex: 1; /* Make navigation take up full width on smaller screens */
+                flex-direction: row; /* Stack items vertically on smaller screens */
+              } 
         }
-        @media (max-width: 768px) {
-          flex: 1; /* Make navigation take up full width on smaller screens */
-          flex-direction: column; /* Stack items vertically on smaller screens */
-          max-width: none;
-        }
+        
     }
     
     .main-content {
