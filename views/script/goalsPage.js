@@ -1,5 +1,5 @@
 console.log("goalsPage.js loaded");
-
+const goalDescription = document.getElementById('goalDescription');
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/api/goals')
     .then(response => response.json())
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
       let goalTitle = data[0].title;
+      goalDescription.textContent = data[0].description;
       let goalTargetAmount = data[0].targetAmount;
       let goalSavedAmount = data[0].savedAmount;
       let goalRemainingAmount = goalTargetAmount - goalSavedAmount;
