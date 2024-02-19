@@ -101,9 +101,6 @@ apiRouter.delete('/deleteBudget', (req, res) => {
     console.error('No budget to delete');
     return;
   }
-  if (confirm('Are you sure you want to delete this budget?') === false) {
-    return;
-  }
   Budget.where({ _id: budgetId }).findOneAndDelete().then(() => {
     console.log('Budget Deleted');
     res.send('Budget Deleted');

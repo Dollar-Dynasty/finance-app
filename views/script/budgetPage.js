@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/budgets')
     .then(response => response.json())
     .then(data => {
+        deleteBudgetBtn.disabled = (data.length === 0);
         if(data.length === 0) {
-        let goalDiv = document.getElementById('goalDiv');
-        goalDiv.innerHTML = '<h3>No budget to display</h3>';
-        return;
+            let goalDiv = document.getElementById('pieDiv');
+            goalDiv.innerHTML = '<h3>No budget to display</h3>';
+            return;
         }
+        
         console.log(data[0]);
         const categories = data[0].categories;
         budgetId = data[0]._id;
@@ -32,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     deleteBudgetBtn.addEventListener('click', function() {
         if(!budgetId) {
             console.error('No budget to delete');
+            return;
+        }
+        if(!confirm('Are you sure you want to delete this budget?')) {
             return;
         }
         fetch(`/api/deleteBudget`, { method: 'DELETE', body: JSON.stringify({ budgetId: budgetId }), headers: { 'Content-Type': 'application/json' } })
