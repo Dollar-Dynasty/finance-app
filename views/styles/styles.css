@@ -45,6 +45,7 @@ body {
   border-bottom-right-radius: 20px; /* Curved edge on the bottom right */
   border-top-left-radius: 20px; /* Adjust as needed for top left */
   border-bottom-left-radius: 20px; /* Adjust as needed for bottom left */
+  width: 100%;
   margin: 20px; /* Adjust as needed */
   overflow: auto;
 }
@@ -55,6 +56,7 @@ body {
 .dashboard .main-content .dashboard-content {
   display: flex;
   justify-content: center;
+  width: 100%;
   padding: 40px; /* Adjust as needed */
 }
 .dashboard .main-content .dashboard-content .budget {
