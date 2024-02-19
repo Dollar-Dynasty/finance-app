@@ -4,7 +4,6 @@ body {
 
 .dashboard {
   display: flex;
-  justify-content: center;
 }
 .dashboard .navigation {
   padding-top: 40px; /* Adjust as needed */
@@ -55,7 +54,6 @@ body {
 }
 .dashboard .main-content .dashboard-content {
   display: flex;
-  justify-content: center;
   width: 100%;
   padding: 40px; /* Adjust as needed */
 }
