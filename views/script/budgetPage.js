@@ -34,12 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('No budget to delete');
             return;
         }
-        fetch(`/api/budgets/${budgetId}`, {
-        method: 'DELETE'
-        })
+        fetch(`/api/deleteBudget`, { method: 'DELETE', body: JSON.stringify({ budgetId: budgetId }), headers: { 'Content-Type': 'application/json' } })
         .then(response => response.text())
         .then(data => {
-        console.log(data);
+        console.log("Deleted:",data);
         window.location.href = '/user-dashboard';
         })
         .catch(error => console.error('Error deleting budget:', error));
