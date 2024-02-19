@@ -91,6 +91,23 @@ apiRouter.post('/budgetCreation', (req, res) => {
   res.redirect('/');
 });
 
+apiRouter.delete('/deleteBudget', (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const budgetId = req.body.budgetId;
+  Budget.where({ _id: budgetId }).findOneAndDelete().then(() => {
+    console.log('Budget Deleted');
+    res.send('Budget Deleted');
+  }
+  ).catch((error) => {
+    console.log(error);
+  });
+});
+
+
+
 apiRouter.post('/goalsForm', (req, res) => {
   if (!req.auth.currentUser) {
     return;
