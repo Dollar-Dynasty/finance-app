@@ -94,9 +94,11 @@ body {
     }
     
 
-    @media (max-width: 550px) {
-        height: auto; /* Adjust height as needed */
-        flex-direction: column; /* Stack items vertically on smaller screens */
+    @media (max-width: 1000px){
+        flex-direction: column;
+        height: 100vh;
+        
+        
     }
 }
   

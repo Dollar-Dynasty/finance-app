@@ -91,9 +91,9 @@ body {
     margin: 0; /* Adjust as needed */
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 1000px) {
   .dashboard {
-    height: auto; /* Adjust height as needed */
-    flex-direction: column; /* Stack items vertically on smaller screens */
+    flex-direction: column;
+    height: 100vh;
   }
 }/*# sourceMappingURL=styles.css.map */
