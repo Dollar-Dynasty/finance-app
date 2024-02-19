@@ -39,7 +39,7 @@ body {
   }
 }
 .dashboard .main-content {
-  flex: 1 0 200px; /* Main content takes remaining space */
+  flex: 1 1 200px; /* Main content takes remaining space */
   background-color: rgb(255, 255, 255);
   border-top-right-radius: 20px; /* Curved edge on the top right */
   border-bottom-right-radius: 20px; /* Curved edge on the bottom right */
