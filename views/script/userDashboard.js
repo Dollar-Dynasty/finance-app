@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(data.length === 0) {
       let budgetDiv = document.getElementById('pieDiv');
       budgetDiv.innerHTML = '<h3>No budget to display</h3>';
+      budgetDiv.style.textAlign = 'center';
       return;
     }
     console.log(data[0]);
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if(data.length === 0) {
         let goalDiv = document.getElementById('goalDiv');
         goalDiv.innerHTML = '<h3>No goals to display</h3>';
+        goalDiv.style.textAlign = 'center';
         return;
       }
       let goalTitle = data[0].title;
