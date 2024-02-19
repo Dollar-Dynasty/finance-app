@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.json())
   .then(data => {
     if(data.length === 0) {
-      let goalDiv = document.getElementById('goalDiv');
-      goalDiv.innerHTML = '<h3>No budget to display</h3>';
+      let budgetDiv = document.getElementById('pieDiv');
+      budgetDiv.innerHTML = '<h3>No budget to display</h3>';
       return;
     }
     console.log(data[0]);
