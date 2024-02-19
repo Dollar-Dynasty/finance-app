@@ -1,4 +1,6 @@
 console.log("budgetPage.js loaded");
+let budgetId = '';
+const deleteBudgetBtn = document.getElementById('deleteBudget');
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/budgets')
     .then(response => response.json())
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         console.log(data[0]);
         const categories = data[0].categories;
-
+        budgetId = data[0]._id;
         var chart_data = {
         values: categories.map(category => category.category_budget_allowance),
         labels: categories.map(category => category.category_name),
@@ -26,5 +28,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     })
     .catch(error => console.error('Error loading budgets:', error));
+
+    deleteBudgetBtn.addEventListener('click', function() {
+        if(!budgetId) {
+            console.error('No budget to delete');
+            return;
+        }
+        fetch(`/api/budgets/${budgetId}`, {
+        method: 'DELETE'
+        })
+        .then(response => response.text())
+        .then(data => {
+        console.log(data);
+        window.location.href = '/user-dashboard';
+        })
+        .catch(error => console.error('Error deleting budget:', error));
+    });
 }
 );
