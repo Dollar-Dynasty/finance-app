@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     var layout = {
       title: "Budget Allocation",
-      height: 500,
-      width: 800
+      height: 400,
+      width: 600
     };
 
     Plotly.newPlot('pieDiv', [chart_data], layout);
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         ],
         height: 400,
-        width: 700,
+        width: 500,
         showlegend: true,
         grid: {rows: 1, columns: 1}
       };
