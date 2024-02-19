@@ -1,6 +1,7 @@
 
 // Path: views/styles/_variables.scss
 @import 'variables';
+@import 'mixins';
 
 body {
   background-color: $background-color;
