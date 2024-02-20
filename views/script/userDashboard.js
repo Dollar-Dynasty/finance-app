@@ -1,7 +1,7 @@
 console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
-const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
 const totalBudgetLabel = document.getElementById("budgetTotal");
+const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/user')
   .then(response => response.json())
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     var layout = {
       title: "Budget Allocation",
-      height: 400,
-      width: 600
+      height: 550,
+      width: 750
     };
 
     Plotly.newPlot('pieDiv', [chart_data], layout);
@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 0.5
           }
         ],
-        height: 400,
-        width: 500,
+        height: 350,
+        width: 350,
         showlegend: true,
         grid: {rows: 1, columns: 1}
       };
