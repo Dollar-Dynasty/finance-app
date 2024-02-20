@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
@@ -11,13 +11,13 @@
     <nav class="navigation"> 
       <h1>Finance App</h1>
       <ul>
-        <ul><a href="/user-dashboard">Dashboard</a></ul>
-        <ul><a href="/budget-page">Budget</a></ul>
-        <ul><a href="/goals-page">Goals</a></ul>
+        <li><a href="/user-dashboard">Dashboard</a></li>
+        <li><a href="/budget-page">Budget</a></li>
+        <li><a href="/goals-page">Goals</a></li>
       </ul>
       <!-- add log out -->
       <ul>
-        <ul><a href="/api/logout">Log Out</a></ul>
+        <li><a href="/api/logout">Log Out</a></li>
       </ul>
     </nav>
     <div class="main-content">
@@ -31,19 +31,18 @@
                 <p>Here is a summary of your goals:</p>
                 <div id="goalDiv"></div>
                 <p id="goalDescription"></p>
+                <button id="createGoalBtn">Create Goal</button> <!-- New button for goals page-->
                 <button id="deleteGoal">Delete Budget</button>
             </div>
-          
         </div>
         <footer class="footer">
           <%- include('../partials/footer'); %>
         </footer>
       </main>
     </div>
-    
   </div>
   
   
-  <script src="../script/goalsPage.js"></script>
+  <script src="../script/userDashboard.js"></script>
 </body>
 </html>
