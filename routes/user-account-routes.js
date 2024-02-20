@@ -110,6 +110,21 @@ apiRouter.delete('/deleteBudget', (req, res) => {
   });
 });
 
+apiRouter.delete('/deleteGoal', (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const goalId = req.body.goalId;
+  Goal.where({ _id: goalId}).findOneAndDelete().then(() => {
+    console.log('Goal Deleted');
+    res.send('Goal Deleted');
+  }
+  ).catch((error) => {
+    console.log(error);
+  });
+});
+
 
 
 apiRouter.post('/goalsForm', (req, res) => {
