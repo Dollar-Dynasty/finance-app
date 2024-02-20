@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
-  <%- include('../partials/head'); %>
+  <%- include('../partials/head', { title: 'Your Budgets' }) %>
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
-  
-  <div class="dashboard">
-    <nav class="navigation"> 
-      <h1>Finance App</h1>
-      <ul>
-        <ul><a href="/user-dashboard">Dashboard</a></ul>
-        <ul><a href="/budget-page">Budget</a></ul>
-        <ul><a href="/goals-page">Goals</a></ul>
-      </ul>
-    </nav>
-    <div class="main-content">
-      <main>
-        <header>
-          <h1>Budget Board</h1>
-        </header> 
-        <div class="dashboard-content">
-          <div class="budget">
-            <h2>Budget</h2>
-            <p>Here is a summary of your budget:</p>
-            <div id="pieDiv"></div>
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
+
+  <header>
+    <h1>Budget Board</h1>
+  </header> 
+
+  <main>
+    <div class="dashboard">
+      <div class="main-content">
+        <main>
+          <div class="dashboard-content">
+            <div class="budget">
+              <h2>Budget</h2>
+              <p>Here is a summary of your budget:</p>
+              <div id="pieDiv"></div>
+            </div>
           </div>
-          
-        </div>
-        <footer class="footer">
-          <%- include('../partials/footer'); %>
-        </footer>
-      </main>
+      </div>
     </div>
-    
-  </div>
+  </main>
   
-  
+  <footer class="footer">
+    <%- include('../partials/footer'); %>
+  </footer>
+
   <script src="../script/budgetPage.js"></script>
 </body>
 </html>

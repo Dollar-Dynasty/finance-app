@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../styles/partials/footer.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <%- include('../partials/head', { title: 'Get Signed Up' }) %>
   <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
     
     /* Set gray background color and 100% height */
     .sidenav {
+      padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
     }
-
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -26,111 +33,30 @@
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;} 
+      .row.content {height:auto;} 
     }
   </style>
 </head>
+
 <body>
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav">
-
-
-    </div>
-
-    <div class="col-sm-9">
-      <form action="/api/registration-form" method="post">
-        <div>
-          <div>
-            <div>
-              Sign Up
-            </div>
-          <div>
-          <label>First name</label>
-            <input type="text" 
-              name="firstName" 
-              id="first_name" 
-              index: true,
-              placeholder="First naxme"
-              required
-            >
-        </div>
-  
-  
-        <div>
-          <label>Last name</label>
-            <input 
-              type="text" 
-              name="lastName" 
-              id="last_name" 
-              index: true,
-              placeholder="Last name"
-              required
-            >
-        </div>      
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
+    
+  <div class="container-fluid text-center">    
+    <div class="row content">
+      <div class="col-sm-4 sidenav">
         
-        <div>
-          <label>Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              id="email" 
-              index: true,
-              placeholder="mmcfly@cusco.com"
-              autocomplete="email"
-              required
-            >
-        </div>
-  
-  
-        <div>
-          <label>Username</label>
-            <input 
-              type="text" 
-              name="userName" 
-              id="username" 
-              index: true,
-              placeholder="Username" 
-              autocomplete="username"
-              required
-            >
-        </div>
-  
-  
-        <div>
-          <label>Password</label>
-            <input 
-              type="password" 
-              name="password" 
-              id="password" 
-              placeholder="Password" 
-              autocomplete="new-password"
-              required
-            >
-          <label>Confirm Password</label>
-            <input 
-              type="password" 
-              name="confirmPassword" 
-              id="confirm_password" 
-              placeholder="Confirm Password" 
-              autocomplete="new-password"
-              required
-            >
-        </div>
-  
-  
-        <button type="submit" method="post" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      </div>
+
+      <div class="col-sm-8 text-left"> 
+        <%- include('../partials/forms/registration-form'); %>
+      </div>
     </div>
   </div>
-</div>
 
-<footer class="container-fluid">
-  <%- include('../partials/footer'); %>
-</footer>
-
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,91 @@
+/** --------------------------------
+ -- Imports
+-------------------------------- */
+@import 'variables';
+@import 'mixins';
+@import 'footer';
+
+
+/** --------------------------------
+ -- Account Registration Page
+-------------------------------- */
+
+
+/** --------------------------------
+ -- Account Login Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- Landing Page
+-------------------------------- */
+.landing-page{
+    header {
+      // only apply to the header under the .landing-page class in the <body> tag of the page
+      background-color: blue;
+      color: white;
+    }
+}
+
+
+
+/** --------------------------------
+ -- New Budget Creation Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- New Goal Creation Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- User Dashboard Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- Budget Overview Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- Goals Overview Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- Data Analytics Page
+-------------------------------- */
+
+
+
+/** --------------------------------
+ -- TO-DO: CHANGE ---- See example below this 
+-------------------------------- */
+
+// // Base styles
+// @import 'base/variables';
+// @import 'base/mixins';
+// @import 'base/reset';
+
+// // Components
+// @import 'components/buttons';
+// @import 'components/cards';
+// @import 'components/modals';
+
+// // Layouts
+// @import 'layouts/header';
+// @import 'layouts/footer';
+// @import 'layouts/grid';
+
+// // Pages
+// @import 'pages/homepage';
+// @import 'pages/about';
+// @import 'pages/contact';

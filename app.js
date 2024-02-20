@@ -14,7 +14,6 @@ const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
 const firebase_app = initializeApp(firebaseConfig);
 const auth = getAuth(firebase_app);
 
-
 connectDB();
 
 app.use(express.json());

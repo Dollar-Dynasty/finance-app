@@ -1,0 +1,84 @@
+<form action="/api/registration-form" method="post">
+    <div>
+      <div>
+        <div>
+          Sign Up
+        </div>
+      <div>
+      <label>First name</label>
+        <input type="text" 
+          name="firstName" 
+          id="first_name" 
+          index: true,
+          placeholder="First name"
+          required
+        >
+    </div>
+
+
+    <div>
+      <label>Last name</label>
+        <input 
+          type="text" 
+          name="lastName" 
+          id="last_name" 
+          index: true,
+          placeholder="Last name"
+          required
+        >
+    </div>      
+    
+    <div>
+      <label>Email</label>
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          index: true,
+          placeholder="mmcfly@cusco.com"
+          autocomplete="email"
+          required
+        >
+    </div>
+
+
+    <div>
+      <label>Username</label>
+        <input 
+          type="text" 
+          name="userName" 
+          id="username" 
+          index: true,
+          placeholder="Username" 
+          autocomplete="username"
+          required
+        >
+    </div>
+
+
+    <div>
+      <label>Password</label>
+        <input 
+          type="password" 
+          name="password" 
+          id="password" 
+          placeholder="Password" 
+          autocomplete="new-password"
+          required
+        >
+      <label>Confirm Password</label>
+        <input 
+          type="password" 
+          name="confirmPassword" 
+          id="confirm_password" 
+          placeholder="Confirm Password" 
+          autocomplete="new-password"
+          required
+        >
+    </div>
+
+
+    <button type="submit" method="post" class="btn btn-primary">
+      Submit
+    </button>
+  </form>

@@ -1,141 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
-  <%- include('../partials/head'); %>
-  <link rel="stylesheet" href="../styles/user-dashboard.css">
+  <%- include('../partials/head', { title: 'Your Dashboard' }) %>
 </head>
 
 <body>
-  <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-    <div class="sidebar-header d-flex flex-column justify-content-center align-items-center px-3 py-4">
-      <i class="fas fa-user-circle fa-3x" style="color: #bababa;"></i> <!-- Adjusted the size to 3x for better visibility -->
-      <h5 class="fs-6 my-2" style="color: #ffffff;">John Doe</h5> <!-- Added margin for spacing -->
-      <p class="mb-0" style="color: #bdefd5;">Account Admin</p>
-    </div>
-    
-    <ul class="categories list-unstyled">
-      <li class="">
-         <i class="fas fa-tachometer-alt" style="color: rgb(255, 255, 255);"></i><a href="#" style="color: rgb(255, 255, 255);">Dashboard</a>
-      </li>
-      <li class="">
-         <i class="fas fa-wallet" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Budget</a>
-      </li>
-      <li class="">
-         <i class="fas fa-bullseye" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Goals</a>
-      </li>
-      <li class="">
-         <i class="fas fa-chart-line" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Data Analysis</a>
-      </li>
-   </ul>   
-  </aside>
-  
-  <section id="wrapper">
-    <nav class="navbar navbar-expand-md">
-      <div class="container-fluid mx-2">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Finance<span class="main-color">App</span></a>
-        </div>
-          <%- include('../partials/landing-header'); %>
-      </div>
-    </nav>
-  
-    <div class="p-4 main-content">
-      <div class="welcome">
-        <div class="content rounded-3 p-3">
-          <h1 class="fs-10">Dashboard</h1>
-          <h3 id="welcomeUser"></h3>
-        </div>
-      </div>
-  
-      <section class="statistics mt-4">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">$1,245</h3> <span class="d-block ms-2">Total Expenses</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">3</h3> <span class="d-block ms-2">Savings Goals</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h2 id="totalMonthlyIncome" class="mb-0"></h2> <span class="d-block ms-2">Monthly Income</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
 
-      <section class="charts mt-4 dashboard-content">
-        <h6>Your Expenses</h6>
-        <div class="row">
+  <!-- <header>
+    <h1>Dashboard</h1>
+  </header> -->
 
-
-          <div class="col-lg-6">
-            <div class="chart-container rounded-2 p-3">
-              <h3 class="fs-6 mb-3 budget">
-x
-                <h2>Budget</h2>
-                <p>Here is a summary of your budget:</p>
-                <div id="pieDiv"></div>
-
-              </h3>
-            </div>
-          </div>
-
-
-          <div class="col-lg-6">
-            <div class="chart-container rounded-2 p-3">
-              <h3 class="fs-6 mb-3 goals">
-
-                <h2>Goals</h2>
-                <p>Here is a summary of your GOALSSS:</p>
-                <div id="goalDiv"></div>
-
-
-              </h3>
-            </div>
-          </div>
-
-        </div>
-      </section>
+  <head>
+    <style>
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {height: 550px}
       
+      /* Set gray background color and 100% height */
+      .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+          
+      /* On small screens, set height to 'auto' for the grid */
+      @media screen and (max-width: 767px) {
+        .row.content {height: auto;} 
+      }
+    </style>
+  </head>
+  <body>
   
-      <section class="charts mt-4">
-        <div class="chart-container p-3">
-          <h3 class="fs-6 mb-3">
-            
-          </h3>
-          <div style="height: 300px">
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>Logo</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#section1">Dashboard</a></li>
+          <li><a href="#section2">Age</a></li>
+          <li><a href="#section3">Gender</a></li>
+          <li><a href="#section3">Geo</a></li>
+        </ul><br>
+      </div>
+      <br>
+      
+      <div class="col-sm-9">
+        <header>
+          <h1>Dashboard</h1>
+        </header>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="well">
+              <h2 id="totalMonthlyIncome" class="mb-0"></h2> <span class="d-block ms-2">Monthly Income</span>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Pages</h4>
+              <p>100 Million</p> 
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Sessions</h4>
+              <p>10 Million</p> 
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Bounce</h4>
+              <p>30%</p> 
+            </div>
           </div>
         </div>
-      </section>
+
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="well">
+              <h2>Budget</h2>
+              <p>Here is a summary of your budget!!!:</p>
+              <%- include('../partials/data-visualization/budget'); %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <h2>Goals</h2>
+              <p>Here is a summary of your GOALSSS:</p>
+              <div id="goalDiv"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-
-
-  <footer class="footer">
+  <footer>
     <%- include('../partials/footer'); %>
   </footer>
 
+  <script src="../script/userDashboard.js"></script>
 </body>
-<script src="../script/userDashboard.js"></script>
 </html>

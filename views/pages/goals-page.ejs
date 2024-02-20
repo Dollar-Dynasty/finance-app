@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('../partials/head'); %>
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
   
-  <div class="dashboard">
-    <nav class="navigation"> 
-      <h1>Finance App</h1>
-      <ul>
-        <ul><a href="/user-dashboard">Dashboard</a></ul>
-        <ul><a href="/budget-page">Budget</a></ul>
-        <ul><a href="/goals-page">Goals</a></ul>
-      </ul>
-    </nav>
-    <div class="main-content">
-      <main>
-        <header>
-          <h1>Goals Board</h1>
-        </header> 
+  <header>
+    <h1>Goals Board</h1>
+  </header> 
+
+  <main>
+    <div class="dashboard">
+      <div class="main-content">
         <div class="dashboard-content">
-            <div class="goals">
-                <h2>Goals</h2>
-                <p>Here is a summary of your goals:</p>
-                <div id="goalDiv"></div>
-            </div>
-          
+          <div class="goals">
+            <h2>Goals</h2>
+            <p>Here is a summary of your goals:</p>
+            <div id="goalDiv"></div>
+          </div>
         </div>
-        <footer class="footer">
-          <%- include('../partials/footer'); %>
-        </footer>
-      </main>
+      </div>
     </div>
-    
-  </div>
+  </main>
   
-  
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
   <script src="../script/goalsPage.js"></script>
 </body>
 </html>
