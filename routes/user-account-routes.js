@@ -61,7 +61,7 @@ apiRouter.post('/loginForm', async (req, res) => {
   }).catch((error) => {
     console.log(error.code);
     console.log(error.message);
-
+// TO-DO: needs to show user message that the email or password was incorrect
     res.redirect('/login-form');
     });
   });
@@ -93,7 +93,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
 
 apiRouter.delete('/deleteBudget', (req, res) => {
   if (!req.auth.currentUser) {
-    res.redirect('/');
+    res.redirect('/');id="pieDiv"
     return;
   }
   const budgetId = req.body.budgetId;

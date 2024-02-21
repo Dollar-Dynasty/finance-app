@@ -1,120 +1,200 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
-  <%- include('../partials/head', { title: 'Your Dashboard' }) %>
+    <%- include('../partials/head/app-head', { title: 'Your Dashboard', description: 'Your Dashboarddd' }) %>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .sidebar-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .full-height {
+            min-height: 100vh;
+        }
+        @media screen and (max-width: 1024px) {
+            .sidebar {
+                display: none;
+            }
+            .main-content {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 640px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
-<body>
-  <nav>
-    <%- include('../partials/navbar'); %>
-  </nav>
+<body class="bg-gradient-to-br from-blue-800 to-blue-600 text-white font-sans">
+    <div class="flex h-screen">
 
-  <!-- <header>
-    <h1>Dashboard</h1>
-  </header> -->
+        <%- include('../partials/navbar'); %>
 
-  <head>
-    <style>
-      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-      .row.content {height: 550px}
-      
-      /* Set gray background color and 100% height */
-      .sidenav {
-        background-color: #f1f1f1;
-        height: 100%;
-      }
-          
-      /* On small screens, set height to 'auto' for the grid */
-      @media screen and (max-width: 767px) {
-        .row.content {height: auto;} 
-      }
-    </style>
-  </head>
-  <body>
-  
-  <div class="container-fluid">
-    <div class="row content">
-      <div class="col-sm-3 sidenav hidden-xs">
-        <h2>Logo</h2>
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="#section1">Dashboard</a></li>
-          <li><a href="#section2">Age</a></li>
-          <li><a href="#section3">Gender</a></li>
-          <li><a href="#section3">Geo</a></li>
-        </ul><br>
-      </div>
-      <br>
-      
-      <div class="col-sm-9">
-        <header>
-          <h1>Dashboard</h1>
-        </header>
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="well">
-              <h2 id="totalMonthlyIncome" class="mb-0"></h2> <span class="d-block ms-2">Monthly Income</span>
+
+        <div class="w-4/5 bg-white text-gray-700">
+            <div class="px-10 py-8">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="text-2xl font-bold text-gray-800">Dashboard</h2>
+                    <div class="flex items-center">
+                        <div class="relative mr-4">
+                            <input type="search" placeholder="Search receipt" class="pl-10 pr-4 py-2 rounded-lg border-2 border-gray-300">
+                            <i class="fas fa-search absolute left-3 top-2 text-gray-400"></i>
+                        </div>
+                        <img src="https://placehold.co/40x40" alt="User profile" class="rounded-full">
+                        <h2 id="welcomeUser" class="ml-3"></h2>
+                    </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="well">
-              <h4>Pages</h4>
-              <p>100 Million</p> 
+
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div class="bg-blue-100 p-5 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold mb-2">Expenses</h3>
+                        <p id="budgetTotal" class="font-bold text-xl"></p>
+                        <p class="text-sm text-blue-600">Overspent $162.00 USD</p>
+                        <h2 id="monthlyIncome" class="ml-3"></h2>
+                    </div>
+
+                    <div class="col-span-2">
+                        <div class="flex justify-between">
+                            <div class="w-1/2 bg-blue-100 p-5 rounded-lg shadow-md mr-4">
+                                <h3 class="text-lg font-semibold mb-2">Spent by category</h3>
+                                <div id="pieDiv" alt=" "></div>
+                            </div>
+                            <div class="w-1/2 bg-blue-100 p-5 rounded-lg shadow-md">
+                                <h3 class="text-lg font-semibold mb-2">Savings</h3>
+                                <div id="goalDiv" alt=" "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">Recent payments</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center bg-gray-100 p-3 rounded-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-red-400 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Milgro Migros</p>
+                                    <p class="text-sm text-gray-500">Groceries</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-bold">$18.35</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        <div class="flex flex-wrap">
+
+
+    <div class="w-1/3 p-4">
+        <div class="bg-white rounded-lg p-6 shadow">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <span class="rounded-full bg-purple-500 p-4 text-white mr-3">
+                        <i class="fas fa-wallet"></i>
+                    </span>
+                    <div>
+                        <p class="text-sm text-gray-600">QPay</p>
+                        <p class="text-xl font-bold">$500</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-600">Valid Thru</p>
+                    <p class="text-lg font-bold">05/23</p>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="well">
-              <h4>Sessions</h4>
-              <p>10 Million</p> 
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="well">
-              <h4>Bounce</h4>
-              <p>30%</p> 
-            </div>
-          </div>
+            <p class="text-gray-700 font-bold">**** **** **** 1234</p>
+            <p class="text-gray-500 text-sm mt-1">Card Holder: Robert</p>
         </div>
-
-
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="well">
-              <h2>Budget</h2>
-              <p>Here is a summary of your budget!!!:</p>
-              <%- include('../partials/data-visualization/budget'); %>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="well">
-              <h2>Goals</h2>
-              <p>Here is a summary of your GOALSSS:</p>
-              <div id="goalDiv"></div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="well">
-              <p>Text</p> 
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="well">
-              <p>Text</p> 
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <footer>
-    <%- include('../partials/footer'); %>
-  </footer>
 
-  <script src="../script/userDashboard.js"></script>
+    <div class="w-1/3 p-4">
+        <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-bold mb-4">Exchange rates</h3>
+            <img src="https://placehold.co/300x100" alt="Exchange rate chart placeholder">
+        </div>
+    </div>
+
+
+    <div class="w-1/3 p-4">
+        <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-bold mb-4">Efficiency</h3>
+            <div class="flex justify-between items-center">
+                <div>
+                    <img src="https://placehold.co/100x100" alt="Efficiency chart placeholder" class="rounded-full border-2 border-purple-500 p-2">
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-600">Earned</p>
+                    <p class="text-lg font-bold">$5,200</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="w-1/2 p-4">
+        <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-bold mb-4">Last costs</h3>
+            <img src="https://placehold.co/300x150" alt="Last costs chart placeholder">
+        </div>
+    </div>
+
+
+    <div class="w-1/2 p-4">
+        <div class="bg-white rounded-lg p-6 shadow">
+            <h3 class="text-lg font-bold mb-4">Recent activities</h3>
+            <ul class="text-sm">
+                <li class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <span class="rounded-full bg-red-500 p-2 text-white mr-3">
+                            <i class="fas fa-arrow-up"></i>
+                        </span>
+                        <p>To Philip Kelley</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-lg font-bold">- $450.00</p>
+                    </div>
+                </li>
+                <li class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <span class="rounded-full bg-red-500 p-2 text-white mr-3">
+                            <i class="fas fa-arrow-up"></i>
+                        </span>
+                        <p>To Philip Kelley</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-lg font-bold">- $450.00</p>
+                    </div>
+                </li>
+                <li class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <span class="rounded-full bg-red-500 p-2 text-white mr-3">
+                            <i class="fas fa-arrow-up"></i>
+                        </span>
+                        <p>To Philip Kelley</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-lg font-bold">- $450.00</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../script/userDashboard.js"></script>
 </body>
 </html>

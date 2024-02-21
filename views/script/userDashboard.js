@@ -1,13 +1,15 @@
 console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
-const totalBudgetLabel = document.getElementById("budgetTotal");
-const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
+const totalBudget = document.getElementById("budgetTotal");
+const totalMonthlyIncome = document.getElementById("monthlyIncome");
+
+
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/user')
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    userDisplayName.innerText = `Welcome, ${data.firstName} ${data.lastName}!`;
+    userDisplayName.innerText = `Welcome, ${data.firstName}!`;
   })
   .catch(error => console.error('Error loading user:', error));
 
@@ -30,23 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(categories[category].category_budget_allowance);
     }
     console.log("Total Budget: ",total_budget);
-    totalBudgetLabel.textContent = `Total Budget: $${total_budget}`; 
+    totalBudget.textContent = `Total Budget: ${total_budget}`; 
     
-    var chart_data = {
+    var chart_data = [{
       values: categories.map(category => category.category_budget_allowance),
       labels: categories.map(category => category.category_name),
       type: 'pie'
-    };
+    }];
     var layout = {
       title: "Budget Allocation",
-      height: 550,
-      width: 750
+      height: 350,
+      width: 350
     };
 
-    Plotly.newPlot('pieDiv', [chart_data], layout);
+    Plotly.newPlot('pieDiv', chart_data, layout);
 
-  })
+  }
+  )
   .catch(error => console.error('Error loading budgets:', error));
+
+
+
 
   fetch('/api/goals')
     .then(response => response.json())
@@ -98,4 +104,47 @@ document.addEventListener('DOMContentLoaded', function() {
       Plotly.newPlot('goalDiv', data, layout);
     }
     );
+});
+
+console.log('userDashboard.js loaded');
+
+// Helper function for error handling
+function handleError(error, source) {
+  console.error(`Error from ${source}:`, error);
+  // Optionally, update the UI to inform the user an error occurred
+}
+
+// Check response validity
+function checkResponseStatus(response) {
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return response;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/api/user')
+    .then(checkResponseStatus)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      userDisplayName.innerText = `Welcome, ${data.firstName}!`;
+    })
+    .catch(error => handleError(error, 'loading user'));
+
+  fetch('/api/budgets')
+    .then(checkResponseStatus)
+    .then(response => response.json())
+    .then(data => {
+      // Your existing logic...
+    })
+    .catch(error => handleError(error, 'loading budgets'));
+
+  fetch('/api/goals')
+    .then(checkResponseStatus)
+    .then(response => response.json())
+    .then(data => {
+      // Your existing logic...
+    })
+    .catch(error => handleError(error, 'loading goals'));
 });

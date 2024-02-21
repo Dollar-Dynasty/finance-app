@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon . & npm run scss",
-    "scss": "sass --watch views/scss/main.scss views/styles/main.css",
+    "scss": "sass --watch views/styles/main.scss views/styles/main.css",
     "serverstart": "DEBUG=finance-app:* npm run dev"
   },
   "author": "",

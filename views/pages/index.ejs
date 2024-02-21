@@ -1,72 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <%- include('../partials/head', { title: 'MyFinanceApp' }) %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance App Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 </head>
 
-<body class="landing-page">
-  <nav>
-    <%- include('../partials/navbar'); %>
-  </nav>
 
 
-  <header class="jumbotron">
-    <div class="container text-center">
-      <h1>My Portfolio</h1>      
-      <p>Some text that represents "Me"...</p>
-    </div>
-  </header>
-    
+<body class="bg-gradient-to-r from-blue-500 to-blue-400">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-white font-bold text-xl">FinGuard</a>
+        <div class="flex space-x-4">
+            <a href="#" class="text-white">Home</a>
+            <a href="#" class="text-white">About Us</a>
+            <a href="#" class="text-white">Pricing</a>
+            <a href="#" class="text-white">Features</a>
+            <a href="#" class="text-white">Blog</a>
+            <a href="#" class="text-white">Contact Us</a>
+        </div>
+        <a href="/login-form" class="bg-white text-blue-500 py-2 px-4 rounded-md">Login</a>
+    </nav>
 
-  <div class="container-fluid bg-3 text-center">    
-    <h3>Some of my Work</h3><br>
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-    </div>
-  </div><br>
+    <header class="container mx-auto px-6 py-16 text-white">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="font-bold text-4xl mb-4">Manage all your customer support in one place to Finance App</h1>
+                <p class="mb-6">Take control over your personal finance keep track of your experience. Get to know your spending patterns and prevent money.</p>
+                <div>
+                    <a href="/registration-form" class="bg-blue-700 py-2 px-6 mr-4 rounded-md">Get Started</a>
+                    <a href="#" class="border border-white py-2 px-6 rounded-md">Watch video</a>
+                </div>
+            </div>
+            <div>
+                <img src="https://placehold.co/200x400" alt="Mobile phone screenshot showing finance wallet app interface with transactions for room, restaurant, and fast food service." class="rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-blue-900 font-bold text-3xl mb-10">Features</h2>
+            <div class="grid grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of easy customization" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Easy Customization</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of secure transfer" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Secure Transfer</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of payment control" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Payment Control</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of apple watch app" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Apple Watch App</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-center text-blue-900 font-bold text-3xl mb-10">How
+its work</h2>
+<div class="grid grid-cols-3 gap-8 text-center">
+<div class="bg-blue-100 p-6 rounded-lg">
+<div class="text-blue-500 mb-4">
+<i class="fas fa-user-plus fa-3x"></i>
+</div>
+<h3 class="font-bold mb-2">Create Account</h3>
+<p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+</div>
+<div class="bg-blue-100 p-6 rounded-lg">
+<div class="text-blue-500 mb-4">
+<i class="fas fa-credit-card fa-3x"></i>
+</div>
+<h3 class="font-bold mb-2">Make Payment</h3>
+<p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+</div>
+<div class="bg-blue-100 p-6 rounded-lg">
+<div class="text-blue-500 mb-4">
+<i class="fas fa-wallet fa-3x"></i>
+</div>
+<h3 class="font-bold mb-2">Withdraw Fund</h3>
+<p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+</div>
+</div>
+</section>
 
 
-  <div class="container-fluid bg-3 text-center">    
-    <div class="row">
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3"> 
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-      <div class="col-sm-3">
-        <p>Some text..</p>
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      </div>
-    </div>
-  </div>
+<footer class="bg-blue-900 text-white text-center p-4">
+    <p>© 2024 Finance App. All rights reserved.</p>
+</footer>
 
-
-  <footer>
-    <%- include('../partials/footer'); %>
-  </footer>
 
 </body>
 </html>

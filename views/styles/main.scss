@@ -1,0 +1,60 @@
+/** --------------------------------
+ -- Base Styles
+-------------------------------- */
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+
+
+/** --------------------------------
+ -- Layouts
+-------------------------------- */
+@import 'layouts/footer';
+// @import 'layouts/header';
+// @import 'layouts/grid';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** --------------------------------
+ -- Partials
+-------------------------------- */
+// @import 'partials/buttons';
+// @import 'partials/cards';
+// @import 'partials/modals';
+
+
+/** --------------------------------
+ -- Pages
+-------------------------------- */
+// @import 'pages/homepage';
+// @import 'pages/about';
+// @import 'pages/contact';
+
+
+
+/** --------------------------------
+ -- Landing Page
+-------------------------------- */
+// .landing-page{
+//     header {
+//       // only apply to the header under the .landing-page class in the <body> tag of the page
+//       background-color: blue;
+//       color: white;
+//     }
+// }
