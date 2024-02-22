@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    userDisplayName.innerText = `Welcome, ${data.firstName}!`;
+    userDisplayName.innerText = `${data.firstName} ${data.lastName}`;
   })
   .catch(error => console.error('Error loading user:', error));
 
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }];
     var layout = {
       title: "Budget Allocation",
-      height: 350,
-      width: 350
+      height: 450,
+      width: 450
     };
 
     Plotly.newPlot('pieDiv', chart_data, layout);
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         domain: {column: 1},
         name: goalTitle,
         hoverinfo: 'label+percent',
-        hole: .5,
+        hole: .6,
         type: 'pie'
       }];
       
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         annotations: [
           {
             font: {
-              size: 20
+              size: 12
             },
             
             showarrow: false,
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 0.5
           }
         ],
-        height: 350,
-        width: 350,
+        height: 450,
+        width: 280,
         showlegend: true,
         grid: {rows: 1, columns: 1}
       };
@@ -111,7 +111,7 @@ console.log('userDashboard.js loaded');
 // Helper function for error handling
 function handleError(error, source) {
   console.error(`Error from ${source}:`, error);
-  // Optionally, update the UI to inform the user an error occurred
+  // update the UI to inform the user an error occurred
 }
 
 // Check response validity

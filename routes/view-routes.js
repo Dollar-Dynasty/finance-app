@@ -1,16 +1,19 @@
 const express = require('express');
-const User = require('../models/user-model');
-const Login = require('../models/login-model');
 const viewRouter = express.Router();
 
-// Load HTML pages from 'views/pages' //
+// Landing
 viewRouter.get('/', (req, res) => {res.render('pages/index');});
-viewRouter.get('/goals-form', (req, res) => {res.render('pages/goals-form');});
-viewRouter.get('/budget-form', (req, res) => {res.render('pages/budget-form');});
-viewRouter.get('/user-dashboard', (req, res) => {res.render('pages/user-dashboard');});
-viewRouter.get('/registration-form', (req, res) => {res.render('pages/registration-form');});
-viewRouter.get('/login-form', (req, res) => {res.render('pages/login-form');});
-viewRouter.get('/budget-page', (req, res) => {res.render('pages/budget-page');});
-viewRouter.get('/goals-page', (req, res) => {res.render('pages/goals-page');});
+viewRouter.get('/login', (req, res) => {res.render('pages/landing-links/user-login');});
+
+// New User
+viewRouter.get('/register', (req, res) => {res.render('pages/new-user/account-registration');});
+viewRouter.get('/make-goal', (req, res) => {res.render('pages/new-user/first-goal');});
+viewRouter.get('/create-budget', (req, res) => {res.render('pages/new-user/first-budget');});
+viewRouter.get('/register', (req, res) => {res.render('pages/new-user/account-registration');});
+
+// Logged In User
+viewRouter.get('/dashboard', (req, res) => {res.render('pages/logged-in-user/user-dashboard');});
+viewRouter.get('/budget-overview', (req, res) => {res.render('pages/logged-in-user/budgets-overview');});
+viewRouter.get('/goals-overview', (req, res) => {res.render('pages/logged-in-user/goals-overview');});
 
 module.exports = viewRouter;

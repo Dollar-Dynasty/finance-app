@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head/app-head', { title: 'Your First Budget' , description: 'User can create their own monthly budget'}) %>
+
+
+<body>
+  <header class="jumbotron">
+    <h1>Create a Monthly Budget</h1>
+  </header>
+
+  <main>
+    <%- include('../../partials/forms/budget-form'); %>
+  </main>
+
+  <script src="../../script/budgetCreation.js"></script>
+
+  
+</body>
+</html>

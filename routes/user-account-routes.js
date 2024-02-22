@@ -31,7 +31,7 @@ apiRouter.post('/registration-form', async (req, res) => {
       accountId: user.uid
     });
     newUser.save();
-    res.redirect('/budget-form');
+    res.redirect('/create-budget');
   }
   ).catch((error) => {
     console.log(error.code);
@@ -57,12 +57,12 @@ apiRouter.post('/loginForm', async (req, res) => {
   signInWithEmailAndPassword(auth, userName, password).then((userCredential) => {
     const user = userCredential.user;
     console.log("Signed In: ",user.uid);
-    res.redirect('/user-dashboard');
+    res.redirect('/dashboard');
   }).catch((error) => {
     console.log(error.code);
     console.log(error.message);
 // TO-DO: needs to show user message that the email or password was incorrect
-    res.redirect('/login-form');
+    res.redirect('/login');
     });
   });
 
@@ -72,7 +72,7 @@ apiRouter.post('/loginForm', async (req, res) => {
 
 apiRouter.post('/budgetCreation', (req, res) => {
   if (!req.auth.currentUser) {
-    res.redirect('/login-form');
+    res.redirect('/login');
     return;
   }
   const { budget_title, budget_description, month_start_date, month_end_date, monthly_income, categories} = req.body;
@@ -88,7 +88,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
-  res.redirect('/goals-form');
+  res.redirect('/make-goal');
 });
 
 apiRouter.delete('/deleteBudget', (req, res) => {
@@ -127,7 +127,7 @@ apiRouter.post('/goalsForm', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newGoal.save();
-  res.redirect('/user-dashboard');
+  res.redirect('/dashboard');
 });
 
 apiRouter.get('/logout', (req, res) => {
