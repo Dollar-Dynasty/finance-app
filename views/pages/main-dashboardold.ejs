@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('../../partials/common/head/app-head', { title: 'Dashboard | FinGuard', description: 'Users personalized financial dashboard' }) %>
+    <%- include('../partials/layouts/head', { title: 'Dashboard | FinGuard', description: 'Users personalized financial dashboard' }) %>
     <style>
         .dropdown-toggle::after {
         content: '\25BC';
@@ -48,9 +47,7 @@
 <body class="bg-gradient-to-br from-blue-800 to-blue-600 text-white font-sans">
     <div class="flex h-screen">
 
-        <%- include('../../partials/navbar'); %>
-
-
+        <%- include('../partials/layouts/navbar'); %>
 
         <div class="w-4/5 bg-white text-gray-700">
             <div class="px-10 py-8">
@@ -96,7 +93,7 @@
                               }
                             }
                           </script>
-                    </div>
+                        </div>
             </div>
 
 

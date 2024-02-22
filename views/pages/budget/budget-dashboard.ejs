@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../../partials/common/head/app-head', { title: 'Your Dashboard', description: 'Your Dashboarddd' }) %>
+<%- include('../../partials/layouts/head', { title: 'Your Dashboard', description: 'Your Dashboarddd' }) %>
 
 
 <body>
-   <%- include('../../partials/navbar'); %>
+   <%- include('../../partials/layouts/navbar'); %>
 
   <header>
     <h1>Budget Board</h1>
@@ -26,7 +26,7 @@
   </main>
   
   <footer class="footer">
-    <%- include('../../partials/footer'); %>
+    <%- include('../../partials/layouts/footer'); %>
   </footer>
 
   <script src="/js/budgetPage.js"></script>
