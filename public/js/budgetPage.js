@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      userDisplayName.innerText = `Welcome ${data.firstName}!`;
+      //userDisplayName.innerText = `Welcome ${data.firstName}!`;
     })
     .catch(error => console.error('Error loading user:', error));
   
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       console.log(data[0]);
-      totalMonthlyIncome.innerText = `Total Monthly Income: ${data[0].monthly_income}`;
+      //totalMonthlyIncome.innerText = `Total Monthly Income: ${data[0].monthly_income}`;
       const categories = data[0].categories;
   
       var total_budget = 0;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(categories[category].category_budget_allowance);
       }
       console.log("Total Budget: ",total_budget);
-      totalBudget.textContent = `Total Budget: ${total_budget}`; 
+      //totalBudget.textContent = `Total Budget: ${total_budget}`; 
       
       var chart_data = [{
         values: categories.map(category => category.category_budget_allowance),
