@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/common/head/app-head', { title: 'Your Dashboard', description: 'Your Dashboarddd' }) %>
+
+
+<body>
+  <%- include('../../partials/navbar'); %>
+  
+  <header>
+    <h1>Goals Board</h1>
+  </header> 
+
+  <main>
+    <div class="dashboard">
+      <div class="main-content">
+        <div class="dashboard-content">
+          <div class="goals">
+            <h2>Goals</h2>
+            <p>Here is a summary of your goals:</p>
+            <div id="goalDiv"></div>
+            <p id="goalDescription"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+
+  <%- include('../../partials/footer'); %>
+
+  <script src="/js/goalsPage.js"></script>
+</body>
+</html>

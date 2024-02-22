@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <%- include('../partials/head', { title: 'Your Dashboard' }) %>
+
+  <style>
+    .myDiv {
+      background-color: #484848;
+      display: grid;
+      place-items: center;
+      min-height: 10vh;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
+
+  <!-- <header>
+    <h1>Dashboard</h1>
+  </header> -->
+
+  <head>
+    <style>
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {height: 550px}
+      
+      /* Set gray background color and 100% height */
+      .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      }
+          
+      /* On small screens, set height to 'auto' for the grid */
+      @media screen and (max-width: 767px) {
+        .row.content {height: auto;} 
+      }
+    </style>
+  </head>
+  <body>
+  
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>Logo</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#section1">Dashboard</a></li>
+          <li><a href="#section2">Budget</a></li>
+          <li><a href="#section3">Goals</a></li>
+          <li><a href="#section3">Data Analysis</a></li>
+        </ul><br>
+      </div>
+      <br>
+      
+      <div class="col-sm-9">
+        <header>
+          <h1>Dashboard</h1>
+          <h2 id="welcomeUser">Welcome</h2>
+        </header>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="well">
+              <h2 id="totalMonthlyIncome" class="mb-0"></h2> <span class="d-block ms-2">Monthly Income</span>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <h4>Pages</h4>
+              <p>100 Million</p> 
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <h4>Sessions</h4>
+              <p>10 Million</p> 
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="well">
+              <h2>Budget</h2>
+              <p>Summary:</p>
+              <%- include('../partials/data-visualization/budget'); %>
+              <div id="myDiv" class="myDiv"></div>
+              <script>
+                const layout = {
+                  height: 500,
+                  width: 600,
+                  colorway: ["#e91e63", "#673ab7"],
+                  barmode: "group",
+                  title: "",
+                  xaxis: { title: "Number" },
+                  yaxis: { title: "Function" },
+                  bargap: 0.3,
+                  paper_bgcolor: "transparent",
+                  plot_bgcolor: "transparent",
+                  font: {
+                    family: "Colfax, IBM Plex Sans",
+                    color: "white"
+                  },
+                  yaxis: {
+                    range: [0, 750],
+                    autorange: false
+                  }
+                };
+
+                const config = {
+                  displaylogo: false,
+                  responsive: true,
+                  scrollZoom: true
+                };
+
+                const animationConfig = {
+                  transition: {
+                    duration: 1000,
+                    easing: "cubic-in-out"
+                  },
+                  frame: {
+                    duration: 600
+                  }
+                };
+
+                // Initial Plot for Animation
+                const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                const initialData = [
+                  {
+                    x: numbers,
+                    y: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    name: "total",
+                    type: "bar"
+                  },
+                  {
+                    x: numbers,
+                    y: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    name: "spent",
+                    type: "bar"
+                  }
+                ];
+                Plotly.newPlot("myDiv", initialData, layout, config);
+
+                // Final Plot with Animation
+                const squares = numbers.map((x) => x * x);
+                const cubes = numbers.map((x) => x * x * x);
+                const trace1 = {
+                  x: numbers,
+                  y: squares,
+                  name: "total",
+                  type: "bar"
+                };
+                const trace2 = { x: numbers, y: cubes, name: "spent", type: "bar" };
+                const finalData = [trace1, trace2];
+                Plotly.animate("myDiv", { data: finalData }, { ...animationConfig });
+              </script>
+
+              <div id="myDiv" class="myDiv"></div>
+
+
+
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <h2>Goals</h2>
+              <p>Summary:</p>
+              <div id="goalDiv"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+  <script src="../script/userDashboard.js"></script>
+</body>
+</html>

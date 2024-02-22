@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/common/head/app-head', { title: 'Your Dashboard', description: 'Your Dashboarddd' }) %>
+
+
+<body>
+   <%- include('../../partials/navbar'); %>
+
+  <header>
+    <h1>Budget Board</h1>
+  </header> 
+
+  <main>
+    <div class="dashboard">
+      <div class="main-content">
+          <div class="dashboard-content">
+            <div class="budget">
+              <h2>Budget</h2>
+              <p>Here is a summary of your budget:</p>
+              <button id="deleteBudget">Delete Budget</button>
+              <div id="budgetPieChart"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <%- include('../../partials/footer'); %>
+  </footer>
+
+  <script src="/js/budgetPage.js"></script>
+</body>
+</html>

@@ -1,209 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('../partials/head'); %>
-  <link rel="stylesheet" href="../styles/index.css">
+    <%- include('../partials/common/head/app-head', { title: 'FinGuard: Finances Simplified', description: 'FinGuard Home Page' }) %>
+    <style> 
+        body { 
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-style: normal;        
+        } 
+
+        h1 {
+            font-family: "Lato", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+        button {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
 </head>
 
-<body>
-
-  <!-- <main>
-    <div class="jumbotron">
-      <h1>Demo of Dollar Dynasty</h1>
-      <p>Reach your financial goals, one dollar at a time.</p>
-    </div>
-
-    <div id='myDiv'></div>
-
-  </main> -->
 
 
+<body class="bg-gradient-to-l from-[#49329c] to-[#551FC5]">
+    <nav class="container mx-auto px-2 py-6 flex justify-between items-center">
+        <span><img src="/images/name-and-logo.webp" alt="FinGuard Company Logo and Name" width="180" height="100"></span>
+          <!-- TO-DO: create partial for app name with logo next to it -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-  HTML FOR MVP, DOES NOT HAVE TO BE PERMANENT 
-
--->
-
-
-  <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-    <div class="sidebar-header d-flex flex-column justify-content-center align-items-center px-3 py-4">
-      <i class="fas fa-user-circle fa-3x" style="color: #bababa;"></i> <!-- Adjusted the size to 3x for better visibility -->
-      <h5 class="fs-6 my-2" style="color: #ffffff;">John Doe</h5> <!-- Added margin for spacing -->
-      <p class="mb-0" style="color: #bdefd5;">Account Admin</p>
-    </div>
-    
-    <ul class="categories list-unstyled">
-      <li class="">
-         <i class="fas fa-tachometer-alt" style="color: rgb(255, 255, 255);"></i><a href="#" style="color: rgb(255, 255, 255);">Dashboard</a>
-      </li>
-      <li class="">
-         <i class="fas fa-wallet" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Budget</a>
-      </li>
-      <li class="">
-         <i class="fas fa-bullseye" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Goals</a>
-      </li>
-      <li class="">
-         <i class="fas fa-chart-line" style="color: #bebebe;"></i><a href="#" style="color: #bebebe;">Data Analysis</a>
-      </li>
-   </ul>   
-  </aside>
-  
-  <section id="wrapper">
-    <nav class="navbar navbar-expand-md">
-      <div class="container-fluid mx-2">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Finance<span class="main-color">App</span><span class="main-format2"> | d e m o</span></a>
+        <div class="flex space-x-10">
+            <a href="#" class="text-white hover:text-opacity-70">
+                Home
+            </a>
+            <a href="#" class="text-base text-white text-opacity-70 hover:text-white">
+                About Us
+            </a>
+            <a href="#" class="text-base text-white text-opacity-70 hover:text-white">
+                Features
+            </a>
+            <a href="#" class="text-base text-white text-opacity-70 hover:text-white">
+                Blog
+            </a>
+            <a href="#" class="text-base text-white text-opacity-70 hover:text-white">
+                Contact Us
+            </a>
         </div>
-          <%- include('../partials/landing-header'); %>
-      </div>
+
+
+        <a href="/login" class="font-bold bg-[#A0ECE5] text-[#49329c]text-blue-500 py-2 px-7 rounded-xl">
+            Login
+        </a>
     </nav>
-  
-    <div class="p-4">
-      <div class="welcome">
-        <div class="content rounded-3 p-3">
-          <h1 class="fs-10">Dashboard</h1>
-          <p>Welcome John!</p>
-        </div>
-      </div>
-  
-      <section class="statistics mt-4">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">$1,245</h3> <span class="d-block ms-2">Total Expenses</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">3</h3> <span class="d-block ms-2">Savings Goals</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center p-3">
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">$5,245</h3> <span class="d-block ms-2">Total Savings</span>
-                </div>
-                <p class="fs-normal mb-0"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-  
-      <section class="charts mt-4">
-        <h6>Your Expenses</h6>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="chart-container rounded-2 p-3">
-              <h3 class="fs-6 mb-3">
-                <div id="pieDiv">
 
+
+    <header class="container mx-auto px-2 py-16 text-white">
+        <div class="flex justify-between items-center ml-4">
+            <div>
+                <h1 class="text-6xl mb-7 tracking-wide">
+                    Manage all your customer support<br> 
+                    in one place to Finance App
+                </h1>
+
+                <p class="text-xl mb-10">
+                    Take control over your personal finances. Keep track of your
+                    budget, get to know your spending patterns,<br>
+                    and start saving money today.
+                </p>
+
+                
+                <div>
+                    <button class="bg-[#A0ECE5] py-5 px-10 mr-4 rounded-xl hover:bg-sky-700 hover:bg-violet-600 active:bg-violet-400 focus:outline-[#A0ECE5] focus:ring focus:ring-[#A0ECE5]-30">
+                        <a href="/register" class="text-[#49329c] text-3xl font-bold">Get started</a>
+                    </button>
+
+                    <button class="border border-[#A0ECE5] py-3 px-6 rounded-xl secondary-btn">
+                        <a href="#" class="text-xl text-[#A0ECE5]">Watch video</a>
+                    </button>
                 </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function() {
-                      var data = {
-                        values: [19, 26, 55],
-                        labels: ['Payments', 'Entertainment', 'Utility'],
-                        'marker': {
-                          'colors': [
-                            '#b1cbbb',
-                            '#b6e7ff',
-                            '#4B5563',
-                          ]
-                        },
-                        type: 'pie'
-                      };
-              
-                      var layout = {
-                        title: "Total Budget Allocation",
-                        height: 390,
-                        width: 470
-                      };
-              
-                      Plotly.newPlot('pieDiv', [data], layout);
-                      });
-                </script> 
-              </h3>
             </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="chart-container rounded-2 p-3">
-              <h3 class="fs-6 mb-3">
-                <div id='pieDiv2'>
 
-                </div> 
-                <script>
-                  var data = [
-                  {
-                    x: ['Expenses', 'Savings', 'Extra'],
-                    y: [60, 20, 20],
-                    type: 'bar'
-                  }
-                  ];
 
-                  var layout = {
-                        title: "Percentage Used by Category",
-                        height: 500,
-                        width: 660
-                   };
-
-                  Plotly.newPlot('pieDiv2', data, layout);
-                </script>
-              </h3>
+            <div>
+                <img src="https://placehold.co/300x500" alt="Mobile phone screenshot showing finance wallet app interface with transactions for room, restaurant, and fast food service." class="rounded-lg shadow-2xl">
             </div>
-          </div>
         </div>
-      </section>
-  
-      <section class="charts mt-4">
-        <div class="chart-container p-3">
-          <h3 class="fs-6 mb-3">
-            
-          </h3>
-          <div style="height: 300px">
-          </div>
+    </header>
+
+
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+
+            <h2 class="text-center text-blue-900 font-bold text-3xl mb-10">
+                Features
+            </h2>
+
+            <div class="grid grid-cols-4 gap-6">
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of easy customization" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Easy Customization</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+
+
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of secure transfer" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Secure Transfer</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+
+
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of payment control" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Payment Control</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+
+
+                <div class="bg-blue-100 p-6 rounded-lg text-center">
+                    <img src="https://placehold.co/100" alt="Placeholder image for feature of apple watch app" class="mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Apple Watch App</h3>
+                    <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the and typesetting industry.</p>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
+
+
+
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold">Finance teams, get full control and visibility over ALL company spending</h1>
+            <p class="mt-4">Spendesk combines spend approvals, company cards, expense reimbursements, invoice management and automated accounting into one refreshingly easy spend management solution.</p>
+            <div class="mt-6">
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Book a demo</a>
+                <a href="#" class="ml-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Try it out</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Placeholder for the dashboard image -->
+            <div class="col-span-1 md:col-span-2">
+                <img src="https://placehold.co/600x400" alt="Dashboard view showing various financial management tools" class="rounded-lg shadow-lg">
+            </div>
+            <!-- Card with reviews -->
+            <div class="col-span-1">
+                <p>4.7/5 ON G2</p>
+                <p class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </p>
+                <p>4.8/5 ON CAPTERRA</p>
+                <p class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </p>
+            </div>
+        </div>
     </div>
-  </section>
 
 
 
-  <footer class="footer">
-    <%- include('../partials/footer'); %>
-  </footer>
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-blue-900 font-bold text-3xl mb-10">Features</h2>
+            <div class="grid grid-cols-12 gap-6">
+                <p>hi</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-center text-blue-900 font-bold text-3xl mb-10">How it works</h2>
+        <div class="grid grid-cols-3 gap-8 text-center">
+        <div class="bg-blue-100 p-6 rounded-lg">
+        <div class="text-blue-500 mb-4">
+        <i class="fas fa-user-plus fa-3x"></i>
+        </div>
+        <h3 class="font-bold mb-2">Create Account</h3>
+        <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+        </div>
+        <div class="bg-blue-100 p-6 rounded-lg">
+        <div class="text-blue-500 mb-4">
+        <i class="fas fa-credit-card fa-3x"></i>
+        </div>
+        <h3 class="font-bold mb-2">Make Payment</h3>
+        <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+        </div>
+        <div class="bg-blue-100 p-6 rounded-lg">
+        <div class="text-blue-500 mb-4">
+        <i class="fas fa-wallet fa-3x"></i>
+        </div>
+        <h3 class="font-bold mb-2">Withdraw Fund</h3>
+        <p>Lorem ipsum is simply dummy text printing and typesetting industry. Lorem the industry ever since the.</p>
+        </div>
+        </div>
+    </section>
+
+
+<footer class="bg-blue-900 text-white text-center p-4">
+    <p>© 2024 Finance App. All rights reserved.</p>
+</footer>
+
 
 </body>
-<script src="../script/index.js"></script>
 </html>

@@ -1,0 +1,99 @@
+<form action="/api/registration-form" method="post" class="max-w-md w-full">
+  <h2 class="text-3xl font-bold mb-6">Create your account</h2>
+  
+  <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mb-4 w-full">
+      <i class="material-icons" style="vertical-align:middle; font-size:1.5rem;">g_translate</i>
+      Continue with Google
+  </button>
+
+  <div class="flex items-center my-3">
+      <div class="flex-grow border-t border-gray-300"></div>
+      <span class="flex-shrink mx-4 text-gray-400">or</span>
+      <div class="flex-grow border-t border-gray-300"></div>
+  </div>
+
+
+  <input type="text" 
+    name="firstName" 
+    id="first_name" 
+    index: true,
+    placeholder="First name"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >
+
+
+  <input 
+    type="text" 
+    name="lastName" 
+    id="last_name" 
+    index: true,
+    placeholder="Last name"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >      
+
+
+  <input 
+    type="email" 
+    name="email" 
+    id="email" 
+    index: true,
+    placeholder="Email Address"
+    autocomplete="email"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >
+
+
+  <input 
+    type="text" 
+    name="userName" 
+    id="username" 
+    index: true,
+    placeholder="Username" 
+    autocomplete="username"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >
+
+
+  <input 
+    type="password" 
+    name="password" 
+    id="password" 
+    placeholder="Password" 
+    autocomplete="new-password"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >
+
+
+  <input 
+    type="password" 
+    name="confirmPassword" 
+    id="confirm_password" 
+    placeholder="Confirm Password" 
+    autocomplete="new-password"
+    required
+    class="mb-4 p-3 border rounded w-full"
+  >
+
+
+  <div class="mb-4">
+      <input type="checkbox" id="news" class="mr-2"/>
+      <label for="news">Receive Semrush news and SEO tips</label>
+  </div>
+
+  <button type="submit" method="post" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded w-full">
+      Create account
+  </button>
+
+  <p class="mt-4 text-center text-sm text-gray-500">
+      Already have an account? <a href="/login-form" class="text-blue-500 hover:text-blue-600">Log in</a>
+  </p>
+  
+  <p class="mt-4 text-center text-xs text-gray-400">
+      By creating your account, you agree to the <a href="#" class="text-blue-500 hover:text-blue-600">Terms of Service</a> and <a href="#" class="text-blue-500 hover:text-blue-600">Privacy Policy</a>
+  </p>
+</form>

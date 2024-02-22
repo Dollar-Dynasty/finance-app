@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head', { title: 'Login to Your Account' }) %>
+  <!-- Needs to be added later -->
+  <!-- <link rel="stylesheet" href="../styles/global/forms.scss"> -->
+</head>
+
+<body>
+  <nav>
+    <%- include('../partials/navbar'); %>
+  </nav>
+  
+  <main>
+    <div class="jumbotron">
+      <h1>Login</h1>
+      <p>Welcome back!</p>
+    </div>
+
+    <div>
+      <%- include('../partials/forms/login-form'); %>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+</body>
+</html>
