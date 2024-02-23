@@ -17,48 +17,54 @@
         </nav>
     </header>
     <div class="main-content">
-      <main>
-        <div class="jumbotron">
-          <h1>Login</h1>
-          <p>Welcome back!</p>
-        </div>
-    
-        <div>
-          <form action="/api/loginForm" method="post">
-            <div class="form-group">
-              <label>Email</label>
-                <input 
-                  type="text" 
-                  name="userName" 
-                  id="username" 
-                  placeholder="Email" 
-                  autocomplete="username"
-                  required
-                >
-            </div>
-    
-    
-            <div class="form-group">
-              <label>Password</label>
-                <input 
-                  type="password" 
-                  name="password" 
-                  id="password" 
-                  placeholder="Password" 
-                  autocomplete="new-password"
-                  required
-                >
-            </div>
-    
-    
-            <div class="form-group" class="btn btn-primary" class="form-group btn btn-primary">
-              <button type="submit" method="post">Submit</button>
-            </div>
-            <label>Don't have an account? <a href="/registration-form">Sign Up Here</a></label>
-          </form>
-        </div>
-      </main>
-    
+      <div class="jumbotron">
+        <h1>Login</h1>
+        <p>Welcome back!</p>
+      </div>
+      <div class="content">
+        <main>
+          <div>
+            <form action="/api/loginForm" method="post">
+              <div class="card">
+                <div class="card-header">
+                  Login
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                    <input 
+                      type="text" 
+                      name="userName" 
+                      id="username" 
+                      placeholder="Email" 
+                      autocomplete="username"
+                      required
+                    >
+                </div>
+        
+        
+                <div class="form-group">
+                  <label>Password</label>
+                    <input 
+                      type="password" 
+                      name="password" 
+                      id="password" 
+                      placeholder="Password" 
+                      autocomplete="new-password"
+                      required
+                    >
+                </div>
+        
+                <div class="form-group" class="btn btn-primary" class="form-group btn btn-primary">
+                  <button type="submit" method="post" class="button-primary">Submit</button>
+                </div>
+                <label>Don't have an account? <a href="/registration-form">Sign Up Here</a></label>
+              
+              </div>
+            </form>
+          </div>
+        </main>
+      
+      </div>
       <footer class="footer">
         <%- include('../partials/footer'); %>
       </footer>
