@@ -2,10 +2,6 @@ console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
 const totalBudgetLabel = document.getElementById("budgetTotal");
 const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
-const daysRemainingLabel = document.getElementById("daysRemaining");
-const totalDaysLabel = document.getElementById("dayDifference");
-const currentSavingsLabel = document.getElementById("amountSaved");
-const targetSavingsLabel = document.getElementById("targetRemain");
 
 
 
@@ -22,21 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    const createdAt =  new Date(data[0]["createdAt"]);
-    const deadline = new Date(data[0]["deadline"]);
-    const timeDifference = deadline.getTime() - createdAt.getTime();
-    const dayDifference = Math.round(timeDifference/(1000*3600*24));
-    totalDaysLabel.innerText = `Total Days for Goal: ${dayDifference}`;
-    
-    const currentDate = new Date();
-    const timeRemaining = deadline.getTime() - currentDate.getTime();
-    const daysRemaining = Math.round(timeRemaining/(1000*3600*24));
-    daysRemainingLabel.innerText = `Days reamining until deadline: ${daysRemaining}`;
 
-    const targetRemain = data[0].targetAmount - data[0].savedAmount;
-    const amountSaved = data[0].savedAmount;
-    currentSavingsLabel.innerText = `Current Savings: ${amountSaved}`;
-    targetSavingsLabel.innerText = `Amount needed to reach goal: ${targetRemain}`;
+    
+
+
   })
   .catch(error => console.error('Error loading goals:', error));
   

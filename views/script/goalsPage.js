@@ -2,6 +2,11 @@ console.log("goalsPage.js loaded");
 let goalId = '';
 const deleteGoalBtn = document.getElementById('deleteGoal');
 const goalDescription = document.getElementById('goalDescription');
+const daysRemainingLabel = document.getElementById("daysRemaining");
+const totalDaysLabel = document.getElementById("dayDifference");
+const currentSavingsLabel = document.getElementById("amountSaved");
+const targetSavingsLabel = document.getElementById("targetRemain");
+
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/api/goals')
     .then(response => response.json())
@@ -19,6 +24,19 @@ document.addEventListener("DOMContentLoaded", function() {
       let goalTargetAmount = data[0].targetAmount;
       let goalSavedAmount = data[0].savedAmount;
       let goalRemainingAmount = goalTargetAmount - goalSavedAmount;
+      const createdAt =  new Date(data[0]["createdAt"]);
+      const deadline = new Date(data[0]["deadline"]);
+      const timeDifference = deadline.getTime() - createdAt.getTime();
+      const currentDate = new Date();
+      const timeRemaining = deadline.getTime() - currentDate.getTime();
+      const daysRemaining = Math.round(timeRemaining/(1000*3600*24));
+      daysRemainingLabel.innerText = `Days reamining until deadline: ${daysRemaining}`;
+      const dayDifference = Math.round(timeDifference/(1000*3600*24));
+      const targetRemain = data[0].targetAmount - data[0].savedAmount;
+      const amountSaved = data[0].savedAmount;
+      currentSavingsLabel.innerText = `Current Savings: ${amountSaved}`;
+      targetSavingsLabel.innerText = `Amount needed to reach goal: ${targetRemain}`;
+      totalDaysLabel.innerText = `Total Days for Goal: ${dayDifference}`;
 
       var data = [{
         values: [goalRemainingAmount, goalSavedAmount],
