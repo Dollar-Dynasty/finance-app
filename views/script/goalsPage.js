@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const currentDate = new Date();
       const timeRemaining = deadline.getTime() - currentDate.getTime();
       const daysRemaining = Math.round(timeRemaining/(1000*3600*24));
-      daysRemainingLabel.innerText = `Days reamining until deadline: ${daysRemaining}`;
+      daysRemainingLabel.innerText = `Days remaining until deadline: ${daysRemaining}`;
       const dayDifference = Math.round(timeDifference/(1000*3600*24));
       const targetRemain = data[0].targetAmount - data[0].savedAmount;
       const amountSaved = data[0].savedAmount;
