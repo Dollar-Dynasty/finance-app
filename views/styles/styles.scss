@@ -9,9 +9,6 @@ body {
 
 .dashboard {
     display: flex;
-    
-    
-    
     .navigation {
         padding-top: 40px; /* Adjust as needed */
         padding-left: 20px; /* Adjust as needed */
@@ -102,5 +99,16 @@ body {
         
     }
 }
-  
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $background-color;
+    color: $background-text-color;
+    h1 {
+        font-size: 3rem;
+    }
+}
 
