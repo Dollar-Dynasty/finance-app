@@ -1,15 +1,19 @@
 console.log("goalsPage.js loaded");
+let goalId = '';
+const deleteGoalBtn = document.getElementById('deleteGoal');
 const goalDescription = document.getElementById('goalDescription');
 document.addEventListener("DOMContentLoaded", function() {
     fetch('/api/goals')
     .then(response => response.json())
     .then(data => {
+      deleteGoalBtn.disabled = (data.length === 0);
       console.log(data);
       if(data.length === 0) {
         let goalDiv = document.getElementById('goalDiv');
         goalDiv.innerHTML = '<h3>No goals to display</h3>';
         return;
       }
+      goalId = data[0]._id;
       let goalTitle = data[0].title;
       goalDescription.textContent = data[0].description;
       let goalTargetAmount = data[0].targetAmount;
@@ -51,4 +55,17 @@ document.addEventListener("DOMContentLoaded", function() {
       Plotly.newPlot('goalDiv', data, layout);
     })
     .catch(error => console.error('Error loading goals:', error));
+
+    deleteGoalBtn.addEventListener('click', function() {
+      if(!confirm('Are you sure you want to delete this goal?') || !goalId) {
+        return;
+      }
+      fetch(`/api/deleteGoal`, { method: 'DELETE', body:JSON.stringify({goalId: goalId}) ,headers: { 'Content-Type': 'application/json' } })
+      .then(response => response.text())
+      .then(data => {
+        console.log("Deleted:",data);
+        window.location.href = '/user-dashboard';
+      })
+      .catch(error => console.error('Error deleting goal:', error));
+    });
 });
