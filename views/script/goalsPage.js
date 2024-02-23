@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
       goalId = data[0]._id;
-      let goalTitle = data[0].title;
-      goalDescription.textContent = data[0].description;
+      let goalTitle = data[0].title || "Goal";
+      goalDescription.textContent = data[0].description || "No description";
       let goalTargetAmount = data[0].targetAmount;
       let goalSavedAmount = data[0].savedAmount;
       let goalRemainingAmount = goalTargetAmount - goalSavedAmount;

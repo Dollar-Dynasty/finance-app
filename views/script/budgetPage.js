@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         type: 'pie'
         };
         var layout = {
-        title: "Budget Allocation",
+        title: data[0].budget_title || "Budget Allocation",
         height: 500,
         width: 800
         };
