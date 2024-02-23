@@ -1,110 +1,73 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-
-<body>
-
-
-  <header>
-    <h1>Budget Board</h1>
-  </header> 
-
-  <main>
-    <div>
-      <h2>Goals</h2>
-      <p>Here is a summary of your goals:</p>
-      <div id="goalDiv"></div>
-      <p id="goalDescription"></p>
-    </div>
-  </main>
-  
-
-
-  <script src="/js/goalsPage.js"></script>
-</body>
-</html> -->
-
-
-
-
-
-
-
-
-
-
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Visualize your Finances</title>
-  <link rel="icon" type="image/png" href="path/to/your/favicon.png">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Visualize your Finances</title>
+    <link rel="icon" type="image/png" href="path/to/your/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-  <!-- Scripts -->
-  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
-  <script>
-    const setup = () => {
-    function getSidebarStateFromLocalStorage() {
-      // if it already there, use it
-      if (window.localStorage.getItem('isSidebarOpen')) {
-        return JSON.parse(window.localStorage.getItem('isSidebarOpen'))
+    <!-- Scripts -->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script>
+      const setup = () => {
+      function getSidebarStateFromLocalStorage() {
+        // if it already there, use it
+        if (window.localStorage.getItem('isSidebarOpen')) {
+          return JSON.parse(window.localStorage.getItem('isSidebarOpen'))
+        }
+
+        // else return the initial state you want
+        return (
+        false
+        )
       }
 
-      // else return the initial state you want
-      return (
-      false
-      )
-    }
+      function setSidebarStateToLocalStorage(value) {
+        window.localStorage.setItem('isSidebarOpen', value)
+      }
 
-    function setSidebarStateToLocalStorage(value) {
-      window.localStorage.setItem('isSidebarOpen', value)
+    return {
+          loading: true,
+          isSidebarOpen: getSidebarStateFromLocalStorage(),
+          toggleSidbarMenu() {
+            this.isSidebarOpen = !this.isSidebarOpen
+            setSidebarStateToLocalStorage(this.isSidebarOpen)
+          },
+          isSettingsPanelOpen: false,
+          isSearchBoxOpen: false,
+      }
     }
-
-  return {
-        loading: true,
-        isSidebarOpen: getSidebarStateFromLocalStorage(),
-        toggleSidbarMenu() {
-          this.isSidebarOpen = !this.isSidebarOpen
-          setSidebarStateToLocalStorage(this.isSidebarOpen)
-        },
-        isSettingsPanelOpen: false,
-        isSearchBoxOpen: false,
-    }
-  }
-  </script>
-  <style>
-    [x-cloak] { display: none; }
-  </style>
-</head>
+    </script>
+    <style>
+      [x-cloak] { display: none; }
+    </style>
+  </head>
 
 <body>
-    <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
+      <div class="flex h-screen overflow-y-hidden bg-white" x-data="setup()" x-init="$refs.loading.classList.add('hidden')">
         <div
           x-ref="loading"
           class="fixed inset-0 z-50 flex items-center justify-center text-white bg-black bg-opacity-50"
           style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)" >
-
           Loading.....
         </div>
 
-        <%- include('../../partials/layouts/navs/dashboard-sidebar'); %>
-      
+        <%- include('../partials/layout/navs/dashboards/sidebar'); %>
 
         <div class="flex flex-col flex-1 h-full overflow-hidden">
-          <%- include('../../partials/layouts/navs/dashboard-topnav'); %>
+          <%- include('../partials/layout/navs/dashboards/top'); %>
 
-
+          
           <main class="flex-1 max-h-full p-5 overflow-hidden overflow-y-scroll">
             <div class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row">
               <h1 class="text-2xl font-semibold whitespace-nowrap">
-                Savings Goals
+                Dashboard
               </h1>
               <div class="space-y-6 md:space-x-2 md:space-y-0"></div>
             </div>
@@ -187,8 +150,8 @@
                 </div>
               </div>
 
-              <div class="col-span-1 sm:col-span-2 lg:col-span-2 p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg">
-              </div>
+              
+              <div class="col-span-1 sm:col-span-2 lg:col-span-2 p-4 transition-shadow border rounded-lg shadow-sm hover:shadow-lg"></div>
             </div>
 
 
@@ -275,13 +238,13 @@
 
 
           <footer class="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14">
-            <div>
-              <a href="https://github.com/Dollar-Dynasty/finance-app" target="_blank" class="flex items-center space-x-1">
-              <svg class="w-6 h-6 text-gray-400" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-              <span class="hidden text-sm md:block">View on Github</span>
-            </a>
+          <div>
+            <a href="https://github.com/Dollar-Dynasty/finance-app" target="_blank" class="flex items-center space-x-1">
+            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            <span class="hidden text-sm md:block">View on Github</span>
+          </a>
           </div>
             <div class="text-sm">
               Made by
@@ -295,14 +258,14 @@
             </div>
           </footer>
         </div>
-
+  
 
         <div>
           <button @click="isSettingsPanelOpen = true" class="fixed right-0 px-4 py-2 text-sm font-medium text-white uppercase transform rotate-90 translate-x-8 bg-gray-600 top-1/2 rounded-b-md">
             Settings
           </button>
         </div>
-
+  
         <div
           x-show="isSettingsPanelOpen"
           @click.away="isSettingsPanelOpen = false"
@@ -331,13 +294,13 @@
           </div>
           <div class="flex-1 max-h-full p-4 overflow-hidden hover:overflow-y-scroll">
             <span>Settings Content</span>
-            <!-- Settings Panel Content ... -->
           </div>
         </div>
-    </div>
-    <%- include('../../partials/layouts/footer'); %>
-</div>
+      </div>
+      <%- include('../partials/layout/footers/main'); %>
+  </div>
 
-<script src="/js/goalsPage.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/goals/get.js"></script>
 </body>
 </html>

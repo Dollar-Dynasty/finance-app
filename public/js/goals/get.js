@@ -89,16 +89,19 @@
 
 
 
-console.log("goalsPage.js loaded");
 
 const goalDescription = document.getElementById('goalDescription');
 const goalTitle = document.getElementById('goalTitle');
+const daysRemainingLabel = document.getElementById("daysRemaining");
+const totalDaysLabel = document.getElementById("dayDifference");
+const currentSavingsLabel = document.getElementById("amountSaved");
+const targetSavingsLabel = document.getElementById("targetRemain");
 
-// Define an array of color sets for the goals
+// array of color sets for the goals
 const colorSets = [
-  ['#FF6384', '#36A2EB'], // Color set 1
-  ['#FFCD56', '#FF9F40'], // Color set 2
-  ['#4BC0C0', '#9966FF']  // Color set 3
+  ['#FF6384', '#36A2EB'], // color set 1
+  ['#FFCD56', '#FF9F40'], // color set 2
+  ['#4BC0C0', '#9966FF']  // color set 3
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -216,5 +219,28 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
     })
-    .catch(error => console.error('Error loading goals:', error));
+
+
+
+    fetch('/api/goals')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const createdAt =  new Date(data[0]["createdAt"]);
+      const deadline = new Date(data[0]["deadline"]);
+      const timeDifference = deadline.getTime() - createdAt.getTime();
+      const dayDifference = Math.round(timeDifference/(1000*3600*24));
+      totalDaysLabel.innerText = `Total Days for Goal: ${dayDifference}`;
+  
+      const currentDate = new Date();
+      const timeRemaining = deadline.getTime() - currentDate.getTime();
+      const daysRemaining = Math.round(timeRemaining/(1000*3600*24));
+      daysRemainingLabel.innerText = `Days reamining until deadline: ${daysRemaining}`;
+  
+      const targetRemain = data[0].targetAmount - data[0].savedAmount;
+      const amountSaved = data[0].savedAmount;
+      currentSavingsLabel.innerText = `Current Savings: ${amountSaved}`;
+      targetSavingsLabel.innerText = `Amount needed to reach goal: ${targetRemain}`;
+    })
+    .catch(error => console.error('Error loading goals:', error));  
 });

@@ -4,7 +4,6 @@ const path = require('path');
 const connectDB = require('./config/db-connection');
 const viewRouter = require('./routes/view-routes');
 const accountRouter = require('./routes/user-account-routes');
-// const budgetRouter = require('./routes/budget-routes');
 
 const { initializeApp} = require('firebase/app');
 const { getAuth } = require('firebase/auth');
@@ -35,6 +34,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', accountRouter);
 app.use('/', viewRouter);
-// app.use('/', budgetRouter);
 
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`);});
