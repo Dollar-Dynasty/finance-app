@@ -12,5 +12,6 @@ viewRouter.get('/registration-form', (req, res) => {res.render('pages/registrati
 viewRouter.get('/login-form', (req, res) => {res.render('pages/login-form');});
 viewRouter.get('/budget-page', (req, res) => {res.render('pages/budget-page');});
 viewRouter.get('/goals-page', (req, res) => {res.render('pages/goals-page');});
+viewRouter.get('/contact-page', (req, res) => {res.render('pages/contact-page');});
 
 module.exports = viewRouter;

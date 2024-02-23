@@ -82,6 +82,9 @@ body {
     flex-direction: column; /* Stack items vertically on smaller screens */
   }
 }
+.dashboard .main-content .content {
+  padding: 20px; /* Adjust as needed */
+}
 @media (max-width: 768px) {
   .dashboard .main-content {
     flex: 1; /* Adjust as needed */
@@ -92,21 +95,22 @@ body {
     margin: 0; /* Adjust as needed */
   }
 }
+.dashboard .button-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dashboard .button-primary:hover {
+  background-color: #0056b3;
+}
 @media (max-width: 1000px) {
   .dashboard {
     flex-direction: column;
     height: 100vh;
   }
-}
-
-.welcome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: rgb(0, 0, 150);
-  color: rgb(255, 255, 255);
-}
-.welcome h1 {
-  font-size: 3rem;
 }/*# sourceMappingURL=styles.css.map */

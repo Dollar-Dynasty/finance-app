@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head'); %>
     <title>Welcome to YourFinanceApp</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
@@ -12,57 +13,60 @@
           <nav class="navigation">
               <h1>Finance App</h1>
               <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/contact-page">Contact Us</a></li>
               </ul>
           </nav>
       </header>
       <div class="main-content">
 
         <main>
-            <section class="welcome-section">
+            <header>
                 <h1>Welcome to YourFinanceApp</h1>
                 <p class="tagline">Track Your Budget and Goals Effortlessly</p>
                 <p class="description">With YourFinanceApp, managing your finances has never been easier. Take control of your budget and set achievable goals to reach your financial dreams.</p>
-            </section>
-            <section class="features-section">
-                <h2>Features:</h2>
-                <ol>
-                    <li>
-                        <h3>Budget Management:</h3>
-                        <ul>
-                            <li>Create personalized budgets for different aspects of your life.</li>
-                            <li>Set monthly income and allocate budget allowances for various categories.</li>
-                            <li>Track your expenses effortlessly and stay within budget.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>Goal Setting:</h3>
-                        <ul>
-                            <li>Define your financial goals with clear titles and descriptions.</li>
-                            <li>Set target amounts and deadlines to achieve your goals.</li>
-                            <li>Monitor your progress as you save towards your objectives.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>User-Friendly Interface:</h3>
-                        <ul>
-                            <li>Intuitive design for easy navigation and seamless user experience.</li>
-                            <li>Access your financial data anytime, anywhere, from any device.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </section>
-            <section class="cta-section">
-                <h2>Get Started Today!</h2>
-                <p>Sign up now to start managing your finances like a pro. Take the first step towards financial freedom with YourFinanceApp.</p>
-                <a href="/registration-form"><button class="sign-up-btn">Sign Up</button></a>
-                <p>Already have an account? <a href="/login-form">Log In Here</a></p>
-            </section>
+            </header>
+            <div class="content">
+
+              <section >
+                  <h2>Features:</h2>
+                  <ol>
+                      <li>
+                          <h3>Budget Management:</h3>
+                          <ul>
+                              <li>Create personalized budgets for different aspects of your life.</li>
+                              <li>Set monthly income and allocate budget allowances for various categories.</li>
+                              <li>Track your expenses effortlessly and stay within budget.</li>
+                          </ul>
+                      </li>
+                      <li>
+                          <h3>Goal Setting:</h3>
+                          <ul>
+                              <li>Define your financial goals with clear titles and descriptions.</li>
+                              <li>Set target amounts and deadlines to achieve your goals.</li>
+                              <li>Monitor your progress as you save towards your objectives.</li>
+                          </ul>
+                      </li>
+                      <li>
+                          <h3>User-Friendly Interface:</h3>
+                          <ul>
+                              <li>Intuitive design for easy navigation and seamless user experience.</li>
+                              <li>Access your financial data anytime, anywhere, from any device.</li>
+                          </ul>
+                      </li>
+                  </ol>
+              </section>
+              <section >
+                  <h2>Get Started Today!</h2>
+                  <p>Sign up now to start managing your finances like a pro. Take the first step towards financial freedom with YourFinanceApp.</p>
+                  <a href="/registration-form"><button class="button-primary">Sign Up</button></a>
+                  <p>Already have an account? <a href="/login-form">Log In Here</a></p>
+              </section>
+            </div>
+            <footer>
+                <%- include('../partials/footer'); %>
+            </footer>
         </main>
-        <footer>
-            <% include('../partials/footer'); %>
-        </footer>
       </div>
     </div>
 </body>
