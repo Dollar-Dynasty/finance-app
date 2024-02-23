@@ -2,17 +2,40 @@
 <html lang="en">
 <%- include('../../partials/layouts/head', { title: 'Your First Savings Goal' , description: 'User can create their first savings goal'}) %>
 
-
 <body>
-  <header>
-    <h1>Finance App</h1>
-    <p>Welcome to the Goal Page! 🏖️</p>   
-  </header>
+  <%- include('../../partials/layouts/navbar'); %>
 
-  <main>
-    <%- include('../../partials/forms/new-goal-form'); %>
-  </main>
+  <div class="bg-gray-800 text-gray-100 px-8 py-20">
+    <!-- OPTIONAL TEXT -->
+    <div class="text-center w-full">
+    </div>
 
-  <script src="../../../public/js/goalsPage.js"></script>
+
+    <div class="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
+      <div class="flex flex-col justify-between">
+
+        <div>
+          <h2 class="text-4xl lg:text-5xl font-bold leading-tight">Create Your First Savings Goal</h2>
+          <div class="text-gray-700 mt-8">
+            Hate forms? Send us an <span class="underline">email</span> instead.
+          </div>
+        </div>
+        <!-- OPTIONAL TEXT -->
+        <div class="mt-8 text-center">
+        </div>
+      </div>
+
+
+      <div>
+        <main>
+          <%- include('../../partials/forms/new-goal-form'); %>
+        </main>
+      </div>
+
+    </div>
+  </div>
+  <%- include('../../partials/layouts/footer'); %>
+
+<script src="/js/goalsPage.js"></script>
 </body>
 </html>

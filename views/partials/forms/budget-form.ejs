@@ -1,4 +1,4 @@
-<form action="/api/budgetCreation" method="post" class="container">
+<!-- <form action="/api/budgetCreation" method="post" class="container">
     <section class="form-group">
       <label for="budget_title" class="form-label">
         Name <strong><span aria-label="required">*</span></strong>
@@ -136,3 +136,176 @@
       Create budget
     </button>
   </form>
+
+
+
+
+ -->
+
+ <form action="/api/budgetCreation" method="post" class="container flex flex-col space-y-4">
+  <label for="budget_title" class="text-lg">Name your Budget</label> 
+  <input 
+    type="text"
+    name="budget_title" 
+    id="budget_title" 
+    placeholder="Budget Title" 
+    maxlength="50" 
+    required
+    class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-300"
+  >
+
+  <label for="budget_description" class="text-lg">Budget Description</label> 
+  <textarea 
+    name="budget_description" 
+    id="budget_description" 
+    maxlength="150"
+    rows="4" 
+    class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-300"
+  ></textarea>
+
+  <label for="month_start_date" class="text-lg">Start of Budget</label> 
+  <input 
+    type="date" 
+    name="month_start_date" 
+    id="month_start_date" 
+    required
+    class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-300"
+  >
+
+  <label for="month_end_date" class="text-lg">Budget End Date</label> 
+  <input 
+    type="date" 
+    name="month_end_date" 
+    id="month_end_date" 
+    required
+    class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-300"
+  >
+
+  <label for="goal_end_date" class="text-lg">Total Available Funds in Given Period</label> 
+  <input 
+    type="text" 
+    name="monthly_income" 
+    id="monthly_income" 
+    placeholder="$0.00"
+    min="1" 
+    max="1000" 
+    required
+    class="ring-1 ring-gray-300 w-full rounded-md px-4 py-2 mt-2 outline-none focus:ring-2 focus:ring-blue-300"
+  >
+
+  <button type="button" onclick="addCategory()" class="mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-lg">
+    Add Category
+  </button>
+  <div id="category-section">
+    <!-- Categories will be added here -->
+  </div>
+  
+  <script>
+    let categoryIndex = 0;
+  
+    function addCategory() {
+      const container = document.getElementById('category-section');
+      const categoryCardId = `category-card-${categoryIndex}`;
+      const categoryDetailsId = `category-details-${categoryIndex}`;
+      const html = `
+        <div id="${categoryCardId}" class="mt-4 p-4 border rounded-lg shadow-sm">
+          <div class="mb-4">
+            <span class="text-lg font-medium"></span> <!-- This will hold the category name after confirmation -->
+          </div>
+          <div id="${categoryDetailsId}">
+            <!-- Category form fields -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700">Category Name:</label>
+              <input 
+                type="text" 
+                name="categories[${categoryIndex}][category_name]" 
+                oninput="updateCategoryName('${categoryCardId}', this.value)" 
+                required
+                class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+            </div>
+            <!-- Additional form fields -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700">Description:</label>
+              <input 
+                type="text" 
+                name="categories[${categoryIndex}][category_description]"
+                class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700">Allowance for Category:</label>
+              <input 
+                type="text" 
+                class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                name="categories[${categoryIndex}][category_budget_allowance]" 
+                placeholder="$0.00"
+                required
+              >
+            </div>
+            <button type="button" onclick="confirmCategory('${categoryCardId}')" class="px-4 py-2 bg-green-500 text-white font-bold rounded-lg">
+              Confirm
+            </button>
+            <button type="button" onclick="removeCategory('${categoryCardId}')" class="ml-2 px-4 py-2 bg-red-500 text-white font-bold rounded-lg">
+              Delete
+            </button>
+          </div>
+        </div>
+      `;
+      const div = document.createElement('div');
+      div.innerHTML = html;
+      container.appendChild(div);
+      categoryIndex++;
+    }
+  
+    function confirmCategory(cardId) {
+    const card = document.getElementById(cardId);
+    const details = card.querySelector(`#category-details-${cardId.split('-')[2]}`);
+    const nameDisplay = card.querySelector('span');
+    const nameValue = details.querySelector('input[name^="categories"]').value;
+    nameDisplay.textContent = nameValue; // Set the category name display
+    details.style.display = 'none'; // Hide the details
+
+    // Check if the edit button already exists, if not, create it
+    let editButton = card.querySelector('button[role="edit"]');
+    if (!editButton) {
+      editButton = document.createElement('button');
+      editButton.setAttribute('role', 'edit'); // Set a role attribute to identify the button
+      editButton.textContent = 'Edit';
+      editButton.className = 'px-4 py-2 bg-blue-500 text-white font-bold rounded-lg';
+      editButton.type = 'button';
+      editButton.onclick = function() { toggleCategory(cardId); };
+      card.children[0].appendChild(editButton);
+    } else {
+      // Update the button's event listener to ensure it refers to the current category card
+      editButton.onclick = function() { toggleCategory(cardId); };
+    }
+  }
+
+  function toggleCategory(cardId) {
+    const card = document.getElementById(cardId);
+    const details = card.querySelector(`#category-details-${cardId.split('-')[2]}`);
+    const editButton = card.querySelector('button[role="edit"]'); // Use the role attribute to select the edit button
+    if (details.style.display === 'none') {
+      details.style.display = 'block';
+      editButton.textContent = 'Edit';
+    } else {
+      confirmCategory(cardId); // Hide the details and update the name display
+    }
+  }
+  
+    function removeCategory(cardId) {
+      const card = document.getElementById(cardId);
+      card.remove();
+    }
+  
+    function updateCategoryName(cardId, newName) {
+      const nameDisplay = document.getElementById(cardId).querySelector('span');
+      nameDisplay.textContent = newName;
+    }
+  </script>
+  
+  <button type="submit" method="post" class="btn-primary bg-blue-500 text-white font-bold rounded-md px-8 py-4 uppercase text-lg hover:scale-105 duration-300">
+    Create budget
+  </button>
+</form>
