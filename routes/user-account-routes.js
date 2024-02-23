@@ -198,5 +198,3 @@ apiRouter.get('/temp', async (req, res) => {
   res.send('Hello');
 });
 
-
-module.exports = apiRouter;
