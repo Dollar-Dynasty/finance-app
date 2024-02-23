@@ -70,7 +70,7 @@ apiRouter.post('/loginForm', async (req, res) => {
 
 /// LOGOUT FUNCTIONALITY   ///
 
-apiRouter.post('/budgetCreation', (req, res) => {
+apiRouter.post('/addBudget', (req, res) => {
   if (!req.auth.currentUser) {
     res.redirect('/login');
     return;
@@ -88,7 +88,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
-  res.redirect('/make-goal');
+  res.redirect('/set-goal');
 });
 
 apiRouter.delete('/deleteBudget', (req, res) => {
@@ -112,7 +112,7 @@ apiRouter.delete('/deleteBudget', (req, res) => {
 
 
 
-apiRouter.post('/goalsForm', (req, res) => {
+apiRouter.post('/addSavingsGoal', (req, res) => {
   if (!req.auth.currentUser) {
     return;
   }

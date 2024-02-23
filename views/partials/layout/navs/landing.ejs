@@ -1,0 +1,82 @@
+<style>
+.close-menu,
+.open-menu {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+}
+
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 73%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: #000;
+        color: #fff;
+        transition: all 0.5s ease-in-out;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+
+    .menu li {
+        margin-top: 40px;
+    }
+
+    .menu li a {
+        padding: 10px;
+    }
+
+    .close-menu,
+    .open-menu {
+        display: block;
+    }
+
+    #check:checked ~ .menu {
+        right: 0;
+    }
+}
+</style>
+
+
+
+<nav class="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+    <ul class="navigation max-w-[90vw] flex flex-wrap justify-between items-center relative mx-auto py-8">
+      <a class="logo" href="/"><h3 class="font-bold text-2xl"> finguard </h3></a>
+      
+      <input 
+        type="checkbox" 
+        id="check" 
+      />
+
+      <span class="menu flex [&>li]:pl-8 [&>li>a]:text-center [&>li>a]:relative [&>li>a]:transition [&>li>a]:duration-200 [&>li>a]:ease-in-out [&>li>a]:font-medium [&>li>a]:text-lg">
+        <li><a href="#"> About </a></li>
+        <li><a href="#"> Blog </a></li>
+        <li><a href="#"> Contact </a></li>
+        <li><a href="/login" class="font-bold bg-[#A0ECE5] text-[#49329c] py-2 px-7 rounded-xl"> Login </a></li>
+        <label for="check" class="close-menu"> X </label>
+      </span>
+
+      <label for="check" class="open-menu"> Menu </label>
+    </ul>
+</nav>
