@@ -41,6 +41,53 @@ document.addEventListener("DOMContentLoaded", function() {
         form.submit();
     });
 });
+let categoryIndex = 0;
+                
+function addCategory() {
+    const container = document.getElementById('category-section');
+    const html = `
+    <div class="form-group">
+        <label>Category Name:</label>
+        <input 
+        type="text" 
+        name="categories[${categoryIndex}][category_name]" 
+        required
+        >
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+        <input 
+        type="text" 
+        name="categories[${categoryIndex}][category_description]"
+        >
+    </div>
+    <div class="form-group">
+        <label for="category_budget">
+        Allowance for Category:
+        </label>
+        <input 
+        type="text" 
+        class="form-control currencyInput"
+        name="categories[${categoryIndex}][category_budget_allowance]" 
+        id="category-currency-${categoryIndex}"  
+        placeholder="$0.00"
+        required
+        >
+    </div>
+    <button type="button" onclick="removeCategory(this)">
+        Remove Category
+    </button>
+    `;
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    container.appendChild(div);
+    categoryIndex++; // Increment the index for each new category added
+}
+
+
+function removeCategory(button) {
+    button.parentElement.remove();
+}
 
 document.querySelectorAll('.currencyInput').forEach(input => {
     input.addEventListener('input', function (e) {
