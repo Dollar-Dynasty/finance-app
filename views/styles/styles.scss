@@ -109,11 +109,111 @@ body {
           background-color: #0056b3;
         }
       }
+    
+        // Outlined button style
+    .button-outline {
+        background-color: transparent;
+        color: $button-color; 
+        border: 1px solid $button-color;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    
+        &:hover {
+            background-color: $button-color;
+            color: $button-text-color;
+        }
+    }
+
+    .button-delete {
+        background-color: transparent;
+        color: $button-delete-color; /* Red color for delete action */
+        border: 1px solid #dc3545; /* Red border color */
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        
+        &:hover {
+          background-color: #dc3545; /* Red background color on hover */
+          color: #fff; /* White text color on hover */
+        }
+        
+        &:disabled {
+          opacity: 0.5; /* Reduce opacity for disabled button */
+          cursor: not-allowed; /* Change cursor to not-allowed for disabled button */
+        }
+      }
+      
+
+    .card-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: $container-background-color;
+        border-radius: 15px;
+        box-shadow: $container-box-shadow;
+
+
+        &__title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+      
+        &__content {
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+      
+        &__button {
+          margin-top: 20px;
+      
+          .button {
+            margin-right: 10px;
+          }
+        }
+    }
+    .card-container-colored {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: $card-container-colored-background-color;
+        border-radius: 15px;
+        box-shadow: $container-box-shadow;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+        &__title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 20px;
+            color: $card-container-colored-title-color;
+        }
+      
+        &__content {
+          font-size: 1rem;
+          line-height: 1.5;
+            color: $card-container-colored-text-color;
+        }
+      
+        &__button {
+          margin-top: 20px;
+      
+          .button {
+            margin-right: 10px;
+          }
+        }
+    }
 
     @media (max-width: 1000px){
         flex-direction: column;
         height: 100vh;
-        
-        
     }
 }

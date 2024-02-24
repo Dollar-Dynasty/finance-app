@@ -40,7 +40,7 @@ body {
 }
 .dashboard .main-content {
   flex: 1 1 200px; /* Main content takes remaining space */
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(229, 229, 229);
   border-top-right-radius: 20px; /* Curved edge on the top right */
   border-bottom-right-radius: 20px; /* Curved edge on the bottom right */
   border-top-left-radius: 20px; /* Adjust as needed for top left */
@@ -107,6 +107,91 @@ body {
 }
 .dashboard .button-primary:hover {
   background-color: #0056b3;
+}
+.dashboard .button-outline {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dashboard .button-outline:hover {
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+}
+.dashboard .button-delete {
+  background-color: transparent;
+  color: #dc3545; /* Red color for delete action */
+  border: 1px solid #dc3545; /* Red border color */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dashboard .button-delete:hover {
+  background-color: #dc3545; /* Red background color on hover */
+  color: #fff; /* White text color on hover */
+}
+.dashboard .button-delete:disabled {
+  opacity: 0.5; /* Reduce opacity for disabled button */
+  cursor: not-allowed; /* Change cursor to not-allowed for disabled button */
+}
+.dashboard .card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dashboard .card-container__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.dashboard .card-container__content {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.dashboard .card-container__button {
+  margin-top: 20px;
+}
+.dashboard .card-container__button .button {
+  margin-right: 10px;
+}
+.dashboard .card-container-colored {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(6, 0, 178);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dashboard .card-container-colored:hover {
+  transform: translateY(-5px);
+}
+.dashboard .card-container-colored__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+}
+.dashboard .card-container-colored__content {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(217, 235, 255);
+}
+.dashboard .card-container-colored__button {
+  margin-top: 20px;
+}
+.dashboard .card-container-colored__button .button {
+  margin-right: 10px;
 }
 @media (max-width: 1000px) {
   .dashboard {

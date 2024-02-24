@@ -1,12 +1,33 @@
 // Basic Colors
 $background-color:  rgb(0, 0, 150);
 $background-text-color: rgb(255, 255, 255);
-$dashboard-background-color: rgb(255, 255, 255);
+$dashboard-background-color: rgb(229, 229, 229);
+// Button Colors
+$button-color: #007bff;
+$button-text-color: rgb(255, 255, 255); 
+
+// Delete button colors
+$button-delete-color: #dc3545;
+$button-delete-text-color: rgb(255, 255, 255);
+$button-delete-border: 1px solid #dc3545;
+
+
+// Container Colors
+$container-background-color: rgb(255, 255, 255);
+$container-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+// Card container colored
+$card-container-colored-background-color: rgb(6, 0, 178);
+$card-container-colored-title-color: rgb(255, 255, 255);
+$card-container-colored-text-color: rgb(217, 235, 255);
+
 
 // Font Sizes
 $font-size-base: 16px;
 $font-family: 'Arial', sans-serif;
 $text-color: rgb(0, 0, 0);
+
+
 
 // Breakpoints
 $breakpoint-sm: 576px;
