@@ -88,7 +88,7 @@ apiRouter.post('/budgetCreation', (req, res) => {
     accountId: req.auth.currentUser.uid
   });
   newBudget.save();
-  res.redirect('/');
+  res.redirect('/user-dashboard');
 });
 
 apiRouter.delete('/deleteBudget', (req, res) => {
