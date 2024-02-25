@@ -159,9 +159,15 @@ body {
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  /* Apply margin to all sides */
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 .dashboard .card-container__title {
   font-size: 1.5rem;
@@ -177,6 +183,9 @@ body {
 }
 .dashboard .card-container__button .button {
   margin-right: 10px;
+}
+.dashboard .container-medium {
+  height: 640px; /* Specific height for medium container */
 }
 .dashboard .card-container-colored {
   max-width: 1200px;

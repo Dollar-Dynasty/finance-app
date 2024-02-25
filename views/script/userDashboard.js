@@ -2,8 +2,60 @@ console.log('userDashboard.js loaded');
 const userDisplayName = document.getElementById("welcomeUser");
 const totalBudgetLabel = document.getElementById("budgetTotal");
 const totalMonthlyIncome = document.getElementById("totalMonthlyIncome");
+const goalContainer = document.getElementById("goalContainer");
+
+function displayGoals(data){
+  if(data.title === undefined) {
+    return;
+  }
+
+  let goalTitle = data.title;
+  let goalTargetAmount = data.targetAmount;
+  let goalSavedAmount = data.savedAmount;
+  let goalRemainingAmount = goalTargetAmount - goalSavedAmount;
+
+  let goalCard = document.createElement('div');
+  goalCard.className = 'card-container';
+  goalCard.innerHTML = `
+  <h2 class="card-title">${goalTitle}</h2>
+  <div id="${data._id}"></div>
+  `;
+  goalContainer.appendChild(goalCard);
 
 
+  var chart_data = [{
+    values: [goalRemainingAmount, goalSavedAmount],
+    labels: ['To Save', 'Saved'],
+    text: 'Goal',
+    textposition: 'inside',
+    domain: {column: 1},
+    name: goalTitle,
+    hoverinfo: 'label+percent',
+    hole: .5,
+    type: 'pie'
+  }];
+  
+  var layout = {
+    annotations: [
+      {
+        font: {
+          size: 20
+        },
+        
+        showarrow: false,
+        text: 'Goal',
+        x: 0.5,
+        y: 0.5
+      }
+    ],
+    height: 350,
+    width: 350,
+    showlegend: true,
+    grid: {rows: 1, columns: 1}
+  };
+  
+  Plotly.newPlot(`${data._id}`, chart_data, layout);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   fetch('/api/user')
@@ -18,10 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-
-    
-
-
+    if(data.length === 0) {
+      goalContainer.innerHTML = '<h3>No goals to display</h3>';
+      return;
+    }
+    for (let goal = 0; goal < data.length; goal++) {
+      displayGoals(data[goal]);
+    }
   })
   .catch(error => console.error('Error loading goals:', error));
   
@@ -55,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var layout = {
       title: data[0].budget_title,
       height: 550,
-      width: 750
+      width: 720
     };
 
     Plotly.newPlot('pieDiv', [chart_data], layout);
@@ -67,50 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      if(data.length === 0) {
-        let goalDiv = document.getElementById('goalDiv');
-        goalDiv.innerHTML = '<h3>No goals to display</h3>';
-        goalDiv.style.textAlign = 'center';
-        return;
-      }
-      let goalTitle = data[0].title;
-      let goalTargetAmount = data[0].targetAmount;
-      let goalSavedAmount = data[0].savedAmount;
-      let goalRemainingAmount = goalTargetAmount - goalSavedAmount;
-
-      var data = [{
-        values: [goalRemainingAmount, goalSavedAmount],
-        labels: ['To Save', 'Saved'],
-        text: 'Goal',
-        textposition: 'inside',
-        domain: {column: 1},
-        name: goalTitle,
-        hoverinfo: 'label+percent',
-        hole: .5,
-        type: 'pie'
-      }];
-      
-      var layout = {
-        title: goalTitle,
-        annotations: [
-          {
-            font: {
-              size: 20
-            },
-            
-            showarrow: false,
-            text: 'Goal',
-            x: 0.5,
-            y: 0.5
-          }
-        ],
-        height: 350,
-        width: 350,
-        showlegend: true,
-        grid: {rows: 1, columns: 1}
-      };
-      
-      Plotly.newPlot('goalDiv', data, layout);
+      displayGoals(data);
     }
     );
 });
