@@ -2,10 +2,37 @@ console.log("budgetPage.js loaded");
 let budgetId = '';
 const addBudgetBtn = document.getElementById('addBudget');
 const deleteBudgetBtn = document.getElementById('deleteBudget');
-const budgetTitle = document.getElementById('budgetTitle');
-const budgetDescription = document.getElementById('budgetDescription');
+const budgetDetailContainer = document.getElementById('budgetDetailContainer');
 // set the addBudgetBtn to disabled by default
 addBudgetBtn.disabled = true;
+
+function displayBudgetDetail(data) {
+    let card = document.createElement('div');
+    card.className = 'card-container';
+    card.classList.add('container-small');
+    let title = document.createElement('h3');
+    title.innerText = data.budget_title;
+    let description = document.createElement('p');
+    description.innerText = data.budget_description;
+    card.appendChild(title);
+    card.appendChild(description);
+    budgetDetailContainer.appendChild(card);
+}
+
+function displayBudgetCategoryDetail(data, container = budgetDetailContainer) {
+    let card = document.createElement('div');
+    card.className = 'card-container';
+    let title = document.createElement('h3');
+    title.innerText = data.category_name;
+    let description = document.createElement('p');
+    description.innerText = data.category_description;
+    let allowance = document.createElement('p');
+    allowance.innerText = `Allowance: ${data.category_budget_allowance}`;
+    card.appendChild(title);
+    card.appendChild(description);
+    card.appendChild(allowance);
+    container.appendChild(card);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/budgets')
@@ -22,8 +49,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(data[0]);
         const categories = data[0].categories;
         budgetId = data[0]._id;
-        budgetTitle.textContent = data[0].budget_title;
-        budgetDescription.textContent = data[0].budget_description;
+
+        displayBudgetDetail(data[0]);
+        budgetDetailContainer.appendChild(document.createElement('hr'));
+        let categoryCard = document.createElement('div');
+        categoryCard.className = 'card-container';
+        categoryCard.classList.add('container-small');
+        let categoryTitle = document.createElement('h3');
+        categoryTitle.innerText = 'Categories';
+        categoryCard.appendChild(categoryTitle);
+        budgetDetailContainer.appendChild(categoryCard);
+        categories.forEach(category => {
+            displayBudgetCategoryDetail(category, categoryCard);
+        });
         let chart_data = {
             values: categories.map(category => category.category_budget_allowance),
             labels: categories.map(category => category.category_name),

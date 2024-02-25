@@ -274,6 +274,11 @@ body {
           }
         }
       }
+    
+    .container-small {
+      height: 300px; /* Specific height for small container */
+      width: 340px;
+    }
     .container-medium {
       height: 640px; /* Specific height for medium container */
     }

@@ -8,6 +8,32 @@ const daysRemainingLabel = document.getElementById("daysRemaining");
 const totalDaysLabel = document.getElementById("dayDifference");
 const currentSavingsLabel = document.getElementById("amountSaved");
 const targetSavingsLabel = document.getElementById("targetRemain");
+const goalDetailContainer = document.getElementById('goalDetailContainer');
+
+function displayGoalDetail(data) {
+  let card = document.createElement('div');
+  card.className = 'card-container';
+  let title = document.createElement('h3');
+  title.innerText = data.title;
+  let description = document.createElement('p');
+  description.innerText = data.description;
+  let createdAt = document.createElement('p');
+  createdAt.innerText = `Created at: ${new Date(data.createdAt).toLocaleDateString()}`;
+  let deadline = document.createElement('p');
+  deadline.innerText = `Deadline: ${new Date(data.deadline).toLocaleDateString()}`;
+  let targetAmount = document.createElement('p');
+  targetAmount.innerText = `Target Amount: ${data.targetAmount}`;
+  let savedAmount = document.createElement('p');
+  savedAmount.innerText = `Saved Amount: ${data.savedAmount}`;
+  card.appendChild(title);
+  card.appendChild(description);
+  card.appendChild(createdAt);
+  card.appendChild(deadline);
+  card.appendChild(targetAmount);
+  card.appendChild(savedAmount);
+
+  goalDetailContainer.appendChild(card);
+}
 
 
 function displayGoalAtIndex(index) {
@@ -33,7 +59,7 @@ function displayGoalAtIndex(index) {
       currentSavingsLabel.innerText = `Current Savings: ${amountSaved}`;
       targetSavingsLabel.innerText = `Amount needed to reach goal: ${targetRemain}`;
       totalDaysLabel.innerText = `Total Days for Goal: ${dayDifference}`;
-
+      displayGoalDetail(data[index]);
       let plotData = [{
         values: [goalRemainingAmount, goalSavedAmount],
         labels: ['To Save', 'Saved'],
@@ -95,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
     goalSelect.addEventListener('change', function() {
       console.log("Selected goal:", goalSelect.value);
       goalId = goalSelect.value;
+      goalDetailContainer.removeChild(goalDetailContainer.lastChild);
       displayGoalAtIndex(data.findIndex(goal => goal._id === goalId));
     });
     deleteGoalBtn.addEventListener('click', function() {
