@@ -23,55 +23,60 @@
     </header>
     <div class="main-content">
       <main>
-        <div class="content">
-          <h1>Create a Goal</h1>
+        <div class="jumbotron">
+          <h1>Goals</h1>
+          <p>Set your financial goals here!</p>
+        </div>
+        <div class="card-container">
           <form id="goal_form" action="/api/goalsForm" method="post">
-            <h3>Goal Name</h3>
-            <input 
+            <h3 class="required-label">Goal Name</h3>
+            <input class="card-container__input-field"
               type="text" 
               name="title" 
               id="goal_name" 
               placeholder="Goal Name" 
-              maxlength="10" 
+              maxlength="50" 
               required></input>
       
             <h3>Goal Description</h3>
-            <textarea 
+            <textarea class="card-container__input-field"
               name="description" 
               id="goal_description" 
               placeholder="Goal Description" 
-              maxlength="50">
+              maxlength="250">
             </textarea>
-      
-            <h3>Goal Amount</h3>
-            <input 
+
+            <h3 class="required-label">Goal Amount</h3>
+            <input class="card-container__input-field"
               type="number" 
               name="targetAmount" 
               id="goal_amount" 
               placeholder="$0.00" 
-              maxlength="5" 
+              maxlength="7" 
               required></input>
           
-            <h3>Saved Amount</h3>
-            <input 
+            <h3 class="required-label">Saved Amount</h3>
+            <input class="card-container__input-field"
               type="number" 
               name="savedAmount" 
               id="saved_amount" 
               placeholder="$0.00" 
-              maxlength="5" 
+              maxlength="7" 
               required></input>
           
-            <h3>Deadline</h3>
-            <input 
+            <h3 class="required-label">Deadline</h3>
+            <input class="card-container__input-field"
               type="date" 
               name="deadline" 
               id="goal_end_date" 
-              required></input>
-      
+              required>
+            </input>
+            <br>
             <!-- TODO: Ticket for adding money towards a goal -->
             <!-- <button type="button" id="add_goal_btn">Add Goal</button><br><br> -->
       
-            <br><button type="submit" method="post" class="form-group btn btn-primary">
+            <br>
+            <button type="submit" method="post" class="form-group btn btn-primary">
               Submit
             </button>
           </form>

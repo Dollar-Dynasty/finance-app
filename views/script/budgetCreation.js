@@ -46,6 +46,7 @@ let categoryIndex = 0;
 function addCategory() {
     const container = document.getElementById('category-section');
     const html = `
+    <br>
     <div class="form-group">
         <label>Category Name:</label>
         <input 
@@ -74,9 +75,10 @@ function addCategory() {
         required
         >
     </div>
-    <button type="button" onclick="removeCategory(this)">
+    <button type="button" onclick="removeCategory(this)" class="button-delete">
         Remove Category
     </button>
+    <br>
     `;
     const div = document.createElement('div');
     div.innerHTML = html;
