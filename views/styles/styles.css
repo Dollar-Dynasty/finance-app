@@ -253,6 +253,10 @@ body {
 .dashboard .card-container__button .button {
   margin-right: 10px;
 }
+.dashboard .container-small {
+  height: 300px; /* Specific height for small container */
+  width: 340px;
+}
 .dashboard .container-medium {
   height: 640px; /* Specific height for medium container */
 }
