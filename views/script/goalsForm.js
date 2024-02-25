@@ -1,3 +1,11 @@
+const goalName = document.getElementById("goal_name").value;
+const goalDescription = document.getElementById("goal_description");
+goalDescription.innerText = "";
+const goalAmountInput = document.getElementById("goal_amount");
+const goalAmount = parseFloat(goalAmountInput.value.replace(/\$/g, '')); // remove $ sign before parsing
+const endDate = document.getElementById("goal_end_date").value;
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const goalForm = document.getElementById("goal_form");
     // const addGoalBtn = document.getElementById("add_goal_btn");
@@ -7,16 +15,13 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault(); // Prevent form submission
 
         // Validate goal fields
-        const goalName = document.getElementById("goal_name").value;
-        const goalDescription = document.getElementById("goal_description").value;
-        const goalAmountInput = document.getElementById("goal_amount");
-        const goalAmount = parseFloat(goalAmountInput.value.replace(/\$/g, '')); // remove $ sign before parsing
-        const endDate = document.getElementById("goal_end_date").value;
 
-        if (goalName.trim() === "") {
+        if (goalName.trim() === "" ) {
             alert("Please enter the goal name.");
             return;
         }
+
+        
 
         // if (isNaN(goalAmountInput.value) || goalAmountInput.value < 20) {
         //     alert("Goal amount must be at least $20 and in a valid currency format.");

@@ -22,104 +22,105 @@
         </nav>
       </header>
       <div class="main-content">
-        <div class="content">
-
-          <h1>Create a Monthly Budget</h1>
-          <main>
-            <form action="/api/budgetCreation" method="post" class="container">
-              <section class="form-group">
-                <label for="budget_title" class="form-label">
-                  Name <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input 
-                    type="text"
-                    class="form-control" 
-                    name="budget_title" 
-                    id="budget_title" 
-                    placeholder="Budget Title" 
-                    maxlength="50" 
-                    required
-                >
-              </section>
-        
-        
-              <section class="form-group">
-                  <label for="budget_description" class="form-label">
-                    Brief Overview
-                  </label>
-                  <textarea 
-                    type="text" 
-                    class="form-control"
-                    name="budget_description" 
-                    id="budget_description" 
-                    maxlength="150">
-                  </textarea>
-              </section>
-        
-        
-              <section class="form-group">
-                <label for="start_date" class="form-label">
-                  Current Month Start Date <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input 
-                  type="date" 
-                  class="form-control"
-                  name="month_start_date" 
-                  id="month_start_date" 
-                  required
-                > 
-                <label for="end_date" class="form-label">
-                  Current Month End Date <strong><span aria-label="required">*</span></strong>
-                </label>
-                 <input
+        <main>
+              <div class="jumbotron">
+                <h1>Budget</h1>
+                <p>Create a Monthly Budget.</p>
+              </div>
+            <div class="card-container">
+              <form action="/api/budgetCreation" method="post" class="container">
+                <section class="form-group">
+                  <h3 for="budget_title" class="required-label">
+                    Title 
+                  </h3>
+                  <input class="card-container__input-field"
+                      type="text"
+                      class="form-control" 
+                      name="budget_title" 
+                      id="budget_title" 
+                      placeholder="Budget Title" 
+                      maxlength="50" 
+                      required
+                  >
+                </section>
+          
+          
+                <section class="form-group">
+                    <h3 for="budget_description" class="form-label">
+                      Brief Overview
+                    </h3>
+                    <textarea class="card-container__input-field"
+                      type="text" 
+                      class="form-control"
+                      name="budget_description" 
+                      id="budget_description" 
+                      maxlength="150">
+                    </textarea>
+                </section>
+          
+          
+                <section class="form-group">
+                  <h3 for="start_date" class="required-label">
+                    Start Date 
+                  </h3>
+                  <input class="card-container__input-field"
                     type="date" 
                     class="form-control"
-                    name="month_end_date" 
-                    id="month_end_date" 
+                    name="month_start_date" 
+                    id="month_start_date" 
                     required
-                 >
-              </section>
-        
-        
-              <section class="form-group">
-                <label for="amount" class="form-label">
-                  Total Monthly Income <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input 
-                  type="text" 
-                  class="form-control currencyInput"
-                  name="monthly_income" 
-                  id="monthly_income" 
-                  placeholder="$0.00"
-                  min="1" 
-                  max = "1000" 
-                  required
-                >
-              </section>
-        
-        
-              <br><label for="categories" class="form-control">
-                Category Creation
-              </label>
-              <div id="category-section">
-        
-              </div>          
-        
-        
-              <button type="button" onclick="addCategory()" class="form-group btn btn-secondary">
-                Add Category
-              </button> <br><br><br>
-              <button type="submit" class="btn-primary" method="post" class="form-group btn btn-primary">
-                Create budget
-              </button>
-            </form>
-          </main>
-        </div>
+                  > 
+                  <h3 for="end_date" class="required-label">
+                    End Date 
+                  </h3>
+                   <input class="card-container__input-field"
+                      type="date" 
+                      class="form-control"
+                      name="month_end_date" 
+                      id="month_end_date" 
+                      required
+                   >
+                </section>
           
-        <footer class="footer">
-          <%- include('../partials/footer'); %>
-        </footer>
-
+          
+                <section class="form-group">
+                  <h3 for="amount" class="required-label">
+                    Total Monthly Income 
+                  </h3>
+                  <input class="card-container__input-field"
+                    type="text" 
+                    class="form-control currencyInput"
+                    name="monthly_income" 
+                    id="monthly_income" 
+                    placeholder="$0.00"
+                    min="1" 
+                    max = "1000" 
+                    required
+                  >
+                </section>
+          
+          
+                <br>
+                <div class="card-container">
+                  <h4 class="card-container__title required-label">Category</h4>
+                  <div id="category-section"></div><br>
+                  <button type="button" onclick="addCategory()" class="button-primary">
+                    Add Category
+                  </button> 
+                </div>
+                 
+          
+          
+                <br><br>
+                <button type="submit" class="btn-primary" method="post" class="form-group btn btn-primary">
+                  Create budget
+                </button>
+              </form>
+            </div>
+          </main>
+          <footer class="footer">
+            <%- include('../partials/footer'); %>
+          </footer>
       </div>
     </div>
 
