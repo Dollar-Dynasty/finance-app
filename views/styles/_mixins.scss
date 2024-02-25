@@ -13,4 +13,11 @@
         @content;
     }
 }
+// Border Radius Mixin
+@mixin margin-all($margin) {
+    margin-top: $margin;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    margin-left: $margin;
+  }
   

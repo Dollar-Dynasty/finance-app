@@ -170,10 +170,12 @@ body {
         margin: 0 auto;
         padding: 20px;
         box-sizing: border-box;
+        @include margin-all(20px); /* Apply margin to all sides */
         background-color: $container-background-color;
         border-radius: 15px;
         box-shadow: $container-box-shadow;
-
+        
+        overflow-y: auto; /* Enable vertical scrolling */
 
         &__title {
           font-size: 1.5rem;
@@ -193,7 +195,11 @@ body {
             margin-right: 10px;
           }
         }
+      }
+    .container-medium {
+      height: 640px; /* Specific height for medium container */
     }
+
     .card-container-colored {
         max-width: 1200px;
         margin: 0 auto;
