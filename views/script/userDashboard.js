@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var layout = {
       title: data[0].budget_title,
       height: 550,
-      width: 750
+      width: 720
     };
 
     Plotly.newPlot('pieDiv', [chart_data], layout);
