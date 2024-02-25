@@ -158,6 +158,10 @@ body {
             background-color: $button-color;
             color: $button-text-color;
         }
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     }
 
     .button-delete {

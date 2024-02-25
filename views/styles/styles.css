@@ -152,6 +152,10 @@ body {
   background-color: #007bff;
   color: rgb(255, 255, 255);
 }
+.dashboard .button-outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .dashboard .button-delete {
   background-color: transparent;
   color: #dc3545; /* Red color for delete action */
