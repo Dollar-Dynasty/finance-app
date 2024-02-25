@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <title>Budget</title>
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
@@ -31,13 +32,19 @@
           <div class="card-container">
             <h3>Here is a summary of your budget:</h3>
             <div id="pieDiv"></div>
-            <p id="budgetDescription" class="card-container__content"></p>
             <a href="/budget-form">
-              <button id="AddGoal" class="button-outline">Add Budget</button>
-             </a>
+              <button id="addBudget" class="button-outline">Add Budget</button>
+            </a>
             <button id="deleteBudget" class="card-container__button button-delete">Delete Budget</button>
           </div>
-          
+          <div class="card-container">
+            <h3 class="card-container__title">Budget Details:</h3>
+            <p id="budgetTitle" class="card-container__content"></p>
+            <p id="budgetDescription" class="card-container__content"></p>
+            <p id="budgetAmount" class="card-container__content"></p>
+            <p id="budgetRemaining" class="card-container__content"></p>
+
+          </div>
         </div>
         <footer class="footer">
           <%- include('../partials/footer'); %>

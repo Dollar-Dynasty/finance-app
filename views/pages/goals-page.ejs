@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <title>Goals</title>
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
@@ -31,21 +32,24 @@
             <div class="card-container">
                 <h3>Here is a summary of your goals:</h3>
                 <div>
-                    <select id="goalSelect">
+                    <select id="goalSelect" class="select-field">
                         <option value="0">Select a goal</option>
                     </select>
                 </div>
-                <p id="dayDifference" class="font-bold text-l"></p>
-                <p id="daysRemaining" class="font-bold text-l"></p>
-                <p id="amountSaved" class="font-bold text-l"></p>
-                <p id="targetRemain" class="font-bold text-l"></p>
                 <div id="goalDiv"></div>
-                <p id="goalDescription"></p>
                 <a href="/goals-form">
-                 <button id="AddGoal" class="button-outline">Add Goal</button>
+                  <button id="AddGoal" class="button-outline">Add Goal</button>
                 </a>
                 <button id="deleteGoal" class="button-delete">Delete Goal</button>
-            </div>
+              </div>
+              <div class="card-container">
+                <h3 class="card-container__title">Goal Details:</h3>
+                <p id="dayDifference" ></p>
+                <p id="daysRemaining" ></p>
+                <p id="amountSaved"  ></p>
+                <p id="targetRemain" ></p>
+                <p id="goalDescription"></p>
+              </div>
         </div>
         <footer class="footer">
           <%- include('../partials/footer'); %>

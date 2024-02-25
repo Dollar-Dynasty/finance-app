@@ -28,7 +28,7 @@
                 <p>Create a Monthly Budget.</p>
               </div>
             <div class="card-container">
-              <form action="/api/budgetCreation" method="post" class="container">
+              <form id="budget_form" action="/api/budgetCreation" method="post" class="container">
                 <section class="form-group">
                   <h3 for="budget_title" class="required-label">
                     Title 
@@ -40,7 +40,7 @@
                       id="budget_title" 
                       placeholder="Budget Title" 
                       maxlength="50" 
-                      required
+                      
                   >
                 </section>
           
@@ -54,6 +54,7 @@
                       class="form-control"
                       name="budget_description" 
                       id="budget_description" 
+                      placeholder="Brief Overview"
                       maxlength="150">
                     </textarea>
                 </section>
@@ -101,7 +102,7 @@
           
           
                 <br>
-                <div class="card-container">
+                <div id="catagoryList" class="card-container">
                   <h4 class="card-container__title required-label">Category</h4>
                   <div id="category-section"></div><br>
                   <button type="button" onclick="addCategory()" class="button-primary">
@@ -112,7 +113,7 @@
           
           
                 <br><br>
-                <button type="submit" class="btn-primary" method="post" class="form-group btn btn-primary">
+                <button id="submit-button" type="submit" class="button-primary" method="post" class="form-group btn btn-primary">
                   Create budget
                 </button>
               </form>
