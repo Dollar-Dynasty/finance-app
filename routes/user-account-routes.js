@@ -173,6 +173,24 @@ apiRouter.get('/goals', async (req, res) => {
   res.send(goals);
 });
 
+// Add to saved amount of goal
+apiRouter.put('/updateSavedAmount', async (req, res) => {
+  if (!req.auth.currentUser) {
+    res.redirect('/');
+    return;
+  }
+  const goalId = req.body.goalId;
+  const newAmount = req.body.newAmount;
+  Goal.where({ _id: goalId }).findOneAndUpdate({ savedAmount: newAmount }).then(() => {
+    console.log('Saved New amount for goalId:', goalId);
+    console.log('Saved newAmount Updated');
+    res.send('Saved New Amount Updated');
+  }
+  ).catch((error) => {
+    console.log(error);
+  });
+});
+
 // Route to get user's budget
 apiRouter.get('/budgets', async (req, res) => {
   if (!req.auth.currentUser) {

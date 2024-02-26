@@ -273,8 +273,18 @@ body {
             margin-right: 10px;
           }
         }
-      }
+    }
+    // align container items to the center
+    .container-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     
+    .container-small-width {
+      width: 300px; /* Specific width for small container */
+    } 
+
     .container-small {
       height: 300px; /* Specific height for small container */
       width: 340px;
