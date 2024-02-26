@@ -37,10 +37,12 @@
                     </select>
                 </div>
                 <div id="goalDiv"></div>
-                <a href="/goals-form">
-                  <button id="AddGoal" class="button-outline">Add Goal</button>
-                </a>
-                <button id="deleteGoal" class="button-delete">Delete Goal</button>
+                <div class="card-container container-center">
+                  <a href="/goals-form">
+                    <button id="AddGoal" class="button-outline">Add Goal</button>
+                  </a>
+                  <button id="deleteGoal" class="button-delete">Delete Goal</button>
+                </div>
               </div>
               <div id="goalDetailContainer" class="card-container">
                 <h3 class="card-container__title">Goal Details:</h3>
@@ -49,6 +51,10 @@
                 <p id="amountSaved"  ></p>
                 <p id="targetRemain" ></p>
                 <p id="goalDescription"></p>
+                <div id="editSavedAmount" class="card-container">
+                  <input type="number" id="newAmount" class="input-field" placeholder="Enter amount saved">
+                  <button id="updateSavedAmount" class="button-outline">Update</button>
+                </div>
               </div>
         </div>
         <footer class="footer">

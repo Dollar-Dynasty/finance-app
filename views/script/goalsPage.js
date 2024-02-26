@@ -9,6 +9,7 @@ const totalDaysLabel = document.getElementById("dayDifference");
 const currentSavingsLabel = document.getElementById("amountSaved");
 const targetSavingsLabel = document.getElementById("targetRemain");
 const goalDetailContainer = document.getElementById('goalDetailContainer');
+const updateSavedAmountBtn = document.getElementById('updateSavedAmount');
 
 function displayGoalDetail(data) {
   let card = document.createElement('div');
@@ -115,6 +116,8 @@ document.addEventListener("DOMContentLoaded", function() {
         goalSelect.appendChild(option);
       });
       displayGoalAtIndex(0);
+      goalId = data[0]._id;
+      goalSelect.value = goalId;
     })
     .catch(error => console.error('Error loading goals:', error));
 
@@ -124,6 +127,23 @@ document.addEventListener("DOMContentLoaded", function() {
       goalDetailContainer.removeChild(goalDetailContainer.lastChild);
       displayGoalAtIndex(data.findIndex(goal => goal._id === goalId));
     });
+
+    updateSavedAmountBtn.addEventListener('click', function() {
+      const newAmount = document.getElementById('newAmount').value;
+      if(!newAmount || isNaN(newAmount)) {
+        return;
+      }
+      
+      fetch(`/api/updateSavedAmount`, { method: 'PUT', body:JSON.stringify({goalId: goalId, newAmount: newAmount}) ,headers: { 'Content-Type': 'application/json' } })
+      .then(response => response.text())
+      .then(data => {
+        console.log("Updated:",data);
+        window.location.href = '/goals-page';
+      })
+      .catch(error => console.error('Error updating goal:', error));
+    }
+    );
+
     deleteGoalBtn.addEventListener('click', function() {
       if(!confirm('Are you sure you want to delete this goal?') || !goalId) {
         return;
