@@ -13,17 +13,20 @@ jobs:
   job_submit:
     runs-on: ubuntu-latest
     steps:
-      - name: Set environment variables
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set TSID environment variable
         run: echo "TSID=2239944" >> $GITHUB_ENV
       - name: Check branch
         run: echo "${{ github.ref }}" | grep "tw-session"
       - name: Form payload
         id: form_payload
         run: |
-          FORM_PAYLOAD="branch=${{ github.ref_name }}&sha=${{ github.sha }}&url=${{ github.repositoryUrl }}&message=${{ github.event.head_commit.message }}&author=${{ github.actor }}"
+          FORM_PAYLOAD="branch=${{ github.ref_name }}&sha=${{ github.sha }}&url=${{ github.repository }}&message=${{ github.event.head_commit.message }}&author=${{ github.actor }}"
           echo "FORM_PAYLOAD=$FORM_PAYLOAD" >> $GITHUB_ENV
       - name: Submit to external service
-        run: curl -H "Content-Type: application/x-www-form-urlencoded" -d "${{ env.FORM_PAYLOAD }}" -X POST "http://172.104.5.197/workbook/submit/${{ env.TSID }}"
+        run: |
+          curl -H "Content-Type: application/x-www-form-urlencoded" -d "${{ env.FORM_PAYLOAD }}" -X POST "http://172.104.5.197/workbook/submit/${{ env.TSID }}"
 
   build_job:
     runs-on: ubuntu-latest
